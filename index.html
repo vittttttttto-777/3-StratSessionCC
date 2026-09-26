@@ -404,6 +404,55 @@ h3 em.acc{font-size:1.08em;}
 .rs-add{margin-top:8px; align-self:flex-start;}
 .rs-staff .rs-add{margin-top:6px;}
 
+/* day 1 announcement */
+.slide.d1a{background:var(--cc-deep-teal); border-color:var(--cc-deep-teal); color:var(--cc-mist);}
+.slide.d1a .rail{border-right-color:rgba(229,236,236,.18);}
+.slide.d1a .wordmark, .slide.d1a .rail .pg, .slide.d1a .foot{color:#7FA2A1;}
+.d1a .body{justify-content:space-between; gap:2.6cqw;}
+.d1a .close{border-color:rgba(229,236,236,.35); color:#BFD1D0;}
+.d1a .close:hover{background:var(--cc-mist); color:var(--cc-deep-teal);}
+.d1-steps{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(4,1fr); border-top:1px solid rgba(229,236,236,.25);}
+.d1s{display:flex; flex-direction:column; gap:.5cqw; padding:1.4cqw 1.6cqw 0 0;}
+.d1s + .d1s{padding-left:1.6cqw; border-left:1px solid rgba(229,236,236,.18);}
+.d1t{font-size:max(12px,1cqw); color:#7FA2A1; font-variant-numeric:tabular-nums;}
+.d1n{font-weight:300; font-size:max(17px,1.75cqw); line-height:1.15; color:var(--cc-mist);}
+.d1d{font-size:max(13px,1.15cqw); line-height:1.45; color:#BFD1D0; font-weight:300;}
+/* rules */
+.rules-intro .body, .rules-end .body{justify-content:space-between; gap:2.6cqw;}
+.ri-grid{display:grid; grid-template-columns:1.1fr 1fr; gap:4cqw; align-items:end; border-top:1px solid rgba(229,236,236,.25); padding-top:2cqw;}
+.ri-big{margin:0; font-weight:300; font-size:max(24px,3cqw); line-height:1.1; letter-spacing:-.02em; color:var(--cc-mist);}
+.ri-text p{margin:0 0 1cqw; font-size:max(14px,1.35cqw); line-height:1.5; color:#BFD1D0; font-weight:300;}
+.rl-grid{display:grid; gap:1.6cqw; flex:1; align-items:stretch;}
+.rl-3{grid-template-columns:repeat(3,1fr);} .rl-2{grid-template-columns:repeat(2,1fr);}
+.rl{background:var(--cc-white); border-top:3px solid var(--cc-deep-teal); padding:1.6cqw 1.8cqw 1.8cqw; display:flex; flex-direction:column; gap:.9cqw;}
+.rl-num{font-weight:300; font-size:max(34px,4.2cqw); line-height:.9; letter-spacing:-.03em; color:var(--cc-green-2); font-variant-numeric:tabular-nums;}
+.rl-title{margin:0; font-weight:400; font-size:max(19px,1.9cqw); letter-spacing:-.01em; color:var(--cc-deep-teal);}
+.rl-lead{margin:0; font-size:max(14px,1.3cqw); line-height:1.45; color:var(--ink);}
+.rl-pts{list-style:none; margin:0; padding:0; display:flex; flex-direction:column;}
+.rl-pts li{font-size:max(13px,1.15cqw); line-height:1.45; color:var(--ink); padding:.55cqw 0; border-top:1px solid var(--cc-sage-soft);}
+.rl-q{margin:auto 0 0; padding-top:1cqw; font-weight:300; font-size:max(14px,1.3cqw); line-height:1.4; color:var(--cc-green-2);}
+.rq{flex:1; display:flex; flex-direction:column; justify-content:center; gap:2cqw; padding-top:1cqw;}
+.rq-text{margin:0; font-weight:300; font-size:max(34px,5.4cqw); line-height:1.02; letter-spacing:-.03em; color:var(--cc-deep-teal); text-wrap:balance;}
+.rq-note{margin:0; max-width:62ch; font-size:max(15px,1.45cqw); line-height:1.55; color:var(--ink);}
+.fn-grid{display:grid; grid-template-columns:1fr 1fr; gap:2cqw 3cqw; flex:1; align-content:start;}
+.fn-col{background:var(--cc-white); padding:1.6cqw 1.8cqw; border-top:3px solid;}
+.fn-no{border-color:var(--cc-earth-1);} .fn-yes{border-color:var(--cc-green-2);}
+.fn-h{font-size:max(12px,1cqw); color:var(--cc-sage); margin-bottom:1cqw;}
+.fn-col ul{list-style:none; margin:0; padding:0;}
+.fn-col li{display:flex; align-items:baseline; gap:1cqw; font-weight:300; font-size:max(22px,2.6cqw); line-height:1.25; letter-spacing:-.02em; color:var(--cc-deep-teal); padding:.4cqw 0;}
+.fn-no li{color:#8A5D2E; text-decoration:line-through; text-decoration-thickness:1px;}
+.fn-s{font-size:.7em; color:var(--cc-sage); text-decoration:none; display:inline-block; min-width:1em;}
+.fn-text{grid-column:1 / -1; margin:0; max-width:70ch; font-size:max(15px,1.45cqw); line-height:1.55; color:var(--ink);}
+.re-title{font-size:max(40px,6.2cqw) !important;}
+.re-list{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(4,1fr); gap:0; border-top:1px solid rgba(229,236,236,.25);}
+.re-list li{padding:1cqw 1.2cqw 1cqw 0; font-size:max(13px,1.2cqw); color:#BFD1D0; font-weight:300; display:flex; gap:.8cqw; border-bottom:1px solid rgba(229,236,236,.12);}
+.re-list li span:first-child{color:#7FA2A1; font-variant-numeric:tabular-nums;}
+@media (max-width:760px){
+  .d1-steps, .rl-3, .rl-2, .fn-grid, .ri-grid, .re-list{grid-template-columns:1fr;}
+  .d1s{padding:12px 0;} .d1s + .d1s{padding-left:0; border-left:0; border-top:1px solid rgba(229,236,236,.18);}
+  .rl{padding:16px;} .fn-col{padding:16px;}
+}
+
 /* --- map module --- */
 #rz{
   /* Coral Club design system — primary */
@@ -624,7 +673,78 @@ h3 em.acc{font-size:1.08em;}
       <button type="button" class="cbtn" id="cnext" aria-label="Следующий слайд / Next slide">›</button>
     </span>
   </div>
-  <div class="track" id="track"><section class="slide seat" id="s0"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">1</span></aside><div class="body">
+  <div class="track" id="track"><section class="slide d1a" id="d0"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">1</span></aside><div class="body">
+  <div class="z-head">
+    <div class="eyebrow-row"><span class="z-eyebrow"><span data-l="ru">Стратегическая сессия №3 · День 1</span><span data-l="en" lang="en">Strategy session #3 · Day 1</span></span><button type="button" class="close" data-hide="d0" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></div>
+    <h2 class="z-title"><span data-l="ru">От потоков ценности к <em class="acc">карте</em> ответственности</span><span data-l="en" lang="en">From value streams to a responsibility <em class="acc">map</em></span></h2>
+    <span class="z-rainbow" aria-hidden="true"></span>
+    <p class="z-lede"><span data-l="ru">Сегодня пять команд проходят свой поток создания ценности шаг за шагом и договариваются, кто за какой шаг отвечает и по какой метрике.</span><span data-l="en" lang="en">Today five teams walk through their value stream step by step and agree who owns each step and by which metric.</span></p>
+  </div>
+  <ol class="d1-steps"><li class="d1s"><span class="d1t"><span data-l="ru">10:00</span><span data-l="en" lang="en">10:00</span></span><span class="d1n"><span data-l="ru">Открытие и вводная часть</span><span data-l="en" lang="en">Opening and introduction</span></span><span class="d1d"><span data-l="ru">Зачем мы собрались и как устроен день</span><span data-l="en" lang="en">Why we are here and how the day works</span></span></li><li class="d1s"><span class="d1t"><span data-l="ru">10:45</span><span data-l="en" lang="en">10:45</span></span><span class="d1n"><span data-l="ru">Три раунда в командах</span><span data-l="en" lang="en">Three team rounds</span></span><span class="d1d"><span data-l="ru">Шаги потока, ответственные за шаг, метрики</span><span data-l="en" lang="en">Stream steps, step owners, metrics</span></span></li><li class="d1s"><span class="d1t"><span data-l="ru">15:05</span><span data-l="en" lang="en">15:05</span></span><span class="d1n"><span data-l="ru">Выступления пяти команд</span><span data-l="en" lang="en">Five team presentations</span></span><span class="d1d"><span data-l="ru">Каждая команда показывает свой поток, зал дополняет</span><span data-l="en" lang="en">Each team presents its stream, the room adds to it</span></span></li><li class="d1s"><span class="d1t"><span data-l="ru">17:25</span><span data-l="en" lang="en">17:25</span></span><span class="d1n"><span data-l="ru">Общая карта ответственности</span><span data-l="en" lang="en">Shared responsibility map</span></span><span class="d1d"><span data-l="ru">Собираем пять потоков в одну картину</span><span data-l="en" lang="en">We assemble five streams into one picture</span></span></li></ol>
+  <div class="z-foot">
+    <div class="z-fact"><b><span data-l="ru">10:00–19:00 МСК</span><span data-l="en" lang="en">10:00–19:00 Moscow</span></b><span><span data-l="ru">обед 14:00–15:00 · 09:00–18:00 Братислава</span><span data-l="en" lang="en">lunch 14:00–15:00 · 09:00–18:00 Bratislava</span></span></div>
+    <div class="z-fact"><b><span data-l="ru">5 столов</span><span data-l="en" lang="en">5 tables</span></b><span><span data-l="ru">ноутбук и QR-ссылка на инструмент на каждом столе</span><span data-l="en" lang="en">a laptop and a QR link to the tool on every table</span></span></div>
+    <div class="z-fact"><b><span data-l="ru">Итог дня</span><span data-l="en" lang="en">Outcome of the day</span></b><span><span data-l="ru">карта ответственности по потокам и список вопросов на решение</span><span data-l="en" lang="en">a responsibility map by stream and a list of open questions</span></span></div>
+  </div>
+  <footer class="foot"><span><span data-l="ru">Стратегическая сессия №3</span><span data-l="en" lang="en">Strategy session #3</span> · <span class="n">1</span></span></footer>
+</div></section>
+<section class="slide zero rules-intro" id="r0"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">2</span></aside><div class="body">
+  <div class="z-head">
+    <div class="eyebrow-row"><span class="z-eyebrow"><span data-l="ru">Рабочая сессия · правила взаимодействия</span><span data-l="en" lang="en">Working session · rules of engagement</span></span><button type="button" class="close" data-hide="r0" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></div>
+    <h2 class="z-title"><span data-l="ru">Правила <em class="acc">сессии</em></span><span data-l="en" lang="en">Session <em class="acc">rules</em></span></h2>
+    <span class="z-rainbow" aria-hidden="true"></span>
+    <p class="z-lede"><span data-l="ru">Восемь договорённостей о времени, внимании и слове.</span><span data-l="en" lang="en">Eight agreements about time, attention and voice.</span></p>
+  </div>
+  <div class="ri-grid">
+    <p class="ri-big"><span data-l="ru">Правила — это уважение, переведённое в действие.</span><span data-l="en" lang="en">Rules are respect turned into action.</span></p>
+    <div class="ri-text"><p><span data-l="ru">Сессия работает, когда каждый чувствует, что его время и слово имеют значение. Правила задают рамку, в которой это возможно.</span><span data-l="en" lang="en">A session works when everyone feels their time and voice matter. Rules set the frame that makes this possible.</span></p>
+    <p><span data-l="ru">Их немного — восемь. Они короткие, простые и применяются ко всем без исключения.</span><span data-l="en" lang="en">There are only eight. They are short, simple and apply to everyone without exception.</span></p></div>
+  </div>
+  <footer class="foot"><span><span data-l="ru">Правила сессии</span><span data-l="en" lang="en">Session rules</span> · <span class="n">1</span></span></footer>
+</div></section>
+<section class="slide rules" id="r1"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">3</span></aside><div class="body">
+  <header class="head"><div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Часть I · Дисциплина</span><span data-l="en" lang="en">Part I · Discipline</span></span><span class="eyebrow-end"><button type="button" class="close" data-hide="r1" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div><h2><span data-l="ru">Мы уважаем время каждого</span><span data-l="en" lang="en">We respect everyone’s time</span></h2><p class="sub"><span data-l="ru">Дисциплина — это не строгость, а вежливость по отношению к команде.</span><span data-l="en" lang="en">Discipline is not strictness; it is courtesy towards the team.</span></p></header>
+  <div class="rl-grid rl-3"><article class="rl"><div class="rl-num">01</div><h3 class="rl-title"><span data-l="ru">Точность во времени</span><span data-l="en" lang="en">Punctuality</span></h3><p class="rl-lead"><span data-l="ru">Начинаем и заканчиваем строго по расписанию. Перерывы — через равные интервалы.</span><span data-l="en" lang="en">We start and finish strictly on schedule. Breaks come at regular intervals.</span></p><ul class="rl-pts"><li><span data-l="ru">Опаздывать нельзя — это вычитание из времени остальных.</span><span data-l="en" lang="en">No lateness: it takes time away from everyone else.</span></li><li><span data-l="ru">Если объявлен перерыв 10 минут, в 11-ю мы уже работаем.</span><span data-l="en" lang="en">If a 10-minute break is announced, by minute 11 we are back at work.</span></li><li><span data-l="ru">Финал сессии — это финал. Время каждого защищено.</span><span data-l="en" lang="en">The end of the session is the end. Everyone’s time is protected.</span></li></ul><p class="rl-q"><span data-l="ru">Уважение к чужому времени — самая короткая формула профессионализма.</span><span data-l="en" lang="en">Respect for other people’s time is the shortest definition of professionalism.</span></p></article><article class="rl"><div class="rl-num">02</div><h3 class="rl-title"><span data-l="ru">Внимание без гаджетов</span><span data-l="en" lang="en">Attention without gadgets</span></h3><p class="rl-lead"><span data-l="ru">На время сессии телефоны и ноутбуки откладываются — внимание принадлежит команде.</span><span data-l="en" lang="en">During the session phones and laptops are put away: our attention belongs to the team.</span></p><ul class="rl-pts"><li><span data-l="ru">Телефон — в беззвучном режиме, экраном вниз.</span><span data-l="en" lang="en">Phone on silent, screen down.</span></li><li><span data-l="ru">Срочные звонки — только в перерыв и за пределами комнаты.</span><span data-l="en" lang="en">Urgent calls only during breaks and outside the room.</span></li><li><span data-l="ru">Записи делаем от руки или в одном общем документе.</span><span data-l="en" lang="en">Notes by hand or in one shared document.</span></li></ul><p class="rl-q"><span data-l="ru">Полу-присутствие — худший вид отсутствия. Либо мы здесь, либо нас здесь нет.</span><span data-l="en" lang="en">Half-presence is the worst kind of absence. Either we are here, or we are not.</span></p></article><article class="rl"><div class="rl-num">03</div><h3 class="rl-title"><span data-l="ru">Присутствие до конца</span><span data-l="en" lang="en">Present to the end</span></h3><p class="rl-lead"><span data-l="ru">Мы приходим подготовленными и остаёмся в сессии от начала до завершения.</span><span data-l="en" lang="en">We come prepared and stay in the session from start to finish.</span></p><ul class="rl-pts"><li><span data-l="ru">Пропускать сессию нельзя — команда нужна в полном составе.</span><span data-l="en" lang="en">No skipping: the team needs everyone.</span></li><li><span data-l="ru">Уходя — уходи: вернуться в середину обсуждения уже не получится.</span><span data-l="en" lang="en">If you leave, you leave: you cannot rejoin mid-discussion.</span></li><li><span data-l="ru">Готовность к разговору — наш вклад до того, как разговор начался.</span><span data-l="en" lang="en">Being ready to talk is our contribution before the talk begins.</span></li></ul><p class="rl-q"><span data-l="ru">Сессия — это не комната, в которую заходят. Это разговор, в котором участвуют.</span><span data-l="en" lang="en">A session is not a room you walk into. It is a conversation you take part in.</span></p></article></div>
+  <footer class="foot"><span><span data-l="ru">Правила сессии</span><span data-l="en" lang="en">Session rules</span> · <span class="n">1</span></span></footer>
+</div></section>
+<section class="slide rules" id="r2"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">4</span></aside><div class="body">
+  <header class="head"><div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Часть II · Коммуникация</span><span data-l="en" lang="en">Part II · Communication</span></span><span class="eyebrow-end"><button type="button" class="close" data-hide="r2" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div><h2><span data-l="ru">Каждый может высказаться — и быть услышанным</span><span data-l="en" lang="en">Everyone can speak, and be heard</span></h2><p class="sub"><span data-l="ru">Мы поддерживаем атмосферу взаимного уважения и доверия.</span><span data-l="en" lang="en">We keep an atmosphere of mutual respect and trust.</span></p></header>
+  <div class="rl-grid rl-2"><article class="rl"><div class="rl-num">04</div><h3 class="rl-title"><span data-l="ru">Слово каждому</span><span data-l="en" lang="en">A voice for everyone</span></h3><p class="rl-lead"><span data-l="ru">У каждого есть возможность высказаться. Время не ограничивается: говорим столько, сколько считаем нужным.</span><span data-l="en" lang="en">Everyone gets to speak. Time is not limited: we speak as long as we need to.</span></p><ul class="rl-pts"><li><span data-l="ru">Никого не торопим — ни взглядом, ни вздохом, ни «короче».</span><span data-l="en" lang="en">We rush no one: not with a look, a sigh or “get to the point”.</span></li><li><span data-l="ru">Молчание — тоже право; к нему возвращаемся позже.</span><span data-l="en" lang="en">Silence is a right too; we come back to it later.</span></li><li><span data-l="ru">Сильные голоса делают шаг назад, тихие — шаг вперёд.</span><span data-l="en" lang="en">Strong voices step back, quiet voices step forward.</span></li></ul><p class="rl-q"><span data-l="ru">Лучшее решение редко приходит от самого громкого — обычно оно приходит от самого внимательного.</span><span data-l="en" lang="en">The best solution rarely comes from the loudest person. It usually comes from the most attentive one.</span></p></article><article class="rl"><div class="rl-num">05</div><h3 class="rl-title"><span data-l="ru">Не перебиваем</span><span data-l="en" lang="en">No interrupting</span></h3><p class="rl-lead"><span data-l="ru">Перебивать говорящего нельзя. Точка. У этой фразы нет приложений и сносок.</span><span data-l="en" lang="en">We do not interrupt the speaker. Full stop. This sentence has no appendices or footnotes.</span></p><ul class="rl-pts"><li><span data-l="ru">Мысль додумывается до конца — тем, кто её начал.</span><span data-l="en" lang="en">A thought is finished by the person who started it.</span></li><li><span data-l="ru">Если очень хочется возразить — записываем и возвращаемся.</span><span data-l="en" lang="en">If you really want to object, write it down and come back to it.</span></li></ul><p class="rl-q"><span data-l="ru">Тишина в момент чужой речи — это не пустота, а форма согласия слушать.</span><span data-l="en" lang="en">Silence while someone else speaks is not emptiness; it is agreeing to listen.</span></p></article></div>
+  <footer class="foot"><span><span data-l="ru">Правила сессии</span><span data-l="en" lang="en">Session rules</span> · <span class="n">1</span></span></footer>
+</div></section>
+<section class="slide rules" id="r3"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">5</span></aside><div class="body">
+  <header class="head"><div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Часть II · Коммуникация</span><span data-l="en" lang="en">Part II · Communication</span></span><span class="eyebrow-end"><button type="button" class="close" data-hide="r3" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div><h2><span data-l="ru">Очередь и имя</span><span data-l="en" lang="en">Turns and names</span></h2></header>
+  <div class="rl-grid rl-2"><article class="rl"><div class="rl-num">06</div><h3 class="rl-title"><span data-l="ru">Поднимаем руку</span><span data-l="en" lang="en">We raise a hand</span></h3><p class="rl-lead"><span data-l="ru">Хотим высказаться — поднимаем руку. Только после того, как говорящий закончил мысль.</span><span data-l="en" lang="en">To speak, we raise a hand, and only once the speaker has finished the thought.</span></p><ul class="rl-pts"><li><span data-l="ru">Поднятая рука — знак очереди, а не нетерпения.</span><span data-l="en" lang="en">A raised hand means a place in the queue, not impatience.</span></li><li><span data-l="ru">Ведущий замечает руки в порядке поднятия и передаёт слово.</span><span data-l="en" lang="en">The host notes hands in the order they rise and gives the floor.</span></li><li><span data-l="ru">Опустить руку — тоже нормально: иногда мысль уже была сказана.</span><span data-l="en" lang="en">Lowering your hand is fine too: sometimes the point has already been made.</span></li></ul><p class="rl-q"><span data-l="ru">Простой жест возвращает разговору структуру. И возвращает каждому шанс быть услышанным.</span><span data-l="en" lang="en">A simple gesture gives the conversation structure, and gives everyone a chance to be heard.</span></p></article><article class="rl"><div class="rl-num">07</div><h3 class="rl-title"><span data-l="ru">Передаём по имени</span><span data-l="en" lang="en">We pass the floor by name</span></h3><p class="rl-lead"><span data-l="ru">Закончив, передаём слово «направо» — называя следующего по имени.</span><span data-l="en" lang="en">When finished, we pass the floor to the right, naming the next person.</span></p><ul class="rl-pts"><li><span data-l="ru">Имя — самый короткий способ показать: я тебя вижу.</span><span data-l="en" lang="en">A name is the shortest way to say: I see you.</span></li><li><span data-l="ru">Очередь движется по кругу, никто не остаётся в тени.</span><span data-l="en" lang="en">The turn goes round the circle; no one is left in the shadow.</span></li><li><span data-l="ru">Если пропустили — возвращаемся и передаём слово назад.</span><span data-l="en" lang="en">If someone was skipped, we go back and pass the floor to them.</span></li></ul><p class="rl-q"><span data-l="ru">«— Анна, что ты думаешь?» — одна фраза, которая делает разговор разговором, а не докладом.</span><span data-l="en" lang="en">“Anna, what do you think?” One phrase that turns a report into a conversation.</span></p></article></div>
+  <footer class="foot"><span><span data-l="ru">Правила сессии</span><span data-l="en" lang="en">Session rules</span> · <span class="n">1</span></span></footer>
+</div></section>
+<section class="slide rules r-quote" id="r4"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">6</span></aside><div class="body">
+  <header class="head"><div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Часть II · Коммуникация · Правило 08</span><span data-l="en" lang="en">Part II · Communication · Rule 08</span></span><span class="eyebrow-end"><button type="button" class="close" data-hide="r4" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div><h2><span data-l="ru">Слышим до конца</span><span data-l="en" lang="en">We hear to the end</span></h2></header>
+  <div class="rq">
+    <p class="rq-text"><span data-l="ru">«Правильно ли я Вас <em class="acc">понял</em>, что…?»</span><span data-l="en" lang="en">“Have I <em class="acc">understood</em> you correctly that…?”</span></p>
+    <p class="rq-note"><span data-l="ru">Прежде чем ответить, переспрашиваем. Стараемся понять — буквально, а не приблизительно. Эта одна фраза сэкономила больше совещаний, чем любая повестка.</span><span data-l="en" lang="en">Before answering, we check. We try to understand literally, not approximately. This one phrase has saved more meetings than any agenda.</span></p>
+  </div>
+  <footer class="foot"><span><span data-l="ru">Правила сессии</span><span data-l="en" lang="en">Session rules</span> · <span class="n">1</span></span></footer>
+</div></section>
+<section class="slide rules" id="r5"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">7</span></aside><div class="body">
+  <header class="head"><div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">О штрафах</span><span data-l="en" lang="en">About penalties</span></span><span class="eyebrow-end"><button type="button" class="close" data-hide="r5" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div><h2><span data-l="ru">Что такое штраф</span><span data-l="en" lang="en">What a penalty is</span></h2></header>
+  <div class="fn-grid">
+    <div class="fn-col fn-no"><div class="fn-h"><span data-l="ru">Штраф — это не</span><span data-l="en" lang="en">A penalty is not</span></div><ul><li><span class="fn-s">≠</span><span data-l="ru">санкция</span><span data-l="en" lang="en">a sanction</span></li><li><span class="fn-s">≠</span><span data-l="ru">выговор</span><span data-l="en" lang="en">a reprimand</span></li><li><span class="fn-s">≠</span><span data-l="ru">упрёк</span><span data-l="en" lang="en">a reproach</span></li><li><span class="fn-s">≠</span><span data-l="ru">наказание</span><span data-l="en" lang="en">a punishment</span></li></ul></div>
+    <div class="fn-col fn-yes"><div class="fn-h"><span data-l="ru">Штраф — это</span><span data-l="en" lang="en">A penalty is</span></div><ul><li><span class="fn-s">=</span><span data-l="ru">жест внимания</span><span data-l="en" lang="en">a gesture of attention</span></li><li><span class="fn-s">=</span><span data-l="ru">напоминание</span><span data-l="en" lang="en">a reminder</span></li><li><span class="fn-s">=</span><span data-l="ru">уважение в действии</span><span data-l="en" lang="en">respect in action</span></li></ul></div>
+    <p class="fn-text"><span data-l="ru">Это способ продемонстрировать уважение к участникам команды. Маленький ритуал, который возвращает внимание правилу — и продолжает разговор, а не останавливает его.</span><span data-l="en" lang="en">It is a way to show respect for the team. A small ritual that brings attention back to the rule and keeps the conversation going instead of stopping it.</span></p>
+  </div>
+  <footer class="foot"><span><span data-l="ru">Правила сессии</span><span data-l="en" lang="en">Session rules</span> · <span class="n">1</span></span></footer>
+</div></section>
+<section class="slide zero rules-end" id="r6"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">8</span></aside><div class="body">
+  <div class="z-head">
+    <div class="eyebrow-row"><span class="z-eyebrow"><span data-l="ru">В завершение · всё это сводится к одному</span><span data-l="en" lang="en">In closing · it all comes down to one thing</span></span><button type="button" class="close" data-hide="r6" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></div>
+    <h2 class="z-title re-title"><span data-l="ru">Взаимное уважение и <em class="acc">доверие</em>.</span><span data-l="en" lang="en">Mutual respect and <em class="acc">trust</em>.</span></h2>
+    <span class="z-rainbow" aria-hidden="true"></span>
+    <p class="z-lede"><span data-l="ru">Восемь правил — одна идея.</span><span data-l="en" lang="en">Eight rules, one idea.</span></p>
+  </div>
+  <ol class="re-list"><li><span>01</span><span data-l="ru">Точность во времени</span><span data-l="en" lang="en">Punctuality</span></li><li><span>02</span><span data-l="ru">Внимание без гаджетов</span><span data-l="en" lang="en">Attention without gadgets</span></li><li><span>03</span><span data-l="ru">Присутствие до конца</span><span data-l="en" lang="en">Present to the end</span></li><li><span>04</span><span data-l="ru">Слово каждому</span><span data-l="en" lang="en">A voice for everyone</span></li><li><span>05</span><span data-l="ru">Не перебиваем</span><span data-l="en" lang="en">No interrupting</span></li><li><span>06</span><span data-l="ru">Поднимаем руку</span><span data-l="en" lang="en">We raise a hand</span></li><li><span>07</span><span data-l="ru">Передаём по имени</span><span data-l="en" lang="en">We pass the floor by name</span></li><li><span>08</span><span data-l="ru">Слышим до конца</span><span data-l="en" lang="en">We hear to the end</span></li></ol>
+  <footer class="foot"><span><span data-l="ru">Правила сессии</span><span data-l="en" lang="en">Session rules</span> · <span class="n">1</span></span></footer>
+</div></section>
+<section class="slide seat" id="s0"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">9</span></aside><div class="body">
   <header class="head">
     <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Рассадка участников</span><span data-l="en" lang="en">Seating plan</span></span><span class="eyebrow-end"><span class="seat-tools"></span><button type="button" class="close" data-hide="s0" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
     <h2><span data-l="ru">Пять столов — пять треков</span><span data-l="en" lang="en">Five tables, five tracks</span></h2>
@@ -633,7 +753,7 @@ h3 em.acc{font-size:1.08em;}
   <div class="seat-body"></div>
   <footer class="foot"><span><span data-l="ru">Стратегическая сессия №3</span><span data-l="en" lang="en">Strategy session #3</span> · <span class="n">1</span></span></footer>
 </div></section>
-<section class="slide zero" id="z0"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">2</span></aside><div class="body">
+<section class="slide zero" id="z0"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">10</span></aside><div class="body">
   <div class="z-head">
     <div class="eyebrow-row"><span class="z-eyebrow"><span data-l="ru">Coral Club · стратегическая сессия</span><span data-l="en" lang="en">Coral Club · strategy session</span></span><button type="button" class="close" data-hide="z0" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></div>
     <h2 class="z-title"><span data-l="ru">Стратегическая сессия <em class="acc">№3</em></span><span data-l="en" lang="en">Strategy session <em class="acc">#3</em></span></h2>
@@ -648,7 +768,7 @@ h3 em.acc{font-size:1.08em;}
   </div>
   <footer class="foot"><span><span data-l="ru">Стратегическая сессия №3</span><span data-l="en" lang="en">Strategy session #3</span> · <span class="n">1</span></span></footer>
 </div></section>
-<section class="slide ann" id="a1"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">3</span></aside><div class="body">
+<section class="slide ann" id="a1"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">11</span></aside><div class="body">
   <div class="ann-top">
     <div class="ann-venue">
       <div class="ann-eyebrow"><span data-l="ru">Место проведения</span><span data-l="en" lang="en">Venue</span></div>
@@ -675,7 +795,7 @@ h3 em.acc{font-size:1.08em;}
   </div>
   <footer class="foot"><span><span data-l="ru">Стратегическая сессия №3</span><span data-l="en" lang="en">Strategy session #3</span> · <span class="n">1</span></span><button type="button" class="close" data-hide="a1" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></footer>
 </div></section>
-<section class="slide sched" id="d1"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">4</span></aside><div class="body">
+<section class="slide sched" id="d1"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">12</span></aside><div class="body">
   <header class="head">
     <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Расписание сессии</span><span data-l="en" lang="en">Session schedule</span></span><span class="eyebrow-end"><span class="sched-tools" data-day="0"></span><button type="button" class="close" data-hide="d1" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
     <h2 class="sched-title" data-day="0"><span data-l="ru">День 1</span><span data-l="en" lang="en">Day 1</span></h2>
@@ -687,7 +807,7 @@ h3 em.acc{font-size:1.08em;}
   </div>
   <footer class="foot"><span><span data-l="ru">Расписание стратегической сессии</span><span data-l="en" lang="en">Strategy session schedule</span> · <span class="n">1</span></span></footer>
 </div></section>
-<section class="slide sched" id="d2"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">5</span></aside><div class="body">
+<section class="slide sched" id="d2"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">13</span></aside><div class="body">
   <header class="head">
     <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Расписание сессии</span><span data-l="en" lang="en">Session schedule</span></span><span class="eyebrow-end"><span class="sched-tools" data-day="1"></span><button type="button" class="close" data-hide="d2" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
     <h2 class="sched-title" data-day="1"><span data-l="ru">День 2</span><span data-l="en" lang="en">Day 2</span></h2>
@@ -700,7 +820,7 @@ h3 em.acc{font-size:1.08em;}
   <footer class="foot"><span><span data-l="ru">Расписание стратегической сессии</span><span data-l="en" lang="en">Strategy session schedule</span> · <span class="n">2</span></span></footer>
 </div></section>
 
-<section class="slide" id="f01"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">6</span></aside><div class="body">
+<section class="slide" id="f01"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">14</span></aside><div class="body">
   <header class="head">
     <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Портфолио функции</span><span data-l="en" lang="en">Function portfolio</span></span><span class="eyebrow-end"><span class="chip gA"><span data-l="ru">Уникальная</span><span data-l="en" lang="en">Unique</span></span><button type="button" class="close" data-hide="f01" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
     <h2><span data-l="ru">Департамент логистики</span><span data-l="en" lang="en">Logistics Department</span></h2>
@@ -719,7 +839,7 @@ h3 em.acc{font-size:1.08em;}
   </div>
   <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">1</span></span></footer>
 </div></section>
-<section class="slide" id="f02"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">7</span></aside><div class="body">
+<section class="slide" id="f02"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">15</span></aside><div class="body">
   <header class="head">
     <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Портфолио функции</span><span data-l="en" lang="en">Function portfolio</span></span><span class="eyebrow-end"><span class="chip gA"><span data-l="ru">Уникальная</span><span data-l="en" lang="en">Unique</span></span><button type="button" class="close" data-hide="f02" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
     <h2><span data-l="ru">Финансовый контроль и прогнозирование</span><span data-l="en" lang="en">Financial Control and Forecasting</span></h2>
@@ -738,7 +858,7 @@ h3 em.acc{font-size:1.08em;}
   </div>
   <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">2</span></span></footer>
 </div></section>
-<section class="slide" id="f03"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">8</span></aside><div class="body">
+<section class="slide" id="f03"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">16</span></aside><div class="body">
   <header class="head">
     <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Портфолио функции</span><span data-l="en" lang="en">Function portfolio</span></span><span class="eyebrow-end"><span class="chip gA"><span data-l="ru">Уникальная</span><span data-l="en" lang="en">Unique</span></span><button type="button" class="close" data-hide="f03" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
     <h2><span data-l="ru">Процессный офис</span><span data-l="en" lang="en">Process Office</span></h2>
@@ -757,7 +877,7 @@ h3 em.acc{font-size:1.08em;}
   </div>
   <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">3</span></span></footer>
 </div></section>
-<section class="slide" id="f04"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">9</span></aside><div class="body">
+<section class="slide" id="f04"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">17</span></aside><div class="body">
   <header class="head">
     <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Портфолио функции</span><span data-l="en" lang="en">Function portfolio</span></span><span class="eyebrow-end"><span class="chip gA"><span data-l="ru">Уникальная</span><span data-l="en" lang="en">Unique</span></span><button type="button" class="close" data-hide="f04" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
     <h2><span data-l="ru">Выход на новые рынки</span><span data-l="en" lang="en">New Market Entry</span></h2>
@@ -776,7 +896,7 @@ h3 em.acc{font-size:1.08em;}
   </div>
   <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">4</span></span></footer>
 </div></section>
-<section class="slide" id="f05"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">10</span></aside><div class="body">
+<section class="slide" id="f05"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">18</span></aside><div class="body">
   <header class="head">
     <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Портфолио функции</span><span data-l="en" lang="en">Function portfolio</span></span><span class="eyebrow-end"><span class="chip gA"><span data-l="ru">Уникальная</span><span data-l="en" lang="en">Unique</span></span><button type="button" class="close" data-hide="f05" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
     <h2><span data-l="ru">Стратегические партнёрства</span><span data-l="en" lang="en">Strategic Partnerships</span></h2>
@@ -795,7 +915,7 @@ h3 em.acc{font-size:1.08em;}
   </div>
   <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">5</span></span></footer>
 </div></section>
-<section class="slide" id="f06"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">11</span></aside><div class="body">
+<section class="slide" id="f06"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">19</span></aside><div class="body">
   <header class="head">
     <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Портфолио функции</span><span data-l="en" lang="en">Function portfolio</span></span><span class="eyebrow-end"><span class="chip gA"><span data-l="ru">Уникальная · сервис ивент-функции</span><span data-l="en" lang="en">Unique · service within Events</span></span><button type="button" class="close" data-hide="f06" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
     <h2><span data-l="ru">Events: переводы</span><span data-l="en" lang="en">Events: Interpretation</span></h2>
@@ -814,7 +934,7 @@ h3 em.acc{font-size:1.08em;}
   </div>
   <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">6</span></span></footer>
 </div></section>
-<section class="slide" id="f07"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">12</span></aside><div class="body">
+<section class="slide" id="f07"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">20</span></aside><div class="body">
   <header class="head">
     <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Портфолио функции</span><span data-l="en" lang="en">Function portfolio</span></span><span class="eyebrow-end"><span class="chip gA"><span data-l="ru">Уникальная · много стыков</span><span data-l="en" lang="en">Unique · many interfaces</span></span><button type="button" class="close" data-hide="f07" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
     <h2><span data-l="ru">Планирование и снабжение</span><span data-l="en" lang="en">Planning and Supply</span></h2>
@@ -833,7 +953,7 @@ h3 em.acc{font-size:1.08em;}
   </div>
   <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">7</span></span></footer>
 </div></section>
-<section class="slide" id="f08"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">13</span></aside><div class="body">
+<section class="slide" id="f08"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">21</span></aside><div class="body">
   <header class="head">
     <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Портфолио функции</span><span data-l="en" lang="en">Function portfolio</span></span><span class="eyebrow-end"><span class="chip gB"><span data-l="ru">Локальные команды ДПД не описаны</span><span data-l="en" lang="en">Local DSD teams not surveyed</span></span><button type="button" class="close" data-hide="f08" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
     <h2><span data-l="ru">ДПД</span><span data-l="en" lang="en">Distributor Support</span></h2>
@@ -852,7 +972,7 @@ h3 em.acc{font-size:1.08em;}
   </div>
   <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">8</span></span></footer>
 </div></section>
-<section class="slide" id="f09"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">14</span></aside><div class="body">
+<section class="slide" id="f09"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">22</span></aside><div class="body">
   <header class="head">
     <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Портфолио функции</span><span data-l="en" lang="en">Function portfolio</span></span><span class="eyebrow-end"><span class="chip gB"><span data-l="ru">Локальные CS-команды не описаны · пересечение с CX</span><span data-l="en" lang="en">Local CS teams not surveyed · overlaps CX</span></span><button type="button" class="close" data-hide="f09" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
     <h2><span data-l="ru">Customer Service</span><span data-l="en" lang="en">Customer Service</span></h2>
@@ -871,7 +991,7 @@ h3 em.acc{font-size:1.08em;}
   </div>
   <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">9</span></span></footer>
 </div></section>
-<section class="slide" id="f10"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">15</span></aside><div class="body">
+<section class="slide" id="f10"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">23</span></aside><div class="body">
   <header class="head">
     <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Портфолио функции</span><span data-l="en" lang="en">Function portfolio</span></span><span class="eyebrow-end"><span class="chip gB"><span data-l="ru">Europe Marketing не описан · пересечение с ДО и ДПД</span><span data-l="en" lang="en">Europe Marketing not surveyed · overlaps Training and DSD</span></span><button type="button" class="close" data-hide="f10" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
     <h2><span data-l="ru">Департамент маркетинга</span><span data-l="en" lang="en">Marketing Department</span></h2>
@@ -890,7 +1010,7 @@ h3 em.acc{font-size:1.08em;}
   </div>
   <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">10</span></span></footer>
 </div></section>
-<section class="slide" id="f11"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">16</span></aside><div class="body">
+<section class="slide" id="f11"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">24</span></aside><div class="body">
   <header class="head">
     <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Портфолио функции</span><span data-l="en" lang="en">Function portfolio</span></span><span class="eyebrow-end"><span class="chip gL"><span data-l="ru">Двойник: Юридический департамент HQ</span><span data-l="en" lang="en">Counterpart: Legal Department HQ</span></span><button type="button" class="close" data-hide="f11" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
     <h2><span data-l="ru">Legal поддержка EU &amp; US</span><span data-l="en" lang="en">Legal Support EU &amp; US</span></h2>
@@ -909,7 +1029,7 @@ h3 em.acc{font-size:1.08em;}
   </div>
   <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">11</span></span></footer>
 </div></section>
-<section class="slide" id="f12"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">17</span></aside><div class="body">
+<section class="slide" id="f12"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">25</span></aside><div class="body">
   <header class="head">
     <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Портфолио функции</span><span data-l="en" lang="en">Function portfolio</span></span><span class="eyebrow-end"><span class="chip gL"><span data-l="ru">Двойник: Legal поддержка EU &amp; US</span><span data-l="en" lang="en">Counterpart: Legal Support EU &amp; US</span></span><button type="button" class="close" data-hide="f12" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
     <h2><span data-l="ru">Юридический департамент</span><span data-l="en" lang="en">Legal Department</span></h2>
@@ -928,7 +1048,7 @@ h3 em.acc{font-size:1.08em;}
   </div>
   <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">12</span></span></footer>
 </div></section>
-<section class="slide" id="f13"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">18</span></aside><div class="body">
+<section class="slide" id="f13"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">26</span></aside><div class="body">
   <header class="head">
     <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Портфолио функции</span><span data-l="en" lang="en">Function portfolio</span></span><span class="eyebrow-end"><span class="chip gB"><span data-l="ru">Граница HQ / регион не описана</span><span data-l="en" lang="en">HQ / region boundary undefined</span></span><button type="button" class="close" data-hide="f13" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
     <h2><span data-l="ru">Департамент обучения</span><span data-l="en" lang="en">Training Department</span></h2>
@@ -947,7 +1067,7 @@ h3 em.acc{font-size:1.08em;}
   </div>
   <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">13</span></span></footer>
 </div></section>
-<section class="slide" id="f14"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">19</span></aside><div class="body">
+<section class="slide" id="f14"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">27</span></aside><div class="body">
   <header class="head">
     <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Портфолио функции</span><span data-l="en" lang="en">Function portfolio</span></span><span class="eyebrow-end"><span class="chip gC"><span data-l="ru">Кластер «Клиент»: CX · CS · eCom</span><span data-l="en" lang="en">“Customer” cluster: CX · CS · eCom</span></span><button type="button" class="close" data-hide="f14" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
     <h2><span data-l="ru">Customer Experience</span><span data-l="en" lang="en">Customer Experience</span></h2>
@@ -966,7 +1086,7 @@ h3 em.acc{font-size:1.08em;}
   </div>
   <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">14</span></span></footer>
 </div></section>
-<section class="slide" id="f15"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">20</span></aside><div class="body">
+<section class="slide" id="f15"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">28</span></aside><div class="body">
   <header class="head">
     <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Портфолио функции</span><span data-l="en" lang="en">Function portfolio</span></span><span class="eyebrow-end"><span class="chip gC"><span data-l="ru">Кластер «Клиент»: CX · CS · eCom</span><span data-l="en" lang="en">“Customer” cluster: CX · CS · eCom</span></span><button type="button" class="close" data-hide="f15" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
     <h2><span data-l="ru">Электронная коммерция и цифровые продукты</span><span data-l="en" lang="en">E-commerce and Digital Products</span></h2>
@@ -985,7 +1105,7 @@ h3 em.acc{font-size:1.08em;}
   </div>
   <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">15</span></span></footer>
 </div></section>
-<section class="slide" id="f16"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">21</span></aside><div class="body">
+<section class="slide" id="f16"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">29</span></aside><div class="body">
   <header class="head">
     <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Портфолио функции</span><span data-l="en" lang="en">Function portfolio</span></span><span class="eyebrow-end"><span class="chip gC"><span data-l="ru">Пересечение: eCom · CX · CS</span><span data-l="en" lang="en">Overlaps: eCom · CX · CS</span></span><button type="button" class="close" data-hide="f16" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
     <h2><span data-l="ru">Управление ИТ</span><span data-l="en" lang="en">IT Management</span></h2>
@@ -1004,7 +1124,7 @@ h3 em.acc{font-size:1.08em;}
   </div>
   <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">16</span></span></footer>
 </div></section>
-<section class="slide" id="f17"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">22</span></aside><div class="body">
+<section class="slide" id="f17"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">30</span></aside><div class="body">
   <header class="head">
     <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Портфолио функции</span><span data-l="en" lang="en">Function portfolio</span></span><span class="eyebrow-end"><span class="chip gC"><span data-l="ru">Пересечение по макетам: Маркетинг · eCom · Claims</span><span data-l="en" lang="en">Overlap on layouts: Marketing · eCom · Claims</span></span><button type="button" class="close" data-hide="f17" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
     <h2><span data-l="ru">Сертификация и качество</span><span data-l="en" lang="en">Certification and Quality</span></h2>
@@ -1023,7 +1143,7 @@ h3 em.acc{font-size:1.08em;}
   </div>
   <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">17</span></span></footer>
 </div></section>
-<section class="slide" id="f18"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">23</span></aside><div class="body">
+<section class="slide" id="f18"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">31</span></aside><div class="body">
   <header class="head">
     <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Портфолио функции</span><span data-l="en" lang="en">Function portfolio</span></span><span class="eyebrow-end"><span class="chip gC"><span data-l="ru">Пересечение: ИТ (портфель) · Процессный офис</span><span data-l="en" lang="en">Overlap: IT (portfolio) · Process Office</span></span><button type="button" class="close" data-hide="f18" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
     <h2><span data-l="ru">Проектный офис</span><span data-l="en" lang="en">Project Office</span></h2>
@@ -1042,7 +1162,7 @@ h3 em.acc{font-size:1.08em;}
   </div>
   <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">18</span></span></footer>
 </div></section>
-<section class="slide" id="f19"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">24</span></aside><div class="body">
+<section class="slide" id="f19"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">32</span></aside><div class="body">
   <header class="head">
     <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Портфолио функции</span><span data-l="en" lang="en">Function portfolio</span></span><span class="eyebrow-end"><span class="chip gC"><span data-l="ru">Кластер «Упаковка»: Реклама · Снабжение · Операции</span><span data-l="en" lang="en">“Packaging” cluster: Advertising · Supply · Operations</span></span><button type="button" class="close" data-hide="f19" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
     <h2><span data-l="ru">Отдел рекламы</span><span data-l="en" lang="en">Advertising Department</span></h2>
@@ -1061,7 +1181,7 @@ h3 em.acc{font-size:1.08em;}
   </div>
   <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">19</span></span></footer>
 </div></section>
-<section class="slide" id="f20"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">25</span></aside><div class="body">
+<section class="slide" id="f20"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">33</span></aside><div class="body">
   <header class="head">
     <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Портфолио функции</span><span data-l="en" lang="en">Function portfolio</span></span><span class="eyebrow-end"><span class="chip gC"><span data-l="ru">Кластер «Бонусы»: Мотивация · ЧК</span><span data-l="en" lang="en">“Bonuses” cluster: Recognition · Club Members</span></span><button type="button" class="close" data-hide="f20" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
     <h2><span data-l="ru">Отдел мотивации и признания</span><span data-l="en" lang="en">Motivation and Recognition</span></h2>
@@ -1080,7 +1200,7 @@ h3 em.acc{font-size:1.08em;}
   </div>
   <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">20</span></span></footer>
 </div></section>
-<section class="slide" id="f21"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">26</span></aside><div class="body">
+<section class="slide" id="f21"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">34</span></aside><div class="body">
   <header class="head">
     <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Портфолио функции</span><span data-l="en" lang="en">Function portfolio</span></span><span class="eyebrow-end"><span class="chip gC"><span data-l="ru">Кластер «Бонусы»: Мотивация · ЧК</span><span data-l="en" lang="en">“Bonuses” cluster: Recognition · Club Members</span></span><button type="button" class="close" data-hide="f21" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
     <h2><span data-l="ru">Управление бизнес-отношениями с ЧК</span><span data-l="en" lang="en">Club Member Relations</span></h2>
@@ -1099,7 +1219,7 @@ h3 em.acc{font-size:1.08em;}
   </div>
   <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">21</span></span></footer>
 </div></section>
-<section class="slide" id="f22"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">27</span></aside><div class="body">
+<section class="slide" id="f22"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">35</span></aside><div class="body">
   <header class="head">
     <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Портфолио функции</span><span data-l="en" lang="en">Function portfolio</span></span><span class="eyebrow-end"><span class="chip gC"><span data-l="ru">Дублируется с локальными командами</span><span data-l="en" lang="en">Duplicated by local teams</span></span><button type="button" class="close" data-hide="f22" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
     <h2><span data-l="ru">Health &amp; Income Claims EU &amp; US</span><span data-l="en" lang="en">Health &amp; Income Claims EU &amp; US</span></h2>
@@ -1119,7 +1239,7 @@ h3 em.acc{font-size:1.08em;}
   <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">22</span></span></footer>
 </div></section>
 
-<section class="slide uslide" id="u23"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">28</span></aside><div class="body">
+<section class="slide uslide" id="u23"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">36</span></aside><div class="body">
   <header class="head">
     <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Универсальная функция</span><span data-l="en" lang="en">Universal function</span></span><span class="eyebrow-end"><span class="chip gU"><span data-l="ru">Общих задач: 8</span><span data-l="en" lang="en">Common tasks: 8</span></span><button type="button" class="close" data-hide="u23" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
     <h2><span data-l="ru">HR</span><span data-l="en" lang="en">HR</span></h2>
@@ -1139,7 +1259,7 @@ h3 em.acc{font-size:1.08em;}
   </div>
   <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">23</span></span></footer>
 </div></section>
-<section class="slide uslide" id="u24"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">29</span></aside><div class="body">
+<section class="slide uslide" id="u24"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">37</span></aside><div class="body">
   <header class="head">
     <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Универсальная функция</span><span data-l="en" lang="en">Universal function</span></span><span class="eyebrow-end"><span class="chip gU"><span data-l="ru">Общих задач: 12</span><span data-l="en" lang="en">Common tasks: 12</span></span><button type="button" class="close" data-hide="u24" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
     <h2><span data-l="ru">Организация мероприятий</span><span data-l="en" lang="en">Event Management</span></h2>
@@ -1159,7 +1279,7 @@ h3 em.acc{font-size:1.08em;}
   </div>
   <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">24</span></span></footer>
 </div></section>
-<section class="slide uslide" id="u25"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">30</span></aside><div class="body">
+<section class="slide uslide" id="u25"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">38</span></aside><div class="body">
   <header class="head">
     <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Универсальная функция</span><span data-l="en" lang="en">Universal function</span></span><span class="eyebrow-end"><span class="chip gU"><span data-l="ru">Общих задач: 7</span><span data-l="en" lang="en">Common tasks: 7</span></span><button type="button" class="close" data-hide="u25" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
     <h2><span data-l="ru">PR</span><span data-l="en" lang="en">PR</span></h2>
@@ -1179,7 +1299,7 @@ h3 em.acc{font-size:1.08em;}
   </div>
   <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">25</span></span></footer>
 </div></section>
-<section class="slide uslide" id="u26"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">31</span></aside><div class="body">
+<section class="slide uslide" id="u26"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">39</span></aside><div class="body">
   <header class="head">
     <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Универсальная функция</span><span data-l="en" lang="en">Universal function</span></span><span class="eyebrow-end"><span class="chip gU"><span data-l="ru">Общих задач: 5</span><span data-l="en" lang="en">Common tasks: 5</span></span><button type="button" class="close" data-hide="u26" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
     <h2><span data-l="ru">Операционное управление</span><span data-l="en" lang="en">Operations Management</span></h2>
