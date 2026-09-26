@@ -453,6 +453,272 @@ h3 em.acc{font-size:1.08em;}
   .rl{padding:16px;} .fn-col{padding:16px;}
 }
 
+/* vernissage */
+.vs-grid{display:grid; grid-template-columns:1fr auto; gap:3.4cqw; align-items:start; flex:1;}
+.vs-steps{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:1.4cqw;}
+.vs-step{background:var(--cc-white); border-top:3px solid var(--cc-deep-teal); padding:1.4cqw 1.6cqw 1.6cqw; display:flex; flex-direction:column; gap:.6cqw;}
+.vs-step:last-child{border-top-color:var(--cc-earth-1);}
+.vs-n{font-weight:300; font-size:max(28px,3.2cqw); line-height:.9; letter-spacing:-.03em; color:var(--cc-green-2); font-variant-numeric:tabular-nums;}
+.vs-t{font-size:max(17px,1.7cqw); color:var(--cc-deep-teal);}
+.vs-d{font-size:max(14px,1.25cqw); line-height:1.45; color:var(--ink);}
+.vs-qr{display:flex; flex-direction:column; align-items:center; gap:.8cqw; background:var(--cc-white); padding:1.6cqw; border-top:3px solid var(--cc-deep-teal);}
+.vs-qr-box{width:max(200px,20cqw); aspect-ratio:1; max-width:100%;}
+.vs-qr-box svg{width:100%; height:100%; display:block;}
+.vs-qr-cap{font-size:max(14px,1.3cqw); color:var(--cc-deep-teal);}
+.vs-qr-url{font-size:max(12px,1cqw); color:var(--cc-sage); font-variant-numeric:tabular-nums; user-select:all;}
+.vs-rule{display:grid; grid-template-columns:1fr auto 1fr; gap:2cqw; align-items:center; margin-top:2cqw; padding:1.4cqw 1.8cqw; background:var(--cc-deep-teal); color:var(--cc-mist);}
+.vs-rule div{display:flex; flex-direction:column; gap:.3cqw;}
+.vs-rule b{font-weight:400; font-size:max(16px,1.6cqw);}
+.vs-rule span{font-size:max(13px,1.15cqw); color:#BFD1D0; font-weight:300;}
+.vs-rule .vs-plus{font-weight:300; font-size:max(28px,3cqw); color:#7FA2A1;}
+@media (max-width:760px){
+  .vs-grid, .vs-steps, .vs-rule{grid-template-columns:1fr;}
+  .vs-qr-box{width:min(260px,80vw);}
+  .vs-rule .vs-plus{display:none;}
+}
+
+/* ===== dashboard: volume of work ===== */
+.dash .body{display:flex; flex-direction:column;}
+.dash .head h2{margin-bottom:.4cqw;}
+.db-tiles{display:grid; grid-template-columns:repeat(4,1fr); gap:1cqw; margin-top:1cqw;}
+.db-tile{background:var(--cc-white); border-top:3px solid var(--cc-deep-teal); padding:1cqw 1.3cqw 1.1cqw; display:flex; flex-direction:column; gap:.25cqw;}
+.db-tile b{font-weight:300; font-size:max(28px,3.4cqw); line-height:.95; letter-spacing:-.03em; color:var(--cc-deep-teal); font-variant-numeric:tabular-nums; white-space:nowrap;}
+.db-tl{font-size:max(14px,1.25cqw); color:var(--cc-deep-teal);}
+.db-ts{font-size:max(11px,.9cqw); color:var(--cc-sage); font-weight:300;}
+.db-grid{display:grid; grid-template-columns:1.45fr 1fr; gap:1cqw; margin-top:1cqw; flex:1; min-height:0;}
+.db-card{margin:0; background:var(--cc-white); padding:1.1cqw 1.3cqw; display:flex; flex-direction:column; gap:.8cqw; min-width:0;}
+.db-card figcaption{display:flex; flex-direction:column; gap:.15cqw;}
+.db-card figcaption b{font-weight:400; font-size:max(13px,1.12cqw); color:var(--cc-deep-teal);}
+.db-card figcaption > span{font-size:max(11px,.85cqw); color:var(--cc-sage); font-weight:300;}
+.db-side{display:grid; grid-template-rows:auto 1fr; gap:1cqw; min-width:0;}
+.db-plot{display:grid; grid-template-columns:auto 1fr; gap:.6cqw; flex:1; min-height:max(150px,13cqw);}
+.db-axis{position:relative; width:2.2em; font-size:max(10px,.78cqw); color:var(--cc-sage);}
+.db-tick{position:absolute; right:0; bottom:var(--y); transform:translateY(50%); font-variant-numeric:tabular-nums;}
+.db-bars{position:relative; display:flex; align-items:flex-end; gap:2px; border-bottom:1px solid var(--cc-sage); background:repeating-linear-gradient(to top, transparent 0, transparent calc(25% - 1px), #E5ECEC calc(25% - 1px), #E5ECEC 25%);}
+.db-bar{flex:1; height:100%; display:flex; align-items:flex-end; position:relative; cursor:default; outline:none;}
+.db-bar i{display:block; width:100%; height:var(--h); background:var(--cc-deep-teal); border-radius:3px 3px 0 0; transition:background 160ms var(--cc-ease);}
+.db-bar:hover i, .db-bar:focus-visible i{background:var(--cc-green-2);}
+.db-bar::after{content:attr(data-ru); position:absolute; bottom:calc(var(--h) + 8px); left:50%; transform:translateX(-50%); background:var(--ink); color:#fff; font-size:max(11px,.85cqw); padding:.35em .6em; white-space:nowrap; pointer-events:none; opacity:0; transition:opacity 120ms; z-index:3;}
+.deck[data-lang="en"] .db-bar::after{content:attr(data-en);}
+.db-bar:first-child::after{left:0; transform:none;}
+.db-bar:nth-last-child(-n+4)::after{left:auto; right:0; transform:none;}
+.db-bar:hover::after, .db-bar:focus-visible::after{opacity:1;}
+.db-ref{position:absolute; left:0; right:0; bottom:var(--y); border-top:1px dashed var(--cc-earth-1); z-index:2; pointer-events:none;}
+.db-ref em{position:absolute; right:0; bottom:2px; font-style:normal; font-size:max(10px,.8cqw); color:var(--ink); background:rgba(255,255,255,.85); padding:0 .3em;}
+.db-med{border-top-style:dotted;}
+.db-med em{bottom:auto; top:2px;}
+.db-stack{display:flex; gap:2px; height:max(28px,2.4cqw);}
+.db-seg{display:flex; align-items:center; padding-left:.5em; min-width:0;}
+.db-seg:first-child{border-radius:3px 0 0 3px;} .db-seg:last-child{border-radius:0 3px 3px 0;}
+.db-seg span{font-size:max(12px,1cqw); color:#fff; font-variant-numeric:tabular-nums;}
+.db-seg:nth-child(n+3) span{color:var(--ink);}
+.db-leg{list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; gap:.3cqw 1.2cqw; font-size:max(11px,.88cqw); color:var(--ink);}
+.db-leg li{display:flex; align-items:center; gap:.4em;}
+.db-leg i{width:.8em; height:.8em; display:inline-block;}
+.db-leg b{font-weight:500; color:var(--cc-deep-teal);}
+.db-tone{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:.35cqw; justify-content:space-between; flex:1;}
+.db-tone li{display:grid; grid-template-columns:minmax(0,11em) 1fr 2.4em; gap:.6em; align-items:center; font-size:max(11px,.88cqw); color:var(--ink);}
+.db-tb{height:max(8px,.7cqw); background:var(--cc-mist);}
+.db-tb i{display:block; height:100%; background:var(--cc-deep-teal); border-radius:0 2px 2px 0;}
+.db-tv{text-align:right; color:var(--cc-deep-teal); font-variant-numeric:tabular-nums;}
+.db-note{margin:.8cqw 0 0; font-size:max(11px,.9cqw); color:var(--cc-sage); font-weight:300;}
+@media (max-width:760px){
+  .db-tiles{grid-template-columns:1fr 1fr;}
+  .db-grid{grid-template-columns:1fr;}
+  .db-plot{min-height:200px;}
+}
+
+/* ===== value streams block ===== */
+.vsx-chips{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(5,1fr); gap:1px; background:rgba(229,236,236,.18); border-top:1px solid rgba(229,236,236,.18);}
+.vsx-chips li{background:var(--cc-deep-teal); padding:1.4cqw 1.2cqw 0 0; display:flex; flex-direction:column; gap:.6cqw;}
+.vsx-chips li + li{padding-left:1.2cqw;}
+.vsx-chips b{font-weight:300; font-size:max(24px,2.6cqw); line-height:1; letter-spacing:-.02em; color:var(--cc-mist);}
+.vsx-chips li > span{font-size:max(13px,1.15cqw); line-height:1.35; color:#BFD1D0; font-weight:300;}
+.vf .body{display:flex; flex-direction:column;}
+.vf-label{font-size:max(11px,.85cqw); letter-spacing:.08em; text-transform:uppercase; color:var(--cc-green-2); font-weight:500; margin-bottom:.8cqw;}
+.vf-2{display:grid; grid-template-columns:1.5fr 1fr; gap:1.4cqw; margin-top:1.2cqw; flex:1;}
+.vf-2b{grid-template-columns:1.35fr 1fr;}
+.vf-col{min-width:0;}
+.vf-card{background:var(--cc-white); padding:1.4cqw 1.6cqw; border-top:3px solid var(--cc-deep-teal);}
+.vf-lead{margin:0 0 1.6cqw; font-size:max(16px,1.55cqw); line-height:1.4; color:var(--cc-deep-teal); font-weight:300; max-width:40ch;}
+.vf-kinds{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(3,1fr); gap:.8cqw;}
+.vf-kind{background:var(--cc-white); padding:1cqw 1.1cqw 1.2cqw; border-top:3px solid var(--cc-deep-teal); display:flex; flex-direction:column; gap:.4cqw;}
+.vf-kind.k2{border-top-color:var(--cc-sage);}
+.vf-kind.k3{border-top-color:var(--cc-earth-1);}
+.vf-kind b{font-weight:400; font-size:max(14px,1.2cqw); color:var(--cc-deep-teal); line-height:1.25;}
+.vf-kind > span{font-size:max(12px,1cqw); color:var(--ink); line-height:1.4; font-weight:300;}
+.vf-goals{list-style:none; margin:0; padding:0; display:flex; flex-direction:column;}
+.vf-goals li{font-size:max(14px,1.25cqw); line-height:1.35; color:var(--ink); padding:.8cqw 0; border-bottom:1px solid var(--cc-sage-soft); display:flex; gap:.7em;}
+.vf-goals li::before{content:"→"; color:var(--cc-green-2);}
+.vf-goals li:last-child{border-bottom:0;}
+.vf-quote{margin:1.4cqw 0 0; padding:1.1cqw 1.6cqw; background:var(--cc-deep-teal); color:var(--cc-mist); font-size:max(15px,1.4cqw); line-height:1.35; font-weight:300; border-left:4px solid var(--cc-green-2);}
+.vf-tl{list-style:none; margin:1.4cqw 0 0; padding:0; display:grid; grid-template-columns:repeat(3,1fr); gap:0; border-top:1px solid var(--cc-sage);}
+.vf-tl-i{padding:1.2cqw 1.6cqw 0 0; display:flex; flex-direction:column; gap:.5cqw; position:relative;}
+.vf-tl-i + .vf-tl-i{padding-left:1.6cqw; border-left:1px solid var(--cc-sage-soft);}
+.vf-tl-i::before{content:""; position:absolute; top:-5px; left:0; width:9px; height:9px; background:var(--cc-deep-teal);}
+.vf-tl-i + .vf-tl-i::before{left:1.6cqw;}
+.vf-tl-y{font-weight:300; font-size:max(20px,2.2cqw); color:var(--cc-deep-teal); line-height:1.05; letter-spacing:-.02em;}
+.vf-tl-i b{font-weight:500; font-size:max(13px,1.1cqw); color:var(--cc-green-2);}
+.vf-tl-d{font-size:max(13px,1.12cqw); line-height:1.45; color:var(--ink);}
+.vf-cmp{display:grid; grid-template-columns:1fr auto 1fr; gap:1.4cqw; align-items:stretch; margin-top:auto; padding-top:1.4cqw;}
+.vf-cmp > div:not(.vf-cmp-arr){background:var(--cc-white); padding:1.1cqw 1.4cqw;}
+.vf-cmp p{margin:0; font-size:max(14px,1.25cqw); color:var(--ink); line-height:1.4;}
+.vf-cmp .vf-label{display:block; margin-bottom:.4cqw; color:var(--cc-sage);}
+.vf-cmp-on{box-shadow:inset 0 3px 0 var(--cc-deep-teal);}
+.vf-cmp-on .vf-label{color:var(--cc-green-2)!important;}
+.vf-cmp-arr{align-self:center; font-size:max(22px,2.4cqw); color:var(--cc-sage); font-weight:300;}
+.vf-vss{list-style:none; margin:1.2cqw 0 0; padding:0; display:grid; grid-template-columns:repeat(5,1fr); gap:.8cqw;}
+.vf-vs{background:var(--cc-white); border-top:3px solid var(--cc-deep-teal); padding:1cqw 1.1cqw 1.2cqw; display:flex; flex-direction:column; gap:.5cqw;}
+.vf-vs:last-child{border-top-color:var(--cc-water-1);}
+.vf-vs-h{display:flex; align-items:baseline; gap:.5em;}
+.vf-vs-h b{font-weight:300; font-size:max(20px,2cqw); color:var(--cc-deep-teal); line-height:1;}
+.vf-vs-h span{font-size:max(10px,.8cqw); color:var(--cc-green-2); font-weight:500;}
+.vf-vs:last-child .vf-vs-h span{color:var(--cc-water-1);}
+.vf-vs h3{margin:0; font-weight:400; font-size:max(14px,1.2cqw); line-height:1.25; color:var(--cc-deep-teal);}
+.vf-vs p{margin:0; font-size:max(12px,.98cqw); line-height:1.4; color:var(--ink); font-weight:300;}
+.vf-why{list-style:none; margin:1.2cqw 0 0; padding:0; display:grid; grid-template-columns:repeat(3,1fr); gap:1.4cqw; flex:1;}
+.vf-why li{display:flex; flex-direction:column; gap:.3cqw; border-top:1px solid var(--cc-sage); padding-top:.8cqw;}
+.vf-why b{font-weight:400; font-size:max(14px,1.2cqw); color:var(--cc-deep-teal);}
+.vf-why li > span{font-size:max(12px,1.02cqw); line-height:1.4; color:var(--ink); font-weight:300;}
+.vf-legend{display:flex; gap:2cqw; margin-top:1.2cqw; font-size:max(12px,1cqw); color:var(--ink);}
+.vf-legend > span{display:flex; align-items:center; gap:.5em;}
+.vf-legend > span::before{content:""; width:1.4em; height:.6em; display:inline-block;}
+.vf-lg1::before{background:var(--cc-green-3);}
+.vf-lg2::before{background:var(--cc-deep-teal);}
+.vf-flow{list-style:none; margin:1cqw 0 0; padding:0; display:grid; grid-template-columns:repeat(7,1fr); gap:0;}
+.vf-f{position:relative; padding:1cqw 1.4cqw 1.1cqw 1cqw; min-height:max(90px,8cqw); display:flex; flex-direction:column; gap:.5cqw; clip-path:polygon(0 0, calc(100% - 1.1cqw) 0, 100% 50%, calc(100% - 1.1cqw) 100%, 0 100%, 1.1cqw 50%); margin-right:-.5cqw;}
+.vf-f:first-child{clip-path:polygon(0 0, calc(100% - 1.1cqw) 0, 100% 50%, calc(100% - 1.1cqw) 100%, 0 100%);}
+.vf-f + .vf-f{padding-left:1.8cqw;}
+.vf-f0{background:var(--cc-white); color:var(--cc-deep-teal);}
+.vf-f1{background:var(--cc-green-3); color:var(--cc-deep-teal);}
+.vf-f2{background:var(--cc-deep-teal); color:var(--cc-mist);}
+.vf-f-c{font-size:max(11px,.9cqw); font-weight:500; letter-spacing:.04em; opacity:.8;}
+.vf-f-t{font-size:max(13px,1.1cqw); line-height:1.25;}
+.vf-loop{margin-top:.8cqw; padding:.7cqw 1cqw; border:1px dashed var(--cc-sage); font-size:max(13px,1.1cqw); color:var(--cc-deep-teal); display:flex; align-items:center; gap:.7em;}
+.vf-loop > span[aria-hidden]{font-size:1.4em; color:var(--cc-green-2);}
+.vf-roles{list-style:none; margin:1.2cqw 0 0; padding:0; display:grid; grid-template-columns:repeat(5,1fr); gap:1cqw; flex:1;}
+.vf-roles li{border-top:1px solid var(--cc-sage); padding-top:.7cqw; display:flex; flex-direction:column; gap:.3cqw;}
+.vf-roles b{font-weight:300; font-size:max(18px,1.7cqw); color:var(--cc-deep-teal);}
+.vf-roles li > span{font-size:max(12px,1.02cqw); color:var(--ink); line-height:1.35;}
+.vf-tbl{width:100%; border-collapse:collapse;}
+.vf-tbl th, .vf-tbl td{text-align:left; vertical-align:top; padding:.55cqw .8cqw .75cqw 0; border-bottom:1px solid var(--cc-sage-soft); font-size:max(12px,1.02cqw); line-height:1.4;}
+.vf-tbl th{font-weight:400; color:var(--cc-deep-teal); width:36%;}
+.vf-tbl th b{display:block; font-weight:500; color:var(--cc-green-2); font-size:.9em;}
+.vf-tbl td{color:var(--ink); font-weight:300;}
+.vf-strat{list-style:none; margin:0; padding:0; display:flex; flex-direction:column;}
+.vf-strat li{display:grid; grid-template-columns:1fr auto; gap:.1cqw 1em; padding:.5cqw 0; border-bottom:1px solid var(--cc-sage-soft);}
+.vf-strat li:last-child{border-bottom:0;}
+.vf-st-n{font-size:max(13px,1.12cqw); color:var(--cc-deep-teal);}
+.vf-st-v{font-size:max(11px,.9cqw); font-weight:500; color:var(--cc-green-2); white-space:nowrap;}
+.vf-st-d{grid-column:1/-1; font-size:max(12px,.95cqw); color:var(--ink); font-weight:300;}
+@media (max-width:760px){
+  .vsx-chips, .vf-2, .vf-kinds, .vf-tl, .vf-vss, .vf-why, .vf-roles, .vf-cmp{grid-template-columns:1fr;}
+  .vsx-chips li + li, .vf-tl-i + .vf-tl-i{padding-left:0; border-left:0;}
+  .vf-flow{grid-template-columns:1fr;}
+  .vf-f, .vf-f:first-child{clip-path:none; margin:0 0 2px;}
+  .vf-cmp-arr{display:none;}
+}
+
+/* ===== motto slide ===== */
+.motto .body{justify-content:space-between; gap:2cqw;}
+.mo-main{flex:1; display:flex; flex-direction:column; justify-content:center;}
+.mo-pre{margin:0 0 1.6cqw; max-width:42ch; font-size:max(17px,1.8cqw); line-height:1.4; color:#BFD1D0; font-weight:300;}
+.mo-title{margin:0; font-weight:300; font-size:max(44px,7.2cqw); line-height:.98; letter-spacing:-.035em; color:var(--cc-mist); text-wrap:balance;}
+.mo-title em.acc{font-size:1.04em;}
+.mo-bridge{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid rgba(229,236,236,.18);}
+.mo-bridge li{padding:1.3cqw 1.6cqw 0 0; display:flex; flex-direction:column; gap:.4cqw; position:relative;}
+.mo-bridge li + li{padding-left:1.6cqw; border-left:1px solid rgba(229,236,236,.18);}
+.mo-bridge li:not(:last-child)::after{content:"→"; position:absolute; right:-.55em; top:1.1cqw; color:#7FA2A1; font-size:max(16px,1.5cqw); background:var(--cc-deep-teal); padding:0 .15em; z-index:1;}
+.mo-n{font-size:max(11px,.9cqw); color:#7FA2A1; font-variant-numeric:tabular-nums;}
+.mo-bridge b{font-weight:400; font-size:max(17px,1.7cqw); color:var(--cc-mist);}
+.mo-bridge li:last-child b{color:var(--cc-green-3);}
+.mo-d{font-size:max(13px,1.1cqw); color:#BFD1D0; font-weight:300; line-height:1.4;}
+@media (max-width:760px){ .mo-bridge{grid-template-columns:1fr;} .mo-bridge li + li{padding-left:0; border-left:0;} .mo-bridge li::after{display:none;} }
+
+/* ===== team task slide ===== */
+.vt-grid{grid-template-columns:1fr minmax(0,.62fr);}
+.vt-done{background:var(--cc-deep-teal); color:var(--cc-mist); padding:1.6cqw 1.8cqw; display:flex; flex-direction:column; align-self:stretch;}
+.vt-done .vf-label{color:var(--cc-green-3);}
+.vt-done ul{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; flex:1; justify-content:space-around;}
+.vt-done li{display:grid; grid-template-columns:4.2em 1fr; gap:1em; align-items:baseline; padding:1cqw 0; border-bottom:1px solid rgba(229,236,236,.18);}
+.vt-done li:last-child{border-bottom:0;}
+.vt-done b{font-weight:300; font-size:max(30px,3.4cqw); line-height:1; letter-spacing:-.03em; color:var(--cc-mist); white-space:nowrap;}
+.vt-done li > span{font-size:max(14px,1.25cqw); line-height:1.4; color:#BFD1D0; font-weight:300;}
+.vt-rule{background:var(--cc-white); color:var(--ink); border-top:3px solid var(--cc-earth-1);}
+.vt-rule b{color:var(--cc-deep-teal);}
+.vt-rule div > span{color:var(--ink)!important;}
+.vt-rule .vs-plus{color:var(--cc-earth-1)!important;}
+.vt-rule span{color:var(--ink)!important;}
+.vt-rule b, .vt-rule b span{color:var(--cc-deep-teal)!important;}
+
+/* ===== outcome & next steps ===== */
+.nx-top{display:grid; grid-template-columns:1fr 1fr; gap:1.2cqw; margin-top:1.2cqw;}
+.nx-pairs{list-style:none; margin:0; padding:0;}
+.nx-pairs li{display:grid; grid-template-columns:7.5em 1.4em 1fr; align-items:baseline; padding:.5cqw 0; border-bottom:1px solid var(--cc-sage-soft); font-size:max(13px,1.1cqw);}
+.nx-pairs li:last-child{border-bottom:0;}
+.nx-tr{font-weight:500; color:var(--cc-green-2);}
+.nx-pairs li:last-child .nx-tr{color:var(--cc-water-1);}
+.nx-ar{color:var(--cc-sage);}
+.nx-vs{color:var(--ink);}
+.nx-vs b{font-weight:500; color:var(--cc-deep-teal); margin-right:.3em;}
+.nx-own{background:var(--cc-deep-teal); color:var(--cc-mist); padding:1.4cqw 1.6cqw; display:flex; flex-direction:column;}
+.nx-own .vf-label{color:var(--cc-green-3);}
+.nx-main{margin:0 0 1.2cqw; font-weight:300; font-size:max(20px,2.1cqw); line-height:1.15; letter-spacing:-.01em;}
+.nx-res{display:grid; grid-template-columns:auto 1fr 1fr; gap:1cqw; align-items:start; border-top:1px solid rgba(229,236,236,.2); padding-top:1cqw; margin-top:auto;}
+.nx-res-l{font-size:max(11px,.85cqw); color:#7FA2A1; text-transform:uppercase; letter-spacing:.08em; padding-top:.2em;}
+.nx-res > div{display:flex; flex-direction:column; gap:.2cqw;}
+.nx-res b{font-weight:400; font-size:max(15px,1.35cqw); color:var(--cc-mist);}
+.nx-res > div > span{font-size:max(12px,.95cqw); color:#BFD1D0; font-weight:300; line-height:1.35;}
+.nx-rl{margin-top:1.4cqw;}
+.nx-road{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(7,1fr); gap:.5cqw; flex:1;}
+.nx-s{background:var(--cc-white); border-top:3px solid var(--cc-deep-teal); padding:.9cqw .9cqw 1cqw; display:flex; flex-direction:column; gap:.4cqw; position:relative;}
+.nx-s:nth-child(-n+3){border-top-color:var(--cc-green-2);}
+.nx-s-end{background:var(--cc-deep-teal);}
+.nx-s-end b, .nx-s-end .nx-n{color:var(--cc-mist)!important;}
+.nx-s-end > .nx-d{color:#BFD1D0!important;}
+.nx-n{font-weight:300; font-size:max(22px,2.2cqw); line-height:1; color:var(--cc-green-2); font-variant-numeric:tabular-nums;}
+.nx-s b{font-weight:400; font-size:max(13px,1.08cqw); line-height:1.25; color:var(--cc-deep-teal);}
+.nx-s > .nx-d{font-size:max(11px,.88cqw); line-height:1.35; color:var(--ink); font-weight:300;}
+@media (max-width:760px){ .nx-top, .nx-res{grid-template-columns:1fr;} .nx-road{grid-template-columns:1fr 1fr;} }
+
+/* --- countdown timer --- */
+#rz .rz-tmr{margin-left:auto; border:1px solid var(--cc-deep-teal); background:var(--cc-deep-teal); color:var(--cc-mist); padding:8px 14px; align-self:center; cursor:pointer; white-space:nowrap; display:flex; align-items:center; gap:8px; font:500 14px/1 var(--cc-font-base); border-radius:0; transition:background 240ms var(--cc-ease);}
+#rz .rz-tmr:hover{background:var(--cc-green-2); border-color:var(--cc-green-2);}
+#rz .rz-tmr:focus-visible{outline:2px solid var(--cc-deep-teal); outline-offset:2px;}
+#rz .rz-tmr .tm-mini{font-variant-numeric:tabular-nums; color:var(--cc-green-3);}
+#rz .rz-tmr .tm-mini:empty{display:none;}
+.tmr{position:fixed; inset:0; z-index:1000; background:var(--cc-deep-teal); color:var(--cc-mist); display:flex; flex-direction:column; font-family:var(--cc-font-base); padding:clamp(16px,3vw,48px); gap:clamp(12px,2vh,28px); container-type:inline-size;}
+.tmr[hidden]{display:none;}
+.tmr-top{display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap;}
+.tmr-brand{display:flex; align-items:center; gap:12px; font-size:clamp(12px,1.1vw,16px); letter-spacing:.1em; text-transform:uppercase; color:#7FA2A1;}
+.tmr-brand i{display:block; width:40px; height:3px; background:linear-gradient(90deg,#E84B8A 0%,#2BB8B0 33%,#2C8FD6 66%,#C9D33A 100%);}
+.tmr-x{display:flex; gap:8px;}
+.tmr button{font:400 clamp(13px,1.1vw,17px)/1 var(--cc-font-base); border:1px solid rgba(229,236,236,.35); background:transparent; color:var(--cc-mist); padding:.75em 1.1em; cursor:pointer; border-radius:0; transition:background 200ms var(--cc-ease), color 200ms var(--cc-ease);}
+.tmr button:hover{background:var(--cc-mist); color:var(--cc-deep-teal);}
+.tmr button:focus-visible{outline:2px solid var(--cc-green-3); outline-offset:2px;}
+.tmr button.on{background:var(--cc-mist); color:var(--cc-deep-teal);}
+.tmr-main{flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:clamp(8px,2vh,24px); min-height:0;}
+.tmr-label{font-size:clamp(16px,2vw,30px); color:#BFD1D0; font-weight:300; text-align:center; min-height:1.2em;}
+.tmr-label[contenteditable="true"]{outline:1px dashed rgba(229,236,236,.3); outline-offset:6px; padding:0 .3em;}
+.tmr-time{font-weight:300; font-size:min(30vw, 58vh); line-height:.9; letter-spacing:-.04em; font-variant-numeric:tabular-nums; color:var(--cc-mist); transition:color 400ms var(--cc-ease);}
+.tmr.warn .tmr-time{color:#F3C98F;}
+.tmr.over{background:#6B3A1E;}
+.tmr.over .tmr-time{color:#FFFFFF; animation:tmrPulse 1s ease-in-out infinite;}
+@keyframes tmrPulse{50%{opacity:.35}}
+@media (prefers-reduced-motion:reduce){.tmr.over .tmr-time{animation:none}}
+.tmr-msg{font-size:clamp(18px,2.4vw,36px); color:var(--cc-mist); min-height:1.2em;}
+.tmr-bar{width:100%; height:6px; background:rgba(229,236,236,.15);}
+.tmr-bar i{display:block; height:100%; width:100%; background:var(--cc-green-3); transform-origin:left; transition:transform 1s linear, background 400ms;}
+.tmr.warn .tmr-bar i{background:#F3C98F;}
+.tmr-ctl{display:flex; flex-wrap:wrap; gap:8px; justify-content:center; align-items:center;}
+.tmr-ctl .sep{width:1px; align-self:stretch; background:rgba(229,236,236,.2); margin:0 6px;}
+.tmr-ctl .main{background:var(--cc-mist); color:var(--cc-deep-teal); min-width:9em; font-weight:500;}
+.tmr-ctl .main:hover{background:var(--cc-green-3);}
+.tmr-ctl input{width:4.2em; font:400 clamp(13px,1.1vw,17px)/1 var(--cc-font-base); padding:.7em .5em; background:transparent; color:var(--cc-mist); border:1px solid rgba(229,236,236,.35); border-radius:0; text-align:center;}
+.tmr-hint{font-size:12px; color:#7FA2A1; text-align:center;}
+.tmr.clean .tmr-ctl, .tmr.clean .tmr-hint, .tmr.clean .tmr-x .tmr-sm{visibility:hidden;}
+@media (max-width:640px){.tmr-ctl .sep{display:none}}
+
 /* --- map module --- */
 #rz{
   /* Coral Club design system — primary */
@@ -819,8 +1085,42 @@ h3 em.acc{font-size:1.08em;}
   </div>
   <footer class="foot"><span><span data-l="ru">Расписание стратегической сессии</span><span data-l="en" lang="en">Strategy session schedule</span> · <span class="n">2</span></span></footer>
 </div></section>
+<section class="slide dash" id="db0"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">14</span></aside><div class="body">
+  <header class="head">
+    <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Итоги домашнего задания</span><span data-l="en" lang="en">Homework results</span></span><span class="eyebrow-end"><button type="button" class="close" data-hide="db0" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
+    <h2><span data-l="ru">Объём <em class="acc">проделанной</em> работы</span><span data-l="en" lang="en">The <em class="acc">work</em> behind the map</span></h2>
+    <p class="sub"><span data-l="ru">Анкеты зон ответственности, которые заполнили руководители функций</span><span data-l="en" lang="en">Responsibility-zone questionnaires completed by function heads</span></p>
+  </header>
+  <div class="db-tiles"><div class="db-tile"><b><span data-l="ru">33</span><span data-l="en" lang="en">33</span></b><span class="db-tl"><span data-l="ru">анкеты</span><span data-l="en" lang="en">questionnaires</span></span><span class="db-ts"><span data-l="ru">29 руководителей · 21 вопрос</span><span data-l="en" lang="en">29 managers · 21 questions</span></span></div><div class="db-tile"><b><span data-l="ru">96,7%</span><span data-l="en" lang="en">96.7%</span></b><span class="db-tl"><span data-l="ru">ответов заполнено</span><span data-l="en" lang="en">answers filled in</span></span><span class="db-ts"><span data-l="ru">670 из 693 · 26 анкет полностью</span><span data-l="en" lang="en">670 of 693 · 26 fully complete</span></span></div><div class="db-tile"><b><span data-l="ru">40 265</span><span data-l="en" lang="en">40,265</span></b><span class="db-tl"><span data-l="ru">слов</span><span data-l="en" lang="en">words</span></span><span class="db-ts"><span data-l="ru">≈160 страниц A4 · 326 792 знака</span><span data-l="en" lang="en">≈160 A4 pages · 326,792 characters</span></span></div><div class="db-tile"><b><span data-l="ru">25 из 33</span><span data-l="en" lang="en">25 of 33</span></b><span class="db-tl"><span data-l="ru">сданы в срок</span><span data-l="en" lang="en">submitted on time</span></span><span class="db-ts"><span data-l="ru">75,8% — до 20 сентября</span><span data-l="en" lang="en">75.8% by 20 September</span></span></div></div>
+  <div class="db-grid">
+    <figure class="db-card db-vol">
+      <figcaption><b><span data-l="ru">Объём каждой анкеты, знаков</span><span data-l="en" lang="en">Length of each questionnaire, characters</span></b><span><span data-l="ru">33 анкеты по убыванию · от 1 811 до 37 816</span><span data-l="en" lang="en">33 questionnaires, longest first · 1,811 to 37,816</span></span></figcaption>
+      <div class="db-plot">
+        <div class="db-axis"><span class="db-tick" style="--y:0.0%">0k</span><span class="db-tick" style="--y:25.0%">10k</span><span class="db-tick" style="--y:50.0%">20k</span><span class="db-tick" style="--y:75.0%">30k</span><span class="db-tick" style="--y:100.0%">40k</span></div>
+        <div class="db-bars">
+          <span class="db-ref db-avg" style="--y:24.76%"><em><span data-l="ru">среднее 9 903</span><span data-l="en" lang="en">mean 9,903</span></em></span>
+          <span class="db-ref db-med" style="--y:16.93%"><em><span data-l="ru">медиана 6 774</span><span data-l="en" lang="en">median 6,774</span></em></span>
+          <div class="db-bar" tabindex="0" style="--h:94.54%" data-ru="37 816 знаков · ≈21 стр." data-en="37 816 characters · ≈21 pp."><i></i></div><div class="db-bar" tabindex="0" style="--h:71.28%" data-ru="28 514 знаков · ≈16 стр." data-en="28 514 characters · ≈16 pp."><i></i></div><div class="db-bar" tabindex="0" style="--h:52.58%" data-ru="21 033 знаков · ≈12 стр." data-en="21 033 characters · ≈12 pp."><i></i></div><div class="db-bar" tabindex="0" style="--h:46.36%" data-ru="18 545 знаков · ≈10 стр." data-en="18 545 characters · ≈10 pp."><i></i></div><div class="db-bar" tabindex="0" style="--h:45.93%" data-ru="18 371 знаков · ≈10 стр." data-en="18 371 characters · ≈10 pp."><i></i></div><div class="db-bar" tabindex="0" style="--h:40.49%" data-ru="16 196 знаков · ≈9 стр." data-en="16 196 characters · ≈9 pp."><i></i></div><div class="db-bar" tabindex="0" style="--h:39.44%" data-ru="15 775 знаков · ≈9 стр." data-en="15 775 characters · ≈9 pp."><i></i></div><div class="db-bar" tabindex="0" style="--h:35.22%" data-ru="14 088 знаков · ≈8 стр." data-en="14 088 characters · ≈8 pp."><i></i></div><div class="db-bar" tabindex="0" style="--h:34.41%" data-ru="13 763 знаков · ≈8 стр." data-en="13 763 characters · ≈8 pp."><i></i></div><div class="db-bar" tabindex="0" style="--h:33.80%" data-ru="13 521 знаков · ≈8 стр." data-en="13 521 characters · ≈8 pp."><i></i></div><div class="db-bar" tabindex="0" style="--h:33.34%" data-ru="13 338 знаков · ≈7 стр." data-en="13 338 characters · ≈7 pp."><i></i></div><div class="db-bar" tabindex="0" style="--h:28.26%" data-ru="11 305 знаков · ≈6 стр." data-en="11 305 characters · ≈6 pp."><i></i></div><div class="db-bar" tabindex="0" style="--h:26.33%" data-ru="10 531 знаков · ≈6 стр." data-en="10 531 characters · ≈6 pp."><i></i></div><div class="db-bar" tabindex="0" style="--h:21.77%" data-ru="8 710 знаков · ≈5 стр." data-en="8 710 characters · ≈5 pp."><i></i></div><div class="db-bar" tabindex="0" style="--h:20.95%" data-ru="8 381 знаков · ≈5 стр." data-en="8 381 characters · ≈5 pp."><i></i></div><div class="db-bar" tabindex="0" style="--h:18.12%" data-ru="7 250 знаков · ≈4 стр." data-en="7 250 characters · ≈4 pp."><i></i></div><div class="db-bar" tabindex="0" style="--h:16.93%" data-ru="6 774 знаков · ≈4 стр." data-en="6 774 characters · ≈4 pp."><i></i></div><div class="db-bar" tabindex="0" style="--h:16.14%" data-ru="6 456 знаков · ≈4 стр." data-en="6 456 characters · ≈4 pp."><i></i></div><div class="db-bar" tabindex="0" style="--h:15.01%" data-ru="6 005 знаков · ≈3 стр." data-en="6 005 characters · ≈3 pp."><i></i></div><div class="db-bar" tabindex="0" style="--h:12.31%" data-ru="4 924 знаков · ≈3 стр." data-en="4 924 characters · ≈3 pp."><i></i></div><div class="db-bar" tabindex="0" style="--h:11.68%" data-ru="4 671 знаков · ≈3 стр." data-en="4 671 characters · ≈3 pp."><i></i></div><div class="db-bar" tabindex="0" style="--h:11.52%" data-ru="4 607 знаков · ≈3 стр." data-en="4 607 characters · ≈3 pp."><i></i></div><div class="db-bar" tabindex="0" style="--h:10.26%" data-ru="4 103 знаков · ≈2 стр." data-en="4 103 characters · ≈2 pp."><i></i></div><div class="db-bar" tabindex="0" style="--h:10.04%" data-ru="4 014 знаков · ≈2 стр." data-en="4 014 characters · ≈2 pp."><i></i></div><div class="db-bar" tabindex="0" style="--h:9.74%" data-ru="3 895 знаков · ≈2 стр." data-en="3 895 characters · ≈2 pp."><i></i></div><div class="db-bar" tabindex="0" style="--h:9.20%" data-ru="3 681 знаков · ≈2 стр." data-en="3 681 characters · ≈2 pp."><i></i></div><div class="db-bar" tabindex="0" style="--h:8.91%" data-ru="3 566 знаков · ≈2 стр." data-en="3 566 characters · ≈2 pp."><i></i></div><div class="db-bar" tabindex="0" style="--h:8.89%" data-ru="3 557 знаков · ≈2 стр." data-en="3 557 characters · ≈2 pp."><i></i></div><div class="db-bar" tabindex="0" style="--h:8.53%" data-ru="3 413 знаков · ≈2 стр." data-en="3 413 characters · ≈2 pp."><i></i></div><div class="db-bar" tabindex="0" style="--h:8.45%" data-ru="3 378 знаков · ≈2 стр." data-en="3 378 characters · ≈2 pp."><i></i></div><div class="db-bar" tabindex="0" style="--h:6.30%" data-ru="2 519 знаков · ≈1 стр." data-en="2 519 characters · ≈1 pp."><i></i></div><div class="db-bar" tabindex="0" style="--h:5.70%" data-ru="2 281 знаков · ≈1 стр." data-en="2 281 characters · ≈1 pp."><i></i></div><div class="db-bar" tabindex="0" style="--h:4.53%" data-ru="1 811 знаков · ≈1 стр." data-en="1 811 characters · ≈1 pp."><i></i></div>
+        </div>
+      </div>
+    </figure>
+    <div class="db-side">
+      <figure class="db-card">
+        <figcaption><b><span data-l="ru">Глубина проработки</span><span data-l="en" lang="en">Depth of detail</span></b><span><span data-l="ru">предварительная оценка, число анкет</span><span data-l="en" lang="en">preliminary assessment, number of questionnaires</span></span></figcaption>
+        <div class="db-stack"><div class="db-seg" style="flex:13;background:#004643" title="13"><span>13</span></div><div class="db-seg" style="flex:12;background:#4F7F7D" title="12"><span>12</span></div><div class="db-seg" style="flex:5;background:#7FA2A1" title="5"><span>5</span></div><div class="db-seg" style="flex:3;background:#BFD1D0" title="3"><span>3</span></div></div>
+        <ul class="db-leg"><li><i style="background:#004643"></i><span data-l="ru">высокий</span><span data-l="en" lang="en">high</span> <b>13</b></li><li><i style="background:#4F7F7D"></i><span data-l="ru">содержательный</span><span data-l="en" lang="en">substantive</span> <b>12</b></li><li><i style="background:#7FA2A1"></i><span data-l="ru">базовый</span><span data-l="en" lang="en">basic</span> <b>5</b></li><li><i style="background:#BFD1D0"></i><span data-l="ru">нужна доработка</span><span data-l="en" lang="en">needs work</span> <b>3</b></li></ul>
+      </figure>
+      <figure class="db-card">
+        <figcaption><b><span data-l="ru">Tone of voice: деловой и про действие</span><span data-l="en" lang="en">Tone of voice: businesslike, action-driven</span></b><span><span data-l="ru">маркеры на 1 000 слов, среднее</span><span data-l="en" lang="en">markers per 1,000 words, mean</span></span></figcaption>
+        <ul class="db-tone"><li><span class="db-tn"><span data-l="ru">деловая лексика</span><span data-l="en" lang="en">business vocabulary</span></span><span class="db-tb"><i style="width:97.0%"></i></span><span class="db-tv"><span data-l="ru">48,5</span><span data-l="en" lang="en">48.5</span></span></li><li><span class="db-tn"><span data-l="ru">действие, результат</span><span data-l="en" lang="en">action, result</span></span><span class="db-tb"><i style="width:34.2%"></i></span><span class="db-tv"><span data-l="ru">17,1</span><span data-l="en" lang="en">17.1</span></span></li><li><span class="db-tn"><span data-l="ru">сотрудничество</span><span data-l="en" lang="en">collaboration</span></span><span class="db-tb"><i style="width:28.0%"></i></span><span class="db-tv"><span data-l="ru">14,0</span><span data-l="en" lang="en">14.0</span></span></li><li><span class="db-tn"><span data-l="ru">проблемы и риски</span><span data-l="en" lang="en">problems and risks</span></span><span class="db-tb"><i style="width:12.2%"></i></span><span class="db-tv"><span data-l="ru">6,1</span><span data-l="en" lang="en">6.1</span></span></li><li><span class="db-tn"><span data-l="ru">жёсткая модальность</span><span data-l="en" lang="en">firm modality</span></span><span class="db-tb"><i style="width:7.2%"></i></span><span class="db-tv"><span data-l="ru">3,6</span><span data-l="en" lang="en">3.6</span></span></li><li><span class="db-tn"><span data-l="ru">первое лицо</span><span data-l="en" lang="en">first person</span></span><span class="db-tb"><i style="width:3.0%"></i></span><span class="db-tv"><span data-l="ru">1,5</span><span data-l="en" lang="en">1.5</span></span></li><li><span class="db-tn"><span data-l="ru">эмоции</span><span data-l="en" lang="en">emotion</span></span><span class="db-tb"><i style="width:1.4%"></i></span><span class="db-tv"><span data-l="ru">0,7</span><span data-l="en" lang="en">0.7</span></span></li><li><span class="db-tn"><span data-l="ru">смягчение</span><span data-l="en" lang="en">hedging</span></span><span class="db-tb"><i style="width:0.8%"></i></span><span class="db-tv"><span data-l="ru">0,4</span><span data-l="en" lang="en">0.4</span></span></li></ul>
+      </figure>
+    </div>
+  </div>
+  <p class="db-note"><span data-l="ru">Данные обезличены: это объём работы команды, а не рейтинг руководителей.</span><span data-l="en" lang="en">Data is anonymised: this shows the team’s effort, not a ranking of managers.</span></p>
+  <footer class="foot"><span><span data-l="ru">Стратегическая сессия №3</span><span data-l="en" lang="en">Strategy session #3</span> · <span class="n">1</span></span></footer>
+</div></section>
 
-<section class="slide" id="f01"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">14</span></aside><div class="body">
+<section class="slide" id="f01"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">15</span></aside><div class="body">
   <header class="head">
     <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Портфолио функции</span><span data-l="en" lang="en">Function portfolio</span></span><span class="eyebrow-end"><span class="chip gA"><span data-l="ru">Уникальная</span><span data-l="en" lang="en">Unique</span></span><button type="button" class="close" data-hide="f01" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
     <h2><span data-l="ru">Департамент логистики</span><span data-l="en" lang="en">Logistics Department</span></h2>
@@ -839,7 +1139,7 @@ h3 em.acc{font-size:1.08em;}
   </div>
   <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">1</span></span></footer>
 </div></section>
-<section class="slide" id="f02"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">15</span></aside><div class="body">
+<section class="slide" id="f02"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">16</span></aside><div class="body">
   <header class="head">
     <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Портфолио функции</span><span data-l="en" lang="en">Function portfolio</span></span><span class="eyebrow-end"><span class="chip gA"><span data-l="ru">Уникальная</span><span data-l="en" lang="en">Unique</span></span><button type="button" class="close" data-hide="f02" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
     <h2><span data-l="ru">Финансовый контроль и прогнозирование</span><span data-l="en" lang="en">Financial Control and Forecasting</span></h2>
@@ -858,9 +1158,28 @@ h3 em.acc{font-size:1.08em;}
   </div>
   <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">2</span></span></footer>
 </div></section>
-<section class="slide" id="f03"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">16</span></aside><div class="body">
+<section class="slide" id="f03"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">17</span></aside><div class="body">
   <header class="head">
-    <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Портфолио функции</span><span data-l="en" lang="en">Function portfolio</span></span><span class="eyebrow-end"><span class="chip gA"><span data-l="ru">Уникальная</span><span data-l="en" lang="en">Unique</span></span><button type="button" class="close" data-hide="f03" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
+    <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Портфолио функции</span><span data-l="en" lang="en">Function portfolio</span></span><span class="eyebrow-end"><span class="chip gC"><span data-l="ru">Пересечение: Финконтроль (бюджеты, денежные потоки)</span><span data-l="en" lang="en">Overlap: Financial Control (budgets, cash flow)</span></span><button type="button" class="close" data-hide="f03" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
+    <h2><span data-l="ru">Бухгалтерский учёт</span><span data-l="en" lang="en">Accounting</span></h2>
+    <p class="sub"><span data-l="ru">Главная бухгалтерия · финансовая дирекция</span><span data-l="en" lang="en">Chief accountant’s office · finance directorate</span></p>
+  </header>
+  <div class="cols">
+    <div class="left">
+      <h3><span data-l="ru">Текущие <em class="acc">задачи</em></span><span data-l="en" lang="en">Current <em class="acc">tasks</em></span></h3>
+      <ol class="tasks"><li><span data-l="ru">Полнота и достоверность учёта хозяйственных операций</span><span data-l="en" lang="en">Complete and accurate recording of business transactions</span></li><li><span data-l="ru">Контроль первичных документов</span><span data-l="en" lang="en">Control of primary documents</span></li><li><span data-l="ru">Бухгалтерская, налоговая и статистическая отчётность</span><span data-l="en" lang="en">Financial, tax and statistical reporting</span></li><li><span data-l="ru">Сопровождение внутреннего и внешнего аудита</span><span data-l="en" lang="en">Support for internal and external audits</span></li><li><span data-l="ru">Расчёт налогов и взносов, декларации</span><span data-l="en" lang="en">Tax and contribution calculation, tax returns</span></li><li><span data-l="ru">Налоговое планирование и сопровождение проверок</span><span data-l="en" lang="en">Tax planning and support during inspections</span></li><li><span data-l="ru">Хранение документов и передача в архив</span><span data-l="en" lang="en">Document retention and archiving</span></li></ol>
+      <p class="extra"><b><span data-l="ru">Также в зоне ответственности:</span><span data-l="en" lang="en">Also in scope:</span></b> <span data-l="ru">внутренний контроль, расчёты по оплате труда и инвентаризации, финансовый анализ, бюджетирование и денежные потоки, консультирование руководства.</span><span data-l="en" lang="en">internal control, payroll and inventory checks, financial analysis, budgeting and cash flow, advising management.</span></p>
+    </div>
+    <div class="right">
+      <div class="box zone"><h4><span data-l="ru">Спорная зона</span><span data-l="en" lang="en">Disputed area</span></h4><p><span data-l="ru">По оценке функции спорных зон нет. При этом бюджетирование и управление денежными потоками бухгалтерия относит к своей зоне — так же, как и финансовый контроль.</span><span data-l="en" lang="en">The function reports no disputed areas. Yet Accounting lists budgeting and cash-flow management as its own scope, just as Financial Control does.</span></p></div>
+      <div class="box conf"><h4><span data-l="ru">Конфликты</span><span data-l="en" lang="en">Conflicts</span></h4><p><span data-l="ru">По оценке функции все конфликты решаются, конкретные смежники не названы. Для развития нужны единая система финансово-складского учёта и бюджетирование всех департаментов.</span><span data-l="en" lang="en">The function says all conflicts get resolved and names no counterparts. It needs a single finance and inventory accounting system and budgeting for all departments.</span></p></div>
+    </div>
+  </div>
+  <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">3</span></span></footer>
+</div></section>
+<section class="slide" id="f04"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">18</span></aside><div class="body">
+  <header class="head">
+    <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Портфолио функции</span><span data-l="en" lang="en">Function portfolio</span></span><span class="eyebrow-end"><span class="chip gA"><span data-l="ru">Уникальная</span><span data-l="en" lang="en">Unique</span></span><button type="button" class="close" data-hide="f04" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
     <h2><span data-l="ru">Процессный офис</span><span data-l="en" lang="en">Process Office</span></h2>
     <p class="sub"><span data-l="ru">Офис Эволюции · моделирование бизнес-процессов</span><span data-l="en" lang="en">Evolution Office · business process modelling</span></p>
   </header>
@@ -875,11 +1194,11 @@ h3 em.acc{font-size:1.08em;}
       <div class="box conf"><h4><span data-l="ru">Конфликты</span><span data-l="en" lang="en">Conflicts</span></h4><p><span data-l="ru">Пока не возникают. Подразделению меньше месяца.</span><span data-l="en" lang="en">None so far. The unit is less than a month old.</span></p></div>
     </div>
   </div>
-  <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">3</span></span></footer>
+  <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">4</span></span></footer>
 </div></section>
-<section class="slide" id="f04"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">17</span></aside><div class="body">
+<section class="slide" id="f05"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">19</span></aside><div class="body">
   <header class="head">
-    <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Портфолио функции</span><span data-l="en" lang="en">Function portfolio</span></span><span class="eyebrow-end"><span class="chip gA"><span data-l="ru">Уникальная</span><span data-l="en" lang="en">Unique</span></span><button type="button" class="close" data-hide="f04" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
+    <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Портфолио функции</span><span data-l="en" lang="en">Function portfolio</span></span><span class="eyebrow-end"><span class="chip gA"><span data-l="ru">Уникальная</span><span data-l="en" lang="en">Unique</span></span><button type="button" class="close" data-hide="f05" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
     <h2><span data-l="ru">Выход на новые рынки</span><span data-l="en" lang="en">New Market Entry</span></h2>
     <p class="sub"><span data-l="ru">International Expansion / Market Entry</span><span data-l="en" lang="en">International Expansion / Market Entry</span></p>
   </header>
@@ -894,11 +1213,11 @@ h3 em.acc{font-size:1.08em;}
       <div class="box conf"><h4><span data-l="ru">Конфликты</span><span data-l="en" lang="en">Conflicts</span></h4><p><span data-l="ru">Существенных нет. Сроки этапов зависят от загрузки и приоритетов Legal, Regulatory, маркетинга, IT, финансов и логистики.</span><span data-l="en" lang="en">No significant conflicts. Stage timelines depend on the workload and priorities of Legal, Regulatory, Marketing, IT, Finance and Logistics.</span></p></div>
     </div>
   </div>
-  <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">4</span></span></footer>
+  <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">5</span></span></footer>
 </div></section>
-<section class="slide" id="f05"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">18</span></aside><div class="body">
+<section class="slide" id="f06"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">20</span></aside><div class="body">
   <header class="head">
-    <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Портфолио функции</span><span data-l="en" lang="en">Function portfolio</span></span><span class="eyebrow-end"><span class="chip gA"><span data-l="ru">Уникальная</span><span data-l="en" lang="en">Unique</span></span><button type="button" class="close" data-hide="f05" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
+    <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Портфолио функции</span><span data-l="en" lang="en">Function portfolio</span></span><span class="eyebrow-end"><span class="chip gA"><span data-l="ru">Уникальная</span><span data-l="en" lang="en">Unique</span></span><button type="button" class="close" data-hide="f06" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
     <h2><span data-l="ru">Стратегические партнёрства</span><span data-l="en" lang="en">Strategic Partnerships</span></h2>
     <p class="sub"><span data-l="ru">Партнёры, сервис-провайдеры, отраслевые ассоциации</span><span data-l="en" lang="en">Partners, service providers, industry associations</span></p>
   </header>
@@ -913,11 +1232,11 @@ h3 em.acc{font-size:1.08em;}
       <div class="box conf"><h4><span data-l="ru">Конфликты</span><span data-l="en" lang="en">Conflicts</span></h4><p><span data-l="ru">После запуска не назначен владелец партнёрства, и операционная коммуникация продолжает идти через функцию. Нужен partnership owner на каждое партнёрство.</span><span data-l="en" lang="en">No owner is assigned after launch, so day-to-day communication keeps going through the function. Each partnership needs a named partnership owner.</span></p></div>
     </div>
   </div>
-  <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">5</span></span></footer>
+  <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">6</span></span></footer>
 </div></section>
-<section class="slide" id="f06"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">19</span></aside><div class="body">
+<section class="slide" id="f07"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">21</span></aside><div class="body">
   <header class="head">
-    <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Портфолио функции</span><span data-l="en" lang="en">Function portfolio</span></span><span class="eyebrow-end"><span class="chip gA"><span data-l="ru">Уникальная · сервис ивент-функции</span><span data-l="en" lang="en">Unique · service within Events</span></span><button type="button" class="close" data-hide="f06" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
+    <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Портфолио функции</span><span data-l="en" lang="en">Function portfolio</span></span><span class="eyebrow-end"><span class="chip gA"><span data-l="ru">Уникальная · сервис ивент-функции</span><span data-l="en" lang="en">Unique · service within Events</span></span><button type="button" class="close" data-hide="f07" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
     <h2><span data-l="ru">Events: переводы</span><span data-l="en" lang="en">Events: Interpretation</span></h2>
     <p class="sub"><span data-l="ru">Синхронные и AI-переводы мероприятий</span><span data-l="en" lang="en">Simultaneous and AI interpretation for events</span></p>
   </header>
@@ -932,11 +1251,11 @@ h3 em.acc{font-size:1.08em;}
       <div class="box conf"><h4><span data-l="ru">Конфликты</span><span data-l="en" lang="en">Conflicts</span></h4><p><span data-l="ru">На локальных мероприятиях функцию просят лично связываться с переводчиками, хотя база общая. Бюджет утверждают до получения реальных смет.</span><span data-l="en" lang="en">For local events, people still ask the function to contact interpreters personally, although the database is shared. Budgets are approved before real quotes arrive.</span></p></div>
     </div>
   </div>
-  <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">6</span></span></footer>
+  <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">7</span></span></footer>
 </div></section>
-<section class="slide" id="f07"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">20</span></aside><div class="body">
+<section class="slide" id="f08"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">22</span></aside><div class="body">
   <header class="head">
-    <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Портфолио функции</span><span data-l="en" lang="en">Function portfolio</span></span><span class="eyebrow-end"><span class="chip gA"><span data-l="ru">Уникальная · много стыков</span><span data-l="en" lang="en">Unique · many interfaces</span></span><button type="button" class="close" data-hide="f07" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
+    <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Портфолио функции</span><span data-l="en" lang="en">Function portfolio</span></span><span class="eyebrow-end"><span class="chip gA"><span data-l="ru">Уникальная · много стыков</span><span data-l="en" lang="en">Unique · many interfaces</span></span><button type="button" class="close" data-hide="f08" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
     <h2><span data-l="ru">Планирование и снабжение</span><span data-l="en" lang="en">Planning and Supply</span></h2>
     <p class="sub"><span data-l="ru">Прогноз, планирование, снабжение, закупки</span><span data-l="en" lang="en">Forecasting, planning, supply, procurement</span></p>
   </header>
@@ -951,11 +1270,30 @@ h3 em.acc{font-size:1.08em;}
       <div class="box conf"><h4><span data-l="ru">Конфликты</span><span data-l="en" lang="en">Conflicts</span></h4><p><span data-l="ru">Логистика: статусы и сроки прибытия не обновляются. Operations: границы по складам и снабжению ИМ. Реклама: упаковка без владельца. Маркетинг и ДПД: акции без согласования с планированием.</span><span data-l="en" lang="en">Logistics: arrival statuses and dates aren&#x27;t updated. Operations: unclear split on warehouses and online-store supply. Advertising: packaging has no owner. Marketing and DSD: promotions launched without planning sign-off.</span></p></div>
     </div>
   </div>
-  <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">7</span></span></footer>
+  <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">8</span></span></footer>
 </div></section>
-<section class="slide" id="f08"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">21</span></aside><div class="body">
+<section class="slide" id="f09"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">23</span></aside><div class="body">
   <header class="head">
-    <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Портфолио функции</span><span data-l="en" lang="en">Function portfolio</span></span><span class="eyebrow-end"><span class="chip gB"><span data-l="ru">Локальные команды ДПД не описаны</span><span data-l="en" lang="en">Local DSD teams not surveyed</span></span><button type="button" class="close" data-hide="f08" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
+    <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Портфолио функции</span><span data-l="en" lang="en">Function portfolio</span></span><span class="eyebrow-end"><span class="chip gL"><span data-l="ru">Часть контура «Планирование и снабжение»</span><span data-l="en" lang="en">Part of the Planning and Supply chain</span></span><button type="button" class="close" data-hide="f09" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
+    <h2><span data-l="ru">Закупки</span><span data-l="en" lang="en">Procurement</span></h2>
+    <p class="sub"><span data-l="ru">Отдел закупок · департамент планирования и снабжения</span><span data-l="en" lang="en">Procurement team · Planning and Supply Department</span></p>
+  </header>
+  <div class="cols">
+    <div class="left">
+      <h3><span data-l="ru">Текущие <em class="acc">задачи</em></span><span data-l="en" lang="en">Current <em class="acc">tasks</em></span></h3>
+      <ol class="tasks"><li><span data-l="ru">Размещение повторных заказов у производителей по заявкам планирования</span><span data-l="en" lang="en">Placing repeat orders with manufacturers based on planning requests</span></li><li><span data-l="ru">Сопровождение заказов до готовности: сроки, переносы, статусы</span><span data-l="en" lang="en">Following orders to readiness: timelines, delays, statuses</span></li><li><span data-l="ru">Пилотные заказы и новые продукты</span><span data-l="en" lang="en">Pilot orders and new products</span></li><li><span data-l="ru">Передача готовых заказов в логистику</span><span data-l="en" lang="en">Handing ready orders over to Logistics</span></li><li><span data-l="ru">Счета, оплаты, сверки, предоплаты и credit notes</span><span data-l="en" lang="en">Invoices, payments, reconciliations, prepayments and credit notes</span></li><li><span data-l="ru">Договоры с производителями и прогнозы для них</span><span data-l="en" lang="en">Manufacturer contracts and forecasts</span></li><li><span data-l="ru">Данные в ERP, рекламации, аналитика по заказам</span><span data-l="en" lang="en">ERP data, claims, order analytics</span></li></ol>
+      <p class="extra"><b><span data-l="ru">Проектные:</span><span data-l="en" lang="en">Project-based:</span></b> <span data-l="ru">перестройка процессов, автоматизация в ERP, KPI и архитектура функции, перезаключение договоров с давними производителями на лучших условиях.</span><span data-l="en" lang="en">process redesign, ERP automation, KPIs and function design, re-signing contracts with long-standing manufacturers on better terms.</span></p>
+    </div>
+    <div class="right">
+      <div class="box zone"><h4><span data-l="ru">Спорная зона</span><span data-l="en" lang="en">Disputed area</span></h4><p><span data-l="ru">Логистика: момент передачи готового заказа. Финансы: закупки ежедневно добиваются согласования счёта. Legal: коммерческие условия или юридическая редакция. ИТ: требования к автоматизации закупки пишут сами. Согласование изменения цен ещё в разработке.</span><span data-l="en" lang="en">Logistics: the hand-over point for a ready order. Finance: Procurement chases invoice approval daily. Legal: commercial terms vs legal wording. IT: Procurement writes its own automation requirements. The price-change approval process is still being designed.</span></p></div>
+      <div class="box conf"><h4><span data-l="ru">Конфликты</span><span data-l="en" lang="en">Conflicts</span></h4><p><span data-l="ru">Финансы: просроченная оплата. Логистика: граница «заказ готов и передан». Новые продукты, качество, сертификация: задержки решений по образцу выглядят как задержка закупок. Главное — нет точек входа и выхода, SLA и владельца решения на стыках.</span><span data-l="en" lang="en">Finance: late payments. Logistics: the “ready and handed over” boundary. New products, Quality, Certification: delayed sample decisions look like procurement delays. The core issue: no entry and exit points, SLAs or decision owners at the interfaces.</span></p></div>
+    </div>
+  </div>
+  <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">9</span></span></footer>
+</div></section>
+<section class="slide" id="f10"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">24</span></aside><div class="body">
+  <header class="head">
+    <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Портфолио функции</span><span data-l="en" lang="en">Function portfolio</span></span><span class="eyebrow-end"><span class="chip gB"><span data-l="ru">Локальные команды ДПД не описаны</span><span data-l="en" lang="en">Local DSD teams not surveyed</span></span><button type="button" class="close" data-hide="f10" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
     <h2><span data-l="ru">ДПД</span><span data-l="en" lang="en">Distributor Support</span></h2>
     <p class="sub"><span data-l="ru">Департамент поддержки дистрибьюторов</span><span data-l="en" lang="en">Distributor Support Department (DSD)</span></p>
   </header>
@@ -970,11 +1308,11 @@ h3 em.acc{font-size:1.08em;}
       <div class="box conf"><h4><span data-l="ru">Конфликты</span><span data-l="en" lang="en">Conflicts</span></h4><p><span data-l="ru">Департамент обучения, мероприятия, руководители дивизионов: нет чётких зон ответственности, процесса и ролей.</span><span data-l="en" lang="en">Training Department, Events, division heads: no clear responsibilities, process or roles.</span></p></div>
     </div>
   </div>
-  <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">8</span></span></footer>
+  <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">10</span></span></footer>
 </div></section>
-<section class="slide" id="f09"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">22</span></aside><div class="body">
+<section class="slide" id="f11"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">25</span></aside><div class="body">
   <header class="head">
-    <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Портфолио функции</span><span data-l="en" lang="en">Function portfolio</span></span><span class="eyebrow-end"><span class="chip gB"><span data-l="ru">Локальные CS-команды не описаны · пересечение с CX</span><span data-l="en" lang="en">Local CS teams not surveyed · overlaps CX</span></span><button type="button" class="close" data-hide="f09" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
+    <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Портфолио функции</span><span data-l="en" lang="en">Function portfolio</span></span><span class="eyebrow-end"><span class="chip gB"><span data-l="ru">Локальные CS-команды не описаны · пересечение с CX</span><span data-l="en" lang="en">Local CS teams not surveyed · overlaps CX</span></span><button type="button" class="close" data-hide="f11" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
     <h2><span data-l="ru">Customer Service</span><span data-l="en" lang="en">Customer Service</span></h2>
     <p class="sub"><span data-l="ru">Функция клиентского обслуживания, HQ</span><span data-l="en" lang="en">Customer service function, HQ</span></p>
   </header>
@@ -989,11 +1327,11 @@ h3 em.acc{font-size:1.08em;}
       <div class="box conf"><h4><span data-l="ru">Конфликты</span><span data-l="en" lang="en">Conflicts</span></h4><p><span data-l="ru">Задачи, мелкие для бизнеса, но важные для клиента, попадают в конец очереди eCom и IT и висят неделями или месяцами.</span><span data-l="en" lang="en">Tasks that are small for the business but matter to customers land at the bottom of the eCom and IT backlog and wait for weeks or months.</span></p></div>
     </div>
   </div>
-  <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">9</span></span></footer>
+  <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">11</span></span></footer>
 </div></section>
-<section class="slide" id="f10"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">23</span></aside><div class="body">
+<section class="slide" id="f12"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">26</span></aside><div class="body">
   <header class="head">
-    <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Портфолио функции</span><span data-l="en" lang="en">Function portfolio</span></span><span class="eyebrow-end"><span class="chip gB"><span data-l="ru">Europe Marketing не описан · пересечение с ДО и ДПД</span><span data-l="en" lang="en">Europe Marketing not surveyed · overlaps Training and DSD</span></span><button type="button" class="close" data-hide="f10" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
+    <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Портфолио функции</span><span data-l="en" lang="en">Function portfolio</span></span><span class="eyebrow-end"><span class="chip gB"><span data-l="ru">Europe Marketing не описан · пересечение с ДО и ДПД</span><span data-l="en" lang="en">Europe Marketing not surveyed · overlaps Training and DSD</span></span><button type="button" class="close" data-hide="f12" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
     <h2><span data-l="ru">Департамент маркетинга</span><span data-l="en" lang="en">Marketing Department</span></h2>
     <p class="sub"><span data-l="ru">Маркетинг HQ</span><span data-l="en" lang="en">HQ marketing</span></p>
   </header>
@@ -1008,11 +1346,11 @@ h3 em.acc{font-size:1.08em;}
       <div class="box conf"><h4><span data-l="ru">Конфликты</span><span data-l="en" lang="en">Conflicts</span></h4><p><span data-l="ru">ДПД: акции, промо для ОПК и пресейлы передают без планирования ресурсов. PR: задачи без ТЗ. Ивент: не принимают готовые материалы, спорят с брендбуком.</span><span data-l="en" lang="en">DSD: promotions, club-office promos and pre-sales are handed over without resource planning. PR: tasks come without a brief. Events: finished materials aren&#x27;t accepted, brand book is disputed.</span></p></div>
     </div>
   </div>
-  <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">10</span></span></footer>
+  <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">12</span></span></footer>
 </div></section>
-<section class="slide" id="f11"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">24</span></aside><div class="body">
+<section class="slide" id="f13"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">27</span></aside><div class="body">
   <header class="head">
-    <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Портфолио функции</span><span data-l="en" lang="en">Function portfolio</span></span><span class="eyebrow-end"><span class="chip gL"><span data-l="ru">Двойник: Юридический департамент HQ</span><span data-l="en" lang="en">Counterpart: Legal Department HQ</span></span><button type="button" class="close" data-hide="f11" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
+    <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Портфолио функции</span><span data-l="en" lang="en">Function portfolio</span></span><span class="eyebrow-end"><span class="chip gL"><span data-l="ru">Двойник: Юридический департамент HQ</span><span data-l="en" lang="en">Counterpart: Legal Department HQ</span></span><button type="button" class="close" data-hide="f13" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
     <h2><span data-l="ru">Legal поддержка EU &amp; US</span><span data-l="en" lang="en">Legal Support EU &amp; US</span></h2>
     <p class="sub"><span data-l="ru">Европа, США, Канада</span><span data-l="en" lang="en">Europe, USA, Canada</span></p>
   </header>
@@ -1027,11 +1365,11 @@ h3 em.acc{font-size:1.08em;}
       <div class="box conf"><h4><span data-l="ru">Конфликты</span><span data-l="en" lang="en">Conflicts</span></h4><p><span data-l="ru">Практически нет. Проблема в долгих финальных согласованиях и замечаниях коллег на основе ChatGPT без проверки по первоисточнику.</span><span data-l="en" lang="en">Almost none. The issues are slow final approvals and colleagues&#x27; ChatGPT-based comments not checked against primary sources.</span></p></div>
     </div>
   </div>
-  <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">11</span></span></footer>
+  <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">13</span></span></footer>
 </div></section>
-<section class="slide" id="f12"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">25</span></aside><div class="body">
+<section class="slide" id="f14"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">28</span></aside><div class="body">
   <header class="head">
-    <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Портфолио функции</span><span data-l="en" lang="en">Function portfolio</span></span><span class="eyebrow-end"><span class="chip gL"><span data-l="ru">Двойник: Legal поддержка EU &amp; US</span><span data-l="en" lang="en">Counterpart: Legal Support EU &amp; US</span></span><button type="button" class="close" data-hide="f12" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
+    <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Портфолио функции</span><span data-l="en" lang="en">Function portfolio</span></span><span class="eyebrow-end"><span class="chip gL"><span data-l="ru">Двойник: Legal поддержка EU &amp; US</span><span data-l="en" lang="en">Counterpart: Legal Support EU &amp; US</span></span><button type="button" class="close" data-hide="f14" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
     <h2><span data-l="ru">Юридический департамент</span><span data-l="en" lang="en">Legal Department</span></h2>
     <p class="sub"><span data-l="ru">Правовое обеспечение компании, HQ</span><span data-l="en" lang="en">Company legal function, HQ</span></p>
   </header>
@@ -1046,11 +1384,11 @@ h3 em.acc{font-size:1.08em;}
       <div class="box conf"><h4><span data-l="ru">Конфликты</span><span data-l="en" lang="en">Conflicts</span></h4><p><span data-l="ru">Финансы, операционный департамент, маркетинг, УК. Суть конфликта в анкете не раскрыта.</span><span data-l="en" lang="en">Finance, Operations, Marketing, property management company. The nature of the conflict is not described in the questionnaire.</span></p></div>
     </div>
   </div>
-  <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">12</span></span></footer>
+  <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">14</span></span></footer>
 </div></section>
-<section class="slide" id="f13"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">26</span></aside><div class="body">
+<section class="slide" id="f15"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">29</span></aside><div class="body">
   <header class="head">
-    <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Портфолио функции</span><span data-l="en" lang="en">Function portfolio</span></span><span class="eyebrow-end"><span class="chip gB"><span data-l="ru">Граница HQ / регион не описана</span><span data-l="en" lang="en">HQ / region boundary undefined</span></span><button type="button" class="close" data-hide="f13" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
+    <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Портфолио функции</span><span data-l="en" lang="en">Function portfolio</span></span><span class="eyebrow-end"><span class="chip gB"><span data-l="ru">Граница HQ / регион не описана</span><span data-l="en" lang="en">HQ / region boundary undefined</span></span><button type="button" class="close" data-hide="f15" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
     <h2><span data-l="ru">Департамент обучения</span><span data-l="en" lang="en">Training Department</span></h2>
     <p class="sub"><span data-l="ru">Training Department, HQ</span><span data-l="en" lang="en">Training Department, HQ</span></p>
   </header>
@@ -1065,11 +1403,11 @@ h3 em.acc{font-size:1.08em;}
       <div class="box conf"><h4><span data-l="ru">Конфликты</span><span data-l="en" lang="en">Conflicts</span></h4><p><span data-l="ru">ДПД не воспринимает обучение как инструмент роста. С маркетингом связка ресурсная, ДО всегда в роли PM. Инициативы с обучающим компонентом запускают без ДО.</span><span data-l="en" lang="en">DSD doesn&#x27;t see training as a growth tool. With Marketing the link is resource-only, and Training always acts as PM. Initiatives with a learning component launch without Training.</span></p></div>
     </div>
   </div>
-  <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">13</span></span></footer>
+  <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">15</span></span></footer>
 </div></section>
-<section class="slide" id="f14"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">27</span></aside><div class="body">
+<section class="slide" id="f16"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">30</span></aside><div class="body">
   <header class="head">
-    <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Портфолио функции</span><span data-l="en" lang="en">Function portfolio</span></span><span class="eyebrow-end"><span class="chip gC"><span data-l="ru">Кластер «Клиент»: CX · CS · eCom</span><span data-l="en" lang="en">“Customer” cluster: CX · CS · eCom</span></span><button type="button" class="close" data-hide="f14" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
+    <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Портфолио функции</span><span data-l="en" lang="en">Function portfolio</span></span><span class="eyebrow-end"><span class="chip gC"><span data-l="ru">Кластер «Клиент»: CX · CS · eCom</span><span data-l="en" lang="en">“Customer” cluster: CX · CS · eCom</span></span><button type="button" class="close" data-hide="f16" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
     <h2><span data-l="ru">Customer Experience</span><span data-l="en" lang="en">Customer Experience</span></h2>
     <p class="sub"><span data-l="ru">Функция клиентского опыта, HQ</span><span data-l="en" lang="en">Customer experience function, HQ</span></p>
   </header>
@@ -1084,11 +1422,11 @@ h3 em.acc{font-size:1.08em;}
       <div class="box conf"><h4><span data-l="ru">Конфликты</span><span data-l="en" lang="en">Conflicts</span></h4><p><span data-l="ru">Нет обязательного процесса discovery → delivery → measurement. eCom и IT начинают без валидированной проблемы. Нет владельца Communication Chain. HQ и локальные команды по-разному понимают стандарты.</span><span data-l="en" lang="en">No mandatory discovery → delivery → measurement process. eCom and IT start without a validated problem. No owner of the communication chain. HQ and local teams read standards differently.</span></p></div>
     </div>
   </div>
-  <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">14</span></span></footer>
+  <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">16</span></span></footer>
 </div></section>
-<section class="slide" id="f15"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">28</span></aside><div class="body">
+<section class="slide" id="f17"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">31</span></aside><div class="body">
   <header class="head">
-    <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Портфолио функции</span><span data-l="en" lang="en">Function portfolio</span></span><span class="eyebrow-end"><span class="chip gC"><span data-l="ru">Кластер «Клиент»: CX · CS · eCom</span><span data-l="en" lang="en">“Customer” cluster: CX · CS · eCom</span></span><button type="button" class="close" data-hide="f15" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
+    <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Портфолио функции</span><span data-l="en" lang="en">Function portfolio</span></span><span class="eyebrow-end"><span class="chip gC"><span data-l="ru">Кластер «Клиент»: CX · CS · eCom</span><span data-l="en" lang="en">“Customer” cluster: CX · CS · eCom</span></span><button type="button" class="close" data-hide="f17" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
     <h2><span data-l="ru">Электронная коммерция и цифровые продукты</span><span data-l="en" lang="en">E-commerce and Digital Products</span></h2>
     <p class="sub"><span data-l="ru">Департамент eCom</span><span data-l="en" lang="en">eCom Department</span></p>
   </header>
@@ -1103,11 +1441,11 @@ h3 em.acc{font-size:1.08em;}
       <div class="box conf"><h4><span data-l="ru">Конфликты</span><span data-l="en" lang="en">Conflicts</span></h4><p><span data-l="ru">Нет правила, кто ведёт discovery общего трека. Разделение CRM с маркетингом не задокументировано. Статусная модель заказа — с Операциями. Курьерский шлюз — с логистикой дивизионов.</span><span data-l="en" lang="en">No rule on who leads discovery for a shared track. The CRM split with Marketing isn&#x27;t documented. Order status model is shared with Operations. Courier gateway is shared with divisional logistics.</span></p></div>
     </div>
   </div>
-  <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">15</span></span></footer>
+  <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">17</span></span></footer>
 </div></section>
-<section class="slide" id="f16"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">29</span></aside><div class="body">
+<section class="slide" id="f18"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">32</span></aside><div class="body">
   <header class="head">
-    <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Портфолио функции</span><span data-l="en" lang="en">Function portfolio</span></span><span class="eyebrow-end"><span class="chip gC"><span data-l="ru">Пересечение: eCom · CX · CS</span><span data-l="en" lang="en">Overlaps: eCom · CX · CS</span></span><button type="button" class="close" data-hide="f16" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
+    <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Портфолио функции</span><span data-l="en" lang="en">Function portfolio</span></span><span class="eyebrow-end"><span class="chip gC"><span data-l="ru">Пересечение: eCom · CX · CS</span><span data-l="en" lang="en">Overlaps: eCom · CX · CS</span></span><button type="button" class="close" data-hide="f18" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
     <h2><span data-l="ru">Управление ИТ</span><span data-l="en" lang="en">IT Management</span></h2>
     <p class="sub"><span data-l="ru">ИТ-стратегия, разработка, эксплуатация</span><span data-l="en" lang="en">IT strategy, delivery and operations</span></p>
   </header>
@@ -1122,11 +1460,11 @@ h3 em.acc{font-size:1.08em;}
       <div class="box conf"><h4><span data-l="ru">Конфликты</span><span data-l="en" lang="en">Conflicts</span></h4><p><span data-l="ru">Бизнес приносит сырые требования и ждёт бизнес-решений от ИТ. eCom меняет запросы без приоритета и приёмки. Размыта ответственность Product за delivery. Нет владельцев качества данных.</span><span data-l="en" lang="en">The business brings raw requirements and expects IT to make business decisions. eCom changes requests without priority or acceptance. Product accountability for delivery is blurred. Data quality has no owners.</span></p></div>
     </div>
   </div>
-  <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">16</span></span></footer>
+  <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">18</span></span></footer>
 </div></section>
-<section class="slide" id="f17"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">30</span></aside><div class="body">
+<section class="slide" id="f19"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">33</span></aside><div class="body">
   <header class="head">
-    <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Портфолио функции</span><span data-l="en" lang="en">Function portfolio</span></span><span class="eyebrow-end"><span class="chip gC"><span data-l="ru">Пересечение по макетам: Маркетинг · eCom · Claims</span><span data-l="en" lang="en">Overlap on layouts: Marketing · eCom · Claims</span></span><button type="button" class="close" data-hide="f17" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
+    <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Портфолио функции</span><span data-l="en" lang="en">Function portfolio</span></span><span class="eyebrow-end"><span class="chip gC"><span data-l="ru">Пересечение по макетам: Маркетинг · eCom · Claims</span><span data-l="en" lang="en">Overlap on layouts: Marketing · eCom · Claims</span></span><button type="button" class="close" data-hide="f19" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
     <h2><span data-l="ru">Сертификация и качество</span><span data-l="en" lang="en">Certification and Quality</span></h2>
     <p class="sub"><span data-l="ru">Регистрация продукции и контроль качества</span><span data-l="en" lang="en">Product registration and quality control</span></p>
   </header>
@@ -1141,11 +1479,11 @@ h3 em.acc{font-size:1.08em;}
       <div class="box conf"><h4><span data-l="ru">Конфликты</span><span data-l="en" lang="en">Conflicts</span></h4><p><span data-l="ru">Операционный департамент и eCom: сложности в коммуникации при удовлетворении претензий потребителей.</span><span data-l="en" lang="en">Operations and eCom: communication difficulties when resolving consumer complaints.</span></p></div>
     </div>
   </div>
-  <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">17</span></span></footer>
+  <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">19</span></span></footer>
 </div></section>
-<section class="slide" id="f18"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">31</span></aside><div class="body">
+<section class="slide" id="f20"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">34</span></aside><div class="body">
   <header class="head">
-    <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Портфолио функции</span><span data-l="en" lang="en">Function portfolio</span></span><span class="eyebrow-end"><span class="chip gC"><span data-l="ru">Пересечение: ИТ (портфель) · Процессный офис</span><span data-l="en" lang="en">Overlap: IT (portfolio) · Process Office</span></span><button type="button" class="close" data-hide="f18" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
+    <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Портфолио функции</span><span data-l="en" lang="en">Function portfolio</span></span><span class="eyebrow-end"><span class="chip gC"><span data-l="ru">Пересечение: ИТ (портфель) · Процессный офис</span><span data-l="en" lang="en">Overlap: IT (portfolio) · Process Office</span></span><button type="button" class="close" data-hide="f20" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
     <h2><span data-l="ru">Проектный офис</span><span data-l="en" lang="en">Project Office</span></h2>
     <p class="sub"><span data-l="ru">Офис Эволюции · управление портфелем проектов</span><span data-l="en" lang="en">Evolution Office · project portfolio management</span></p>
   </header>
@@ -1160,11 +1498,11 @@ h3 em.acc{font-size:1.08em;}
       <div class="box conf"><h4><span data-l="ru">Конфликты</span><span data-l="en" lang="en">Conflicts</span></h4><p><span data-l="ru">По оценке функции конфликта нет. ИТ со своей стороны называет пересечение в управлении портфелем.</span><span data-l="en" lang="en">The function reports no conflict. IT, from its side, names an overlap in portfolio management.</span></p></div>
     </div>
   </div>
-  <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">18</span></span></footer>
+  <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">20</span></span></footer>
 </div></section>
-<section class="slide" id="f19"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">32</span></aside><div class="body">
+<section class="slide" id="f21"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">35</span></aside><div class="body">
   <header class="head">
-    <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Портфолио функции</span><span data-l="en" lang="en">Function portfolio</span></span><span class="eyebrow-end"><span class="chip gC"><span data-l="ru">Кластер «Упаковка»: Реклама · Снабжение · Операции</span><span data-l="en" lang="en">“Packaging” cluster: Advertising · Supply · Operations</span></span><button type="button" class="close" data-hide="f19" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
+    <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Портфолио функции</span><span data-l="en" lang="en">Function portfolio</span></span><span class="eyebrow-end"><span class="chip gC"><span data-l="ru">Кластер «Упаковка»: Реклама · Снабжение · Операции</span><span data-l="en" lang="en">“Packaging” cluster: Advertising · Supply · Operations</span></span><button type="button" class="close" data-hide="f21" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
     <h2><span data-l="ru">Отдел рекламы</span><span data-l="en" lang="en">Advertising Department</span></h2>
     <p class="sub"><span data-l="ru">Упаковка, полиграфия, брендированная продукция</span><span data-l="en" lang="en">Packaging, print and branded goods</span></p>
   </header>
@@ -1179,11 +1517,11 @@ h3 em.acc{font-size:1.08em;}
       <div class="box conf"><h4><span data-l="ru">Конфликты</span><span data-l="en" lang="en">Conflicts</span></h4><p><span data-l="ru">Снабжение: планирование производства и размер партии. Операции: нет автоматизации учёта упаковки. Маркетинг и ДПД: никто не управляет категорией «Комплексные решения».</span><span data-l="en" lang="en">Supply: production planning and batch size. Operations: no automated packaging accounting. Marketing and DSD: nobody manages the “Complex solutions” category.</span></p></div>
     </div>
   </div>
-  <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">19</span></span></footer>
+  <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">21</span></span></footer>
 </div></section>
-<section class="slide" id="f20"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">33</span></aside><div class="body">
+<section class="slide" id="f22"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">36</span></aside><div class="body">
   <header class="head">
-    <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Портфолио функции</span><span data-l="en" lang="en">Function portfolio</span></span><span class="eyebrow-end"><span class="chip gC"><span data-l="ru">Кластер «Бонусы»: Мотивация · ЧК</span><span data-l="en" lang="en">“Bonuses” cluster: Recognition · Club Members</span></span><button type="button" class="close" data-hide="f20" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
+    <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Портфолио функции</span><span data-l="en" lang="en">Function portfolio</span></span><span class="eyebrow-end"><span class="chip gC"><span data-l="ru">Кластер «Бонусы»: Мотивация · ЧК</span><span data-l="en" lang="en">“Bonuses” cluster: Recognition · Club Members</span></span><button type="button" class="close" data-hide="f22" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
     <h2><span data-l="ru">Отдел мотивации и признания</span><span data-l="en" lang="en">Motivation and Recognition</span></h2>
     <p class="sub"><span data-l="ru">Признание рангов и наградные элементы</span><span data-l="en" lang="en">Rank recognition and award items</span></p>
   </header>
@@ -1198,11 +1536,11 @@ h3 em.acc{font-size:1.08em;}
       <div class="box conf"><h4><span data-l="ru">Конфликты</span><span data-l="en" lang="en">Conflicts</span></h4><p><span data-l="ru">Ивент: нет общих процедур и критериев награждения. Логистика: неясны статусы отправок и зоны ответственности.</span><span data-l="en" lang="en">Events: no shared award procedures or criteria. Logistics: shipment statuses and responsibilities are unclear.</span></p></div>
     </div>
   </div>
-  <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">20</span></span></footer>
+  <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">22</span></span></footer>
 </div></section>
-<section class="slide" id="f21"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">34</span></aside><div class="body">
+<section class="slide" id="f23"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">37</span></aside><div class="body">
   <header class="head">
-    <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Портфолио функции</span><span data-l="en" lang="en">Function portfolio</span></span><span class="eyebrow-end"><span class="chip gC"><span data-l="ru">Кластер «Бонусы»: Мотивация · ЧК</span><span data-l="en" lang="en">“Bonuses” cluster: Recognition · Club Members</span></span><button type="button" class="close" data-hide="f21" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
+    <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Портфолио функции</span><span data-l="en" lang="en">Function portfolio</span></span><span class="eyebrow-end"><span class="chip gC"><span data-l="ru">Кластер «Бонусы»: Мотивация · ЧК</span><span data-l="en" lang="en">“Bonuses” cluster: Recognition · Club Members</span></span><button type="button" class="close" data-hide="f23" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
     <h2><span data-l="ru">Управление бизнес-отношениями с ЧК</span><span data-l="en" lang="en">Club Member Relations</span></h2>
     <p class="sub"><span data-l="ru">Расчёт рангов, начисление бонус-скидки</span><span data-l="en" lang="en">Rank calculation and bonus discounts</span></p>
   </header>
@@ -1217,11 +1555,11 @@ h3 em.acc{font-size:1.08em;}
       <div class="box conf empty"><h4><span data-l="ru">Конфликты</span><span data-l="en" lang="en">Conflicts</span></h4><p><span data-l="ru">В анкете не заполнено</span><span data-l="en" lang="en">Not filled in the questionnaire</span></p></div>
     </div>
   </div>
-  <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">21</span></span></footer>
+  <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">23</span></span></footer>
 </div></section>
-<section class="slide" id="f22"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">35</span></aside><div class="body">
+<section class="slide" id="f24"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">38</span></aside><div class="body">
   <header class="head">
-    <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Портфолио функции</span><span data-l="en" lang="en">Function portfolio</span></span><span class="eyebrow-end"><span class="chip gC"><span data-l="ru">Дублируется с локальными командами</span><span data-l="en" lang="en">Duplicated by local teams</span></span><button type="button" class="close" data-hide="f22" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
+    <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Портфолио функции</span><span data-l="en" lang="en">Function portfolio</span></span><span class="eyebrow-end"><span class="chip gC"><span data-l="ru">Дублируется с локальными командами</span><span data-l="en" lang="en">Duplicated by local teams</span></span><button type="button" class="close" data-hide="f24" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
     <h2><span data-l="ru">Health &amp; Income Claims EU &amp; US</span><span data-l="en" lang="en">Health &amp; Income Claims EU &amp; US</span></h2>
     <p class="sub"><span data-l="ru">Этика и compliance коммуникаций</span><span data-l="en" lang="en">Ethics and compliance of communications</span></p>
   </header>
@@ -1236,12 +1574,12 @@ h3 em.acc{font-size:1.08em;}
       <div class="box conf"><h4><span data-l="ru">Конфликты</span><span data-l="en" lang="en">Conflicts</span></h4><p><span data-l="ru">Прямых почти нет. Регионы по-разному понимают требования. Материалы приходят после вёрстки, а не на стадии текста.</span><span data-l="en" lang="en">Almost none directly. Regions interpret requirements differently. Materials arrive after layout instead of at the text stage.</span></p></div>
     </div>
   </div>
-  <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">22</span></span></footer>
+  <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">24</span></span></footer>
 </div></section>
 
-<section class="slide uslide" id="u23"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">36</span></aside><div class="body">
+<section class="slide uslide" id="u25"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">39</span></aside><div class="body">
   <header class="head">
-    <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Универсальная функция</span><span data-l="en" lang="en">Universal function</span></span><span class="eyebrow-end"><span class="chip gU"><span data-l="ru">Общих задач: 8</span><span data-l="en" lang="en">Common tasks: 8</span></span><button type="button" class="close" data-hide="u23" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
+    <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Универсальная функция</span><span data-l="en" lang="en">Universal function</span></span><span class="eyebrow-end"><span class="chip gU"><span data-l="ru">Общих задач: 8</span><span data-l="en" lang="en">Common tasks: 8</span></span><button type="button" class="close" data-hide="u25" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
     <h2><span data-l="ru">HR</span><span data-l="en" lang="en">HR</span></h2>
     <p class="sub"><span data-l="ru">Общий набор задач HR-функций дивизионов</span><span data-l="en" lang="en">Common task set across divisional HR functions</span></p>
   </header>
@@ -1257,11 +1595,11 @@ h3 em.acc{font-size:1.08em;}
       <div class="tiles"><div class="tile"><span class="big">0</span><span class="tname"><span data-l="ru">HR, HQ</span><span data-l="en" lang="en">HR, HQ</span></span></div><div class="tile"><span class="big">7</span><span class="tname"><span data-l="ru">HR Europe and Americas</span><span data-l="en" lang="en">HR Europe and Americas</span></span></div></div>
     </div>
   </div>
-  <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">23</span></span></footer>
+  <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">25</span></span></footer>
 </div></section>
-<section class="slide uslide" id="u24"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">37</span></aside><div class="body">
+<section class="slide uslide" id="u26"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">40</span></aside><div class="body">
   <header class="head">
-    <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Универсальная функция</span><span data-l="en" lang="en">Universal function</span></span><span class="eyebrow-end"><span class="chip gU"><span data-l="ru">Общих задач: 12</span><span data-l="en" lang="en">Common tasks: 12</span></span><button type="button" class="close" data-hide="u24" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
+    <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Универсальная функция</span><span data-l="en" lang="en">Universal function</span></span><span class="eyebrow-end"><span class="chip gU"><span data-l="ru">Общих задач: 12</span><span data-l="en" lang="en">Common tasks: 12</span></span><button type="button" class="close" data-hide="u26" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
     <h2><span data-l="ru">Организация мероприятий</span><span data-l="en" lang="en">Event Management</span></h2>
     <p class="sub"><span data-l="ru">Общий набор задач ивент-функций дивизионов</span><span data-l="en" lang="en">Common task set across divisional event functions</span></p>
   </header>
@@ -1277,11 +1615,11 @@ h3 em.acc{font-size:1.08em;}
       <div class="tiles"><div class="tile"><span class="big">11</span><span class="tname"><span data-l="ru">Мероприятия в Европе</span><span data-l="en" lang="en">Events, Europe</span></span></div><div class="tile"><span class="big">3</span><span class="tname"><span data-l="ru">Мероприятия РФ и РБ</span><span data-l="en" lang="en">Events, Russia and Belarus</span></span></div><div class="tile"><span class="big">3</span><span class="tname"><span data-l="ru">Ивент-отдел Silk Way Region</span><span data-l="en" lang="en">Events, Silk Way Region</span></span></div></div>
     </div>
   </div>
-  <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">24</span></span></footer>
+  <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">26</span></span></footer>
 </div></section>
-<section class="slide uslide" id="u25"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">38</span></aside><div class="body">
+<section class="slide uslide" id="u27"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">41</span></aside><div class="body">
   <header class="head">
-    <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Универсальная функция</span><span data-l="en" lang="en">Universal function</span></span><span class="eyebrow-end"><span class="chip gU"><span data-l="ru">Общих задач: 7</span><span data-l="en" lang="en">Common tasks: 7</span></span><button type="button" class="close" data-hide="u25" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
+    <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Универсальная функция</span><span data-l="en" lang="en">Universal function</span></span><span class="eyebrow-end"><span class="chip gU"><span data-l="ru">Общих задач: 7</span><span data-l="en" lang="en">Common tasks: 7</span></span><button type="button" class="close" data-hide="u27" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
     <h2><span data-l="ru">PR</span><span data-l="en" lang="en">PR</span></h2>
     <p class="sub"><span data-l="ru">Общий набор задач PR-функций дивизионов</span><span data-l="en" lang="en">Common task set across divisional PR functions</span></p>
   </header>
@@ -1297,11 +1635,11 @@ h3 em.acc{font-size:1.08em;}
       <div class="tiles"><div class="tile"><span class="big">2</span><span class="tname"><span data-l="ru">PR, HQ</span><span data-l="en" lang="en">PR, HQ</span></span></div><div class="tile"><span class="big">10</span><span class="tname"><span data-l="ru">PR и устойчивое развитие, Европа и Северная Америка</span><span data-l="en" lang="en">PR and Sustainability, Europe and North America</span></span></div></div>
     </div>
   </div>
-  <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">25</span></span></footer>
+  <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">27</span></span></footer>
 </div></section>
-<section class="slide uslide" id="u26"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">39</span></aside><div class="body">
+<section class="slide uslide" id="u28"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">42</span></aside><div class="body">
   <header class="head">
-    <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Универсальная функция</span><span data-l="en" lang="en">Universal function</span></span><span class="eyebrow-end"><span class="chip gU"><span data-l="ru">Общих задач: 5</span><span data-l="en" lang="en">Common tasks: 5</span></span><button type="button" class="close" data-hide="u26" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
+    <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Универсальная функция</span><span data-l="en" lang="en">Universal function</span></span><span class="eyebrow-end"><span class="chip gU"><span data-l="ru">Общих задач: 5</span><span data-l="en" lang="en">Common tasks: 5</span></span><button type="button" class="close" data-hide="u28" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
     <h2><span data-l="ru">Операционное управление</span><span data-l="en" lang="en">Operations Management</span></h2>
     <p class="sub"><span data-l="ru">Общий набор задач операционных функций</span><span data-l="en" lang="en">Common task set across operations functions</span></p>
   </header>
@@ -1317,7 +1655,174 @@ h3 em.acc{font-size:1.08em;}
       <div class="tiles"><div class="tile"><span class="big">2</span><span class="tname"><span data-l="ru">Операционный департамент, HQ</span><span data-l="en" lang="en">Operations Department, HQ</span></span></div><div class="tile"><span class="big">9</span><span class="tname"><span data-l="ru">Операционный директор региона Шёлковый путь</span><span data-l="en" lang="en">Regional Operations Director, Silk Way</span></span></div></div>
     </div>
   </div>
-  <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">26</span></span></footer>
+  <footer class="foot"><span><span data-l="ru">Свод анкет зоны ответственности</span><span data-l="en" lang="en">Responsibility survey summary</span> · <span class="n">28</span></span></footer>
+</div></section>
+
+<section class="slide vern" id="v0"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">43</span></aside><div class="body">
+  <header class="head">
+    <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Работа в командах</span><span data-l="en" lang="en">Team work</span></span><span class="eyebrow-end"><button type="button" class="close" data-hide="v0" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
+    <h2><span data-l="ru"><em class="acc">Вернисаж</em></span><span data-l="en" lang="en"><em class="acc">Vernissage</em></span></h2>
+    <p class="sub"><span data-l="ru">Что ещё должна делать функция? Предложения — только по функциям своей команды</span><span data-l="en" lang="en">What else should a function do? Suggestions only for your team’s own functions</span></p>
+  </header>
+  <div class="vs-grid">
+    <ol class="vs-steps"><li class="vs-step"><span class="vs-n">01</span><span class="vs-t"><span data-l="ru">Идите к стенду</span><span data-l="en" lang="en">Go to the stand</span></span><span class="vs-d"><span data-l="ru">На стенде — распечатки портфолио функций.</span><span data-l="en" lang="en">The stand holds printouts of the function portfolio.</span></span></li><li class="vs-step"><span class="vs-n">02</span><span class="vs-t"><span data-l="ru">Откройте опросник</span><span data-l="en" lang="en">Open the survey</span></span><span class="vs-d"><span data-l="ru">Отсканируйте QR-код телефоном — одна форма на команду.</span><span data-l="en" lang="en">Scan the QR code with a phone: one form per team.</span></span></li><li class="vs-step"><span class="vs-n">03</span><span class="vs-t"><span data-l="ru">Предложите задачи</span><span data-l="en" lang="en">Suggest tasks</span></span><span class="vs-d"><span data-l="ru">Какие задачи ещё должна выполнять функция — только по функциям вашей команды.</span><span data-l="en" lang="en">Which tasks the function should also take on, only for the functions in your team.</span></span></li><li class="vs-step"><span class="vs-n">04</span><span class="vs-t"><span data-l="ru">Обоснуйте</span><span data-l="en" lang="en">Give a reason</span></span><span class="vs-d"><span data-l="ru">К каждому предложению — обязательное обоснование. Без него предложение не учитывается.</span><span data-l="en" lang="en">Every suggestion needs a reason. Without one it is not counted.</span></span></li></ol>
+    <div class="vs-qr">
+      <div class="vs-qr-box"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33 33" shape-rendering="crispEdges" role="img" aria-label="QR: https://forms.gle/2s5oVUuEXYW13FDx5"><rect width="33" height="33" fill="#FFFFFF"/><g fill="#004643"><rect x="2" y="2" width="1" height="1"/><rect x="3" y="2" width="1" height="1"/><rect x="4" y="2" width="1" height="1"/><rect x="5" y="2" width="1" height="1"/><rect x="6" y="2" width="1" height="1"/><rect x="7" y="2" width="1" height="1"/><rect x="8" y="2" width="1" height="1"/><rect x="10" y="2" width="1" height="1"/><rect x="12" y="2" width="1" height="1"/><rect x="17" y="2" width="1" height="1"/><rect x="18" y="2" width="1" height="1"/><rect x="22" y="2" width="1" height="1"/><rect x="24" y="2" width="1" height="1"/><rect x="25" y="2" width="1" height="1"/><rect x="26" y="2" width="1" height="1"/><rect x="27" y="2" width="1" height="1"/><rect x="28" y="2" width="1" height="1"/><rect x="29" y="2" width="1" height="1"/><rect x="30" y="2" width="1" height="1"/><rect x="2" y="3" width="1" height="1"/><rect x="8" y="3" width="1" height="1"/><rect x="10" y="3" width="1" height="1"/><rect x="11" y="3" width="1" height="1"/><rect x="12" y="3" width="1" height="1"/><rect x="14" y="3" width="1" height="1"/><rect x="16" y="3" width="1" height="1"/><rect x="17" y="3" width="1" height="1"/><rect x="20" y="3" width="1" height="1"/><rect x="24" y="3" width="1" height="1"/><rect x="30" y="3" width="1" height="1"/><rect x="2" y="4" width="1" height="1"/><rect x="4" y="4" width="1" height="1"/><rect x="5" y="4" width="1" height="1"/><rect x="6" y="4" width="1" height="1"/><rect x="8" y="4" width="1" height="1"/><rect x="11" y="4" width="1" height="1"/><rect x="12" y="4" width="1" height="1"/><rect x="14" y="4" width="1" height="1"/><rect x="15" y="4" width="1" height="1"/><rect x="16" y="4" width="1" height="1"/><rect x="17" y="4" width="1" height="1"/><rect x="22" y="4" width="1" height="1"/><rect x="24" y="4" width="1" height="1"/><rect x="26" y="4" width="1" height="1"/><rect x="27" y="4" width="1" height="1"/><rect x="28" y="4" width="1" height="1"/><rect x="30" y="4" width="1" height="1"/><rect x="2" y="5" width="1" height="1"/><rect x="4" y="5" width="1" height="1"/><rect x="5" y="5" width="1" height="1"/><rect x="6" y="5" width="1" height="1"/><rect x="8" y="5" width="1" height="1"/><rect x="10" y="5" width="1" height="1"/><rect x="11" y="5" width="1" height="1"/><rect x="13" y="5" width="1" height="1"/><rect x="14" y="5" width="1" height="1"/><rect x="21" y="5" width="1" height="1"/><rect x="24" y="5" width="1" height="1"/><rect x="26" y="5" width="1" height="1"/><rect x="27" y="5" width="1" height="1"/><rect x="28" y="5" width="1" height="1"/><rect x="30" y="5" width="1" height="1"/><rect x="2" y="6" width="1" height="1"/><rect x="4" y="6" width="1" height="1"/><rect x="5" y="6" width="1" height="1"/><rect x="6" y="6" width="1" height="1"/><rect x="8" y="6" width="1" height="1"/><rect x="12" y="6" width="1" height="1"/><rect x="14" y="6" width="1" height="1"/><rect x="15" y="6" width="1" height="1"/><rect x="19" y="6" width="1" height="1"/><rect x="20" y="6" width="1" height="1"/><rect x="21" y="6" width="1" height="1"/><rect x="24" y="6" width="1" height="1"/><rect x="26" y="6" width="1" height="1"/><rect x="27" y="6" width="1" height="1"/><rect x="28" y="6" width="1" height="1"/><rect x="30" y="6" width="1" height="1"/><rect x="2" y="7" width="1" height="1"/><rect x="8" y="7" width="1" height="1"/><rect x="11" y="7" width="1" height="1"/><rect x="12" y="7" width="1" height="1"/><rect x="16" y="7" width="1" height="1"/><rect x="20" y="7" width="1" height="1"/><rect x="21" y="7" width="1" height="1"/><rect x="22" y="7" width="1" height="1"/><rect x="24" y="7" width="1" height="1"/><rect x="30" y="7" width="1" height="1"/><rect x="2" y="8" width="1" height="1"/><rect x="3" y="8" width="1" height="1"/><rect x="4" y="8" width="1" height="1"/><rect x="5" y="8" width="1" height="1"/><rect x="6" y="8" width="1" height="1"/><rect x="7" y="8" width="1" height="1"/><rect x="8" y="8" width="1" height="1"/><rect x="10" y="8" width="1" height="1"/><rect x="12" y="8" width="1" height="1"/><rect x="14" y="8" width="1" height="1"/><rect x="16" y="8" width="1" height="1"/><rect x="18" y="8" width="1" height="1"/><rect x="20" y="8" width="1" height="1"/><rect x="22" y="8" width="1" height="1"/><rect x="24" y="8" width="1" height="1"/><rect x="25" y="8" width="1" height="1"/><rect x="26" y="8" width="1" height="1"/><rect x="27" y="8" width="1" height="1"/><rect x="28" y="8" width="1" height="1"/><rect x="29" y="8" width="1" height="1"/><rect x="30" y="8" width="1" height="1"/><rect x="10" y="9" width="1" height="1"/><rect x="11" y="9" width="1" height="1"/><rect x="13" y="9" width="1" height="1"/><rect x="14" y="9" width="1" height="1"/><rect x="15" y="9" width="1" height="1"/><rect x="16" y="9" width="1" height="1"/><rect x="18" y="9" width="1" height="1"/><rect x="19" y="9" width="1" height="1"/><rect x="20" y="9" width="1" height="1"/><rect x="2" y="10" width="1" height="1"/><rect x="4" y="10" width="1" height="1"/><rect x="5" y="10" width="1" height="1"/><rect x="7" y="10" width="1" height="1"/><rect x="8" y="10" width="1" height="1"/><rect x="9" y="10" width="1" height="1"/><rect x="11" y="10" width="1" height="1"/><rect x="12" y="10" width="1" height="1"/><rect x="13" y="10" width="1" height="1"/><rect x="15" y="10" width="1" height="1"/><rect x="16" y="10" width="1" height="1"/><rect x="19" y="10" width="1" height="1"/><rect x="20" y="10" width="1" height="1"/><rect x="21" y="10" width="1" height="1"/><rect x="22" y="10" width="1" height="1"/><rect x="24" y="10" width="1" height="1"/><rect x="27" y="10" width="1" height="1"/><rect x="29" y="10" width="1" height="1"/><rect x="30" y="10" width="1" height="1"/><rect x="5" y="11" width="1" height="1"/><rect x="7" y="11" width="1" height="1"/><rect x="9" y="11" width="1" height="1"/><rect x="11" y="11" width="1" height="1"/><rect x="12" y="11" width="1" height="1"/><rect x="13" y="11" width="1" height="1"/><rect x="14" y="11" width="1" height="1"/><rect x="21" y="11" width="1" height="1"/><rect x="24" y="11" width="1" height="1"/><rect x="25" y="11" width="1" height="1"/><rect x="26" y="11" width="1" height="1"/><rect x="30" y="11" width="1" height="1"/><rect x="2" y="12" width="1" height="1"/><rect x="3" y="12" width="1" height="1"/><rect x="5" y="12" width="1" height="1"/><rect x="6" y="12" width="1" height="1"/><rect x="7" y="12" width="1" height="1"/><rect x="8" y="12" width="1" height="1"/><rect x="9" y="12" width="1" height="1"/><rect x="10" y="12" width="1" height="1"/><rect x="14" y="12" width="1" height="1"/><rect x="16" y="12" width="1" height="1"/><rect x="19" y="12" width="1" height="1"/><rect x="20" y="12" width="1" height="1"/><rect x="28" y="12" width="1" height="1"/><rect x="29" y="12" width="1" height="1"/><rect x="3" y="13" width="1" height="1"/><rect x="5" y="13" width="1" height="1"/><rect x="7" y="13" width="1" height="1"/><rect x="9" y="13" width="1" height="1"/><rect x="10" y="13" width="1" height="1"/><rect x="13" y="13" width="1" height="1"/><rect x="14" y="13" width="1" height="1"/><rect x="15" y="13" width="1" height="1"/><rect x="16" y="13" width="1" height="1"/><rect x="18" y="13" width="1" height="1"/><rect x="20" y="13" width="1" height="1"/><rect x="23" y="13" width="1" height="1"/><rect x="25" y="13" width="1" height="1"/><rect x="26" y="13" width="1" height="1"/><rect x="30" y="13" width="1" height="1"/><rect x="2" y="14" width="1" height="1"/><rect x="3" y="14" width="1" height="1"/><rect x="4" y="14" width="1" height="1"/><rect x="5" y="14" width="1" height="1"/><rect x="6" y="14" width="1" height="1"/><rect x="7" y="14" width="1" height="1"/><rect x="8" y="14" width="1" height="1"/><rect x="9" y="14" width="1" height="1"/><rect x="12" y="14" width="1" height="1"/><rect x="14" y="14" width="1" height="1"/><rect x="18" y="14" width="1" height="1"/><rect x="22" y="14" width="1" height="1"/><rect x="23" y="14" width="1" height="1"/><rect x="27" y="14" width="1" height="1"/><rect x="28" y="14" width="1" height="1"/><rect x="3" y="15" width="1" height="1"/><rect x="4" y="15" width="1" height="1"/><rect x="7" y="15" width="1" height="1"/><rect x="9" y="15" width="1" height="1"/><rect x="10" y="15" width="1" height="1"/><rect x="11" y="15" width="1" height="1"/><rect x="12" y="15" width="1" height="1"/><rect x="14" y="15" width="1" height="1"/><rect x="15" y="15" width="1" height="1"/><rect x="17" y="15" width="1" height="1"/><rect x="18" y="15" width="1" height="1"/><rect x="19" y="15" width="1" height="1"/><rect x="21" y="15" width="1" height="1"/><rect x="24" y="15" width="1" height="1"/><rect x="28" y="15" width="1" height="1"/><rect x="29" y="15" width="1" height="1"/><rect x="30" y="15" width="1" height="1"/><rect x="2" y="16" width="1" height="1"/><rect x="8" y="16" width="1" height="1"/><rect x="9" y="16" width="1" height="1"/><rect x="10" y="16" width="1" height="1"/><rect x="12" y="16" width="1" height="1"/><rect x="16" y="16" width="1" height="1"/><rect x="18" y="16" width="1" height="1"/><rect x="20" y="16" width="1" height="1"/><rect x="21" y="16" width="1" height="1"/><rect x="23" y="16" width="1" height="1"/><rect x="26" y="16" width="1" height="1"/><rect x="28" y="16" width="1" height="1"/><rect x="29" y="16" width="1" height="1"/><rect x="30" y="16" width="1" height="1"/><rect x="2" y="17" width="1" height="1"/><rect x="3" y="17" width="1" height="1"/><rect x="4" y="17" width="1" height="1"/><rect x="6" y="17" width="1" height="1"/><rect x="7" y="17" width="1" height="1"/><rect x="9" y="17" width="1" height="1"/><rect x="11" y="17" width="1" height="1"/><rect x="14" y="17" width="1" height="1"/><rect x="15" y="17" width="1" height="1"/><rect x="17" y="17" width="1" height="1"/><rect x="18" y="17" width="1" height="1"/><rect x="21" y="17" width="1" height="1"/><rect x="23" y="17" width="1" height="1"/><rect x="24" y="17" width="1" height="1"/><rect x="26" y="17" width="1" height="1"/><rect x="29" y="17" width="1" height="1"/><rect x="2" y="18" width="1" height="1"/><rect x="4" y="18" width="1" height="1"/><rect x="6" y="18" width="1" height="1"/><rect x="7" y="18" width="1" height="1"/><rect x="8" y="18" width="1" height="1"/><rect x="13" y="18" width="1" height="1"/><rect x="19" y="18" width="1" height="1"/><rect x="20" y="18" width="1" height="1"/><rect x="23" y="18" width="1" height="1"/><rect x="26" y="18" width="1" height="1"/><rect x="27" y="18" width="1" height="1"/><rect x="29" y="18" width="1" height="1"/><rect x="3" y="19" width="1" height="1"/><rect x="9" y="19" width="1" height="1"/><rect x="13" y="19" width="1" height="1"/><rect x="14" y="19" width="1" height="1"/><rect x="15" y="19" width="1" height="1"/><rect x="19" y="19" width="1" height="1"/><rect x="20" y="19" width="1" height="1"/><rect x="25" y="19" width="1" height="1"/><rect x="27" y="19" width="1" height="1"/><rect x="28" y="19" width="1" height="1"/><rect x="29" y="19" width="1" height="1"/><rect x="2" y="20" width="1" height="1"/><rect x="5" y="20" width="1" height="1"/><rect x="6" y="20" width="1" height="1"/><rect x="8" y="20" width="1" height="1"/><rect x="9" y="20" width="1" height="1"/><rect x="10" y="20" width="1" height="1"/><rect x="11" y="20" width="1" height="1"/><rect x="12" y="20" width="1" height="1"/><rect x="13" y="20" width="1" height="1"/><rect x="17" y="20" width="1" height="1"/><rect x="20" y="20" width="1" height="1"/><rect x="22" y="20" width="1" height="1"/><rect x="25" y="20" width="1" height="1"/><rect x="28" y="20" width="1" height="1"/><rect x="6" y="21" width="1" height="1"/><rect x="9" y="21" width="1" height="1"/><rect x="10" y="21" width="1" height="1"/><rect x="12" y="21" width="1" height="1"/><rect x="17" y="21" width="1" height="1"/><rect x="18" y="21" width="1" height="1"/><rect x="19" y="21" width="1" height="1"/><rect x="21" y="21" width="1" height="1"/><rect x="23" y="21" width="1" height="1"/><rect x="24" y="21" width="1" height="1"/><rect x="26" y="21" width="1" height="1"/><rect x="28" y="21" width="1" height="1"/><rect x="3" y="22" width="1" height="1"/><rect x="4" y="22" width="1" height="1"/><rect x="7" y="22" width="1" height="1"/><rect x="8" y="22" width="1" height="1"/><rect x="9" y="22" width="1" height="1"/><rect x="12" y="22" width="1" height="1"/><rect x="13" y="22" width="1" height="1"/><rect x="14" y="22" width="1" height="1"/><rect x="15" y="22" width="1" height="1"/><rect x="18" y="22" width="1" height="1"/><rect x="20" y="22" width="1" height="1"/><rect x="22" y="22" width="1" height="1"/><rect x="23" y="22" width="1" height="1"/><rect x="24" y="22" width="1" height="1"/><rect x="25" y="22" width="1" height="1"/><rect x="26" y="22" width="1" height="1"/><rect x="27" y="22" width="1" height="1"/><rect x="28" y="22" width="1" height="1"/><rect x="10" y="23" width="1" height="1"/><rect x="12" y="23" width="1" height="1"/><rect x="13" y="23" width="1" height="1"/><rect x="15" y="23" width="1" height="1"/><rect x="16" y="23" width="1" height="1"/><rect x="17" y="23" width="1" height="1"/><rect x="18" y="23" width="1" height="1"/><rect x="19" y="23" width="1" height="1"/><rect x="22" y="23" width="1" height="1"/><rect x="26" y="23" width="1" height="1"/><rect x="27" y="23" width="1" height="1"/><rect x="28" y="23" width="1" height="1"/><rect x="29" y="23" width="1" height="1"/><rect x="30" y="23" width="1" height="1"/><rect x="2" y="24" width="1" height="1"/><rect x="3" y="24" width="1" height="1"/><rect x="4" y="24" width="1" height="1"/><rect x="5" y="24" width="1" height="1"/><rect x="6" y="24" width="1" height="1"/><rect x="7" y="24" width="1" height="1"/><rect x="8" y="24" width="1" height="1"/><rect x="10" y="24" width="1" height="1"/><rect x="12" y="24" width="1" height="1"/><rect x="13" y="24" width="1" height="1"/><rect x="14" y="24" width="1" height="1"/><rect x="15" y="24" width="1" height="1"/><rect x="18" y="24" width="1" height="1"/><rect x="19" y="24" width="1" height="1"/><rect x="21" y="24" width="1" height="1"/><rect x="22" y="24" width="1" height="1"/><rect x="24" y="24" width="1" height="1"/><rect x="26" y="24" width="1" height="1"/><rect x="27" y="24" width="1" height="1"/><rect x="29" y="24" width="1" height="1"/><rect x="2" y="25" width="1" height="1"/><rect x="8" y="25" width="1" height="1"/><rect x="10" y="25" width="1" height="1"/><rect x="11" y="25" width="1" height="1"/><rect x="14" y="25" width="1" height="1"/><rect x="17" y="25" width="1" height="1"/><rect x="18" y="25" width="1" height="1"/><rect x="20" y="25" width="1" height="1"/><rect x="21" y="25" width="1" height="1"/><rect x="22" y="25" width="1" height="1"/><rect x="26" y="25" width="1" height="1"/><rect x="27" y="25" width="1" height="1"/><rect x="29" y="25" width="1" height="1"/><rect x="2" y="26" width="1" height="1"/><rect x="4" y="26" width="1" height="1"/><rect x="5" y="26" width="1" height="1"/><rect x="6" y="26" width="1" height="1"/><rect x="8" y="26" width="1" height="1"/><rect x="11" y="26" width="1" height="1"/><rect x="14" y="26" width="1" height="1"/><rect x="16" y="26" width="1" height="1"/><rect x="17" y="26" width="1" height="1"/><rect x="18" y="26" width="1" height="1"/><rect x="22" y="26" width="1" height="1"/><rect x="23" y="26" width="1" height="1"/><rect x="24" y="26" width="1" height="1"/><rect x="25" y="26" width="1" height="1"/><rect x="26" y="26" width="1" height="1"/><rect x="28" y="26" width="1" height="1"/><rect x="29" y="26" width="1" height="1"/><rect x="2" y="27" width="1" height="1"/><rect x="4" y="27" width="1" height="1"/><rect x="5" y="27" width="1" height="1"/><rect x="6" y="27" width="1" height="1"/><rect x="8" y="27" width="1" height="1"/><rect x="10" y="27" width="1" height="1"/><rect x="11" y="27" width="1" height="1"/><rect x="12" y="27" width="1" height="1"/><rect x="15" y="27" width="1" height="1"/><rect x="16" y="27" width="1" height="1"/><rect x="17" y="27" width="1" height="1"/><rect x="19" y="27" width="1" height="1"/><rect x="20" y="27" width="1" height="1"/><rect x="21" y="27" width="1" height="1"/><rect x="22" y="27" width="1" height="1"/><rect x="23" y="27" width="1" height="1"/><rect x="25" y="27" width="1" height="1"/><rect x="26" y="27" width="1" height="1"/><rect x="27" y="27" width="1" height="1"/><rect x="30" y="27" width="1" height="1"/><rect x="2" y="28" width="1" height="1"/><rect x="4" y="28" width="1" height="1"/><rect x="5" y="28" width="1" height="1"/><rect x="6" y="28" width="1" height="1"/><rect x="8" y="28" width="1" height="1"/><rect x="10" y="28" width="1" height="1"/><rect x="11" y="28" width="1" height="1"/><rect x="12" y="28" width="1" height="1"/><rect x="14" y="28" width="1" height="1"/><rect x="15" y="28" width="1" height="1"/><rect x="16" y="28" width="1" height="1"/><rect x="19" y="28" width="1" height="1"/><rect x="20" y="28" width="1" height="1"/><rect x="25" y="28" width="1" height="1"/><rect x="28" y="28" width="1" height="1"/><rect x="30" y="28" width="1" height="1"/><rect x="2" y="29" width="1" height="1"/><rect x="8" y="29" width="1" height="1"/><rect x="13" y="29" width="1" height="1"/><rect x="14" y="29" width="1" height="1"/><rect x="15" y="29" width="1" height="1"/><rect x="16" y="29" width="1" height="1"/><rect x="17" y="29" width="1" height="1"/><rect x="22" y="29" width="1" height="1"/><rect x="24" y="29" width="1" height="1"/><rect x="27" y="29" width="1" height="1"/><rect x="29" y="29" width="1" height="1"/><rect x="2" y="30" width="1" height="1"/><rect x="3" y="30" width="1" height="1"/><rect x="4" y="30" width="1" height="1"/><rect x="5" y="30" width="1" height="1"/><rect x="6" y="30" width="1" height="1"/><rect x="7" y="30" width="1" height="1"/><rect x="8" y="30" width="1" height="1"/><rect x="10" y="30" width="1" height="1"/><rect x="12" y="30" width="1" height="1"/><rect x="13" y="30" width="1" height="1"/><rect x="18" y="30" width="1" height="1"/><rect x="21" y="30" width="1" height="1"/><rect x="22" y="30" width="1" height="1"/><rect x="29" y="30" width="1" height="1"/></g></svg></div>
+      <div class="vs-qr-cap"><span data-l="ru">Опросник «Вернисаж»</span><span data-l="en" lang="en">Vernissage survey</span></div>
+      <div class="vs-qr-url">forms.gle/2s5oVUuEXYW13FDx5</div>
+    </div>
+  </div>
+  <div class="vs-rule">
+    <div><b><span data-l="ru">Предложение</span><span data-l="en" lang="en">Suggestion</span></b><span><span data-l="ru">какую задачу добавить функции</span><span data-l="en" lang="en">which task to add to the function</span></span></div>
+    <div class="vs-plus">+</div>
+    <div><b><span data-l="ru">Обоснование — обязательно</span><span data-l="en" lang="en">Reason — required</span></b><span><span data-l="ru">почему эта задача должна быть у этой функции</span><span data-l="en" lang="en">why this function should own the task</span></span></div>
+  </div>
+  <footer class="foot"><span><span data-l="ru">Стратегическая сессия №3</span><span data-l="en" lang="en">Strategy session #3</span> · <span class="n">1</span></span></footer>
+</div></section>
+<section class="slide zero vsx" id="vs0"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">44</span></aside><div class="body">
+  <div class="z-head">
+    <div class="eyebrow-row"><span class="z-eyebrow"><span data-l="ru">Стратегическая сессия №3 · День 1 · основная часть</span><span data-l="en" lang="en">Strategy session #3 · Day 1 · main part</span></span><button type="button" class="close" data-hide="vs0" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></div>
+    <h2 class="z-title"><span data-l="ru">Зоны ответственности через <em class="acc">потоки</em> ценности</span><span data-l="en" lang="en">Responsibility zones through value <em class="acc">streams</em></span></h2>
+    <span class="z-rainbow" aria-hidden="true"></span>
+    <p class="z-lede"><span data-l="ru">Портфолио функций показывает, что делает каждая функция. Теперь посмотрим на то же самое глазами клиента: через какие потоки компания создаёт для него ценность и кто отвечает за каждый шаг.</span><span data-l="en" lang="en">The function portfolio shows what each function does. Now we look at the same work through the customer’s eyes: which streams create value for them, and who owns each step.</span></p>
+  </div>
+  <ol class="vsx-chips"><li><b>VS1</b><span><span data-l="ru">Развивать продуктовый портфель</span><span data-l="en" lang="en">Develop the product portfolio</span></span></li><li><b>VS2</b><span><span data-l="ru">Формировать клиентский спрос</span><span data-l="en" lang="en">Shape customer demand</span></span></li><li><b>VS3</b><span><span data-l="ru">Исполнять клиентский заказ</span><span data-l="en" lang="en">Fulfil the customer order</span></span></li><li><b>VS4</b><span><span data-l="ru">Обеспечивать успех клиента</span><span data-l="en" lang="en">Ensure customer success</span></span></li><li><b>VS5</b><span><span data-l="ru">Развивать партнёрскую сеть</span><span data-l="en" lang="en">Grow the partner network</span></span></li></ol>
+  <footer class="foot"><span><span data-l="ru">Стратегическая сессия №3</span><span data-l="en" lang="en">Strategy session #3</span> · <span class="n">1</span></span></footer>
+</div></section>
+<section class="slide vf" id="vs1"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">45</span></aside><div class="body">
+  <header class="head">
+    <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">День 1 · потоки ценности</span><span data-l="en" lang="en">Day 1 · value streams</span></span><span class="eyebrow-end"><button type="button" class="close" data-hide="vs1" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
+    <h2><span data-l="ru">Зачем нужен <em class="acc">Value</em> Stream</span><span data-l="en" lang="en">Why <em class="acc">value</em> streams</span></h2>
+    <p class="sub"><span data-l="ru">Компании часто управляют функциями, а не результатом для клиента</span><span data-l="en" lang="en">Companies often manage functions rather than the customer outcome</span></p>
+  </header>
+  <div class="vf-2">
+    <div class="vf-col">
+      <p class="vf-lead"><span data-l="ru">Value Stream — это сквозной путь от потребности клиента до полученного им результата. Ценность определяет только конечный клиент.</span><span data-l="en" lang="en">A value stream is the end-to-end path from a customer need to the result the customer receives. Only the end customer defines value.</span></p>
+      <div class="vf-label"><span data-l="ru">Карта потока делит все действия на три группы</span><span data-l="en" lang="en">A stream map splits all activity into three groups</span></div>
+      <ol class="vf-kinds"><li class="vf-kind k1"><b><span data-l="ru">Создают ценность</span><span data-l="en" lang="en">Create value</span></b><span><span data-l="ru">то, за что клиент готов платить</span><span data-l="en" lang="en">what the customer is willing to pay for</span></span></li><li class="vf-kind k2"><b><span data-l="ru">Не создают, но пока нужны</span><span data-l="en" lang="en">Add no value but are needed for now</span></b><span><span data-l="ru">контроль, согласования, отчётность</span><span data-l="en" lang="en">controls, approvals, reporting</span></span></li><li class="vf-kind k3"><b><span data-l="ru">Не создают — убираем</span><span data-l="en" lang="en">Add no value, so we remove them</span></b><span><span data-l="ru">ожидания, дубли, передачи без смысла</span><span data-l="en" lang="en">waiting, duplication, pointless hand-offs</span></span></li></ol>
+    </div>
+    <div class="vf-col vf-card">
+      <div class="vf-label"><span data-l="ru">Зачем это компании</span><span data-l="en" lang="en">What it gives the company</span></div>
+      <ul class="vf-goals"><li><span data-l="ru">Сократить lead time</span><span data-l="en" lang="en">Cut lead time</span></li><li><span data-l="ru">Убрать разрывы между функциями</span><span data-l="en" lang="en">Close gaps between functions</span></li><li><span data-l="ru">Выстроить flow и pull</span><span data-l="en" lang="en">Build flow and pull</span></li><li><span data-l="ru">Управлять через клиентский результат, а не локальные KPI</span><span data-l="en" lang="en">Manage by customer outcome, not local KPIs</span></li></ul>
+    </div>
+  </div>
+  <blockquote class="vf-quote"><span data-l="ru">Value Stream нужен, чтобы компания управляла не подразделениями, а созданием ценности для клиента.</span><span data-l="en" lang="en">A value stream lets the company manage the creation of customer value, not departments.</span></blockquote>
+  <footer class="foot"><span><span data-l="ru">Стратегическая сессия №3</span><span data-l="en" lang="en">Strategy session #3</span> · <span class="n">1</span></span></footer>
+</div></section>
+<section class="slide vf" id="vs2"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">46</span></aside><div class="body">
+  <header class="head">
+    <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">День 1 · потоки ценности</span><span data-l="en" lang="en">Day 1 · value streams</span></span><span class="eyebrow-end"><button type="button" class="close" data-hide="vs2" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
+    <h2><span data-l="ru">Откуда пришёл <em class="acc">подход</em></span><span data-l="en" lang="en">Where the <em class="acc">approach</em> came from</span></h2>
+    <p class="sub"><span data-l="ru">Цель была не задокументировать процесс, а увидеть целое и сократить время потока</span><span data-l="en" lang="en">The aim was not to document a process but to see the whole and cut flow time</span></p>
+  </header>
+  <ol class="vf-tl"><li class="vf-tl-i"><span class="vf-tl-y"><span data-l="ru">Toyota Production System</span><span data-l="en" lang="en">Toyota Production System</span></span><b><span data-l="ru">Material and Information Flow Mapping</span><span data-l="en" lang="en">Material and Information Flow Mapping</span></b><span class="vf-tl-d"><span data-l="ru">Смотрят одновременно на поток материалов и поток информации: в разрыве между ними рождаются запасы, задержки и перепроизводство.</span><span data-l="en" lang="en">Material flow and information flow are viewed together: stock, delays and overproduction are born in the gap between them.</span></span></li><li class="vf-tl-i"><span class="vf-tl-y"><span data-l="ru">1996</span><span data-l="en" lang="en">1996</span></span><b><span data-l="ru">Вумек и Джонс, «Lean Thinking»</span><span data-l="en" lang="en">Womack &amp; Jones, Lean Thinking</span></b><span class="vf-tl-d"><span data-l="ru">Выявление value stream — один из пяти принципов lean.</span><span data-l="en" lang="en">Identifying the value stream becomes one of the five lean principles.</span></span></li><li class="vf-tl-i"><span class="vf-tl-y"><span data-l="ru">1998</span><span data-l="en" lang="en">1998</span></span><b><span data-l="ru">Ротер и Шук, «Learning to See»</span><span data-l="en" lang="en">Rother &amp; Shook, Learning to See</span></b><span class="vf-tl-d"><span data-l="ru">Метод Toyota получает название Value Stream Mapping и становится стандартным инструментом.</span><span data-l="en" lang="en">Toyota’s method is named Value Stream Mapping and becomes a standard tool.</span></span></li></ol>
+  <div class="vf-cmp">
+      <div><span class="vf-label"><span data-l="ru">Карта процесса</span><span data-l="en" lang="en">Process map</span></span><p><span data-l="ru">описывает, как работает одна функция</span><span data-l="en" lang="en">describes how one function works</span></p></div>
+      <div class="vf-cmp-arr" aria-hidden="true">→</div>
+      <div class="vf-cmp-on"><span class="vf-label"><span data-l="ru">Карта потока ценности</span><span data-l="en" lang="en">Value stream map</span></span><p><span data-l="ru">показывает весь путь от заказа до поставки и общее время потока</span><span data-l="en" lang="en">shows the whole path from order to delivery and total flow time</span></p></div>
+    </div>
+  <blockquote class="vf-quote"><span data-l="ru">Toyota создала способ увидеть целое, а lean-сообщество превратило его в универсальную управленческую методологию.</span><span data-l="en" lang="en">Toyota created a way to see the whole; the lean community turned it into a universal management method.</span></blockquote>
+  <footer class="foot"><span><span data-l="ru">Стратегическая сессия №3</span><span data-l="en" lang="en">Strategy session #3</span> · <span class="n">1</span></span></footer>
+</div></section>
+<section class="slide vf" id="vs3"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">47</span></aside><div class="body">
+  <header class="head">
+    <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">День 1 · потоки ценности</span><span data-l="en" lang="en">Day 1 · value streams</span></span><span class="eyebrow-end"><button type="button" class="close" data-hide="vs3" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
+    <h2><span data-l="ru">Почему у нас <em class="acc">пять</em> потоков</span><span data-l="en" lang="en">Why we have <em class="acc">five</em> streams</span></h2>
+    <p class="sub"><span data-l="ru">Для MLM-компании с БАД одного «процесса продажи» недостаточно</span><span data-l="en" lang="en">For a direct-selling supplement company one “sales process” is not enough</span></p>
+  </header>
+  <ol class="vf-vss"><li class="vf-vs"><div class="vf-vs-h"><b>VS1</b><span>CoralEVO</span></div><h3><span data-l="ru">Развивать продуктовый портфель</span><span data-l="en" lang="en">Develop the product portfolio</span></h3><p><span data-l="ru">Востребованный продукт с подтверждённым составом, качеством, допустимыми claims и устойчивой доступностью</span><span data-l="en" lang="en">A product in demand, with proven composition and quality, permissible claims and reliable availability</span></p></li><li class="vf-vs"><div class="vf-vs-h"><b>VS2</b><span>PrimeGrowth</span></div><h3><span data-l="ru">Формировать клиентский спрос</span><span data-l="en" lang="en">Shape customer demand</span></h3><p><span data-l="ru">Клиент понимает свою потребность и осознанно выбирает релевантный продукт</span><span data-l="en" lang="en">The customer understands their need and makes an informed choice of the right product</span></p></li><li class="vf-vs"><div class="vf-vs-h"><b>VS3</b><span>ITModel</span></div><h3><span data-l="ru">Исполнять клиентский заказ</span><span data-l="en" lang="en">Fulfil the customer order</span></h3><p><span data-l="ru">Правильный продукт доставлен полностью, вовремя и прозрачно</span><span data-l="en" lang="en">The right product delivered in full, on time and transparently</span></p></li><li class="vf-vs"><div class="vf-vs-h"><b>VS4</b><span>HealthOS</span></div><h3><span data-l="ru">Обеспечивать успех клиента</span><span data-l="en" lang="en">Ensure customer success</span></h3><p><span data-l="ru">Клиент безопасно и правильно использует продукт и осознанно решает, продолжать ли</span><span data-l="en" lang="en">The customer uses the product safely and correctly and makes an informed decision to continue</span></p></li><li class="vf-vs"><div class="vf-vs-h"><b>VS5</b><span>GrowthModel</span></div><h3><span data-l="ru">Развивать партнёрскую сеть</span><span data-l="en" lang="en">Grow the partner network</span></h3><p><span data-l="ru">Компетентный партнёр регулярно создаёт подтверждённую клиентскую ценность</span><span data-l="en" lang="en">A competent partner who regularly creates proven customer value</span></p></li></ol>
+  <ul class="vf-why"><li><b><span data-l="ru">БАД — не просто товар</span><span data-l="en" lang="en">Supplements are more than goods</span></b><span><span data-l="ru">требования к качеству, claims, безопасности и сопровождению</span><span data-l="en" lang="en">requirements for quality, claims, safety and guidance</span></span></li><li><b><span data-l="ru">Партнёр — носитель клиентского опыта</span><span data-l="en" lang="en">The partner carries the customer experience</span></b><span><span data-l="ru">модель опирается на реальные продажи клиентам, а не только на рекрутинг</span><span data-l="en" lang="en">the model rests on real customer sales, not just recruiting</span></span></li><li><b><span data-l="ru">Ценность — это полный цикл</span><span data-l="en" lang="en">Value is the full cycle</span></b><span><span data-l="ru">подобрал → получил → начал применять → получил поддержку → вернулся</span><span data-l="en" lang="en">chose → received → started using → got support → came back</span></span></li></ul>
+  <blockquote class="vf-quote"><span data-l="ru">Ценность создаётся не одной продажей, а системой из пяти взаимосвязанных контуров.</span><span data-l="en" lang="en">Value is created not by a single sale but by a system of five linked loops.</span></blockquote>
+  <footer class="foot"><span><span data-l="ru">Стратегическая сессия №3</span><span data-l="en" lang="en">Strategy session #3</span> · <span class="n">1</span></span></footer>
+</div></section>
+<section class="slide vf" id="vs4"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">48</span></aside><div class="body">
+  <header class="head">
+    <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">День 1 · потоки ценности</span><span data-l="en" lang="en">Day 1 · value streams</span></span><span class="eyebrow-end"><button type="button" class="close" data-hide="vs4" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
+    <h2><span data-l="ru">Как пять потоков собираются <em class="acc">в один</em></span><span data-l="en" lang="en">How five streams become <em class="acc">one</em></span></h2>
+    <p class="sub"><span data-l="ru">Каждый поток добавляет свой критический результат к клиентскому циклу</span><span data-l="en" lang="en">Each stream adds its own critical result to the customer cycle</span></p>
+  </header>
+  <div class="vf-legend"><span class="vf-lg1"><span data-l="ru">VS1 и VS5 — готовность системы</span><span data-l="en" lang="en">VS1 and VS5 — system readiness</span></span><span class="vf-lg2"><span data-l="ru">VS2–VS4 — клиентский цикл</span><span data-l="en" lang="en">VS2–VS4 — the customer cycle</span></span></div>
+  <ol class="vf-flow"><li class="vf-f vf-f0"><span class="vf-f-c"><span data-l="ru">Клиент</span><span data-l="en" lang="en">Customer</span></span><span class="vf-f-t"><span data-l="ru">Понять потребность</span><span data-l="en" lang="en">Understand the need</span></span></li><li class="vf-f vf-f1"><span class="vf-f-c">VS1</span><span class="vf-f-t"><span data-l="ru">Создать продукт</span><span data-l="en" lang="en">Create the product</span></span></li><li class="vf-f vf-f1"><span class="vf-f-c">VS5</span><span class="vf-f-t"><span data-l="ru">Подготовить партнёра</span><span data-l="en" lang="en">Prepare the partner</span></span></li><li class="vf-f vf-f2"><span class="vf-f-c">VS2</span><span class="vf-f-t"><span data-l="ru">Сформировать спрос</span><span data-l="en" lang="en">Shape demand</span></span></li><li class="vf-f vf-f2"><span class="vf-f-c">VS3</span><span class="vf-f-t"><span data-l="ru">Принять и исполнить заказ</span><span data-l="en" lang="en">Take and fulfil the order</span></span></li><li class="vf-f vf-f2"><span class="vf-f-c">VS4</span><span class="vf-f-t"><span data-l="ru">Обеспечить успешное применение</span><span data-l="en" lang="en">Ensure successful use</span></span></li><li class="vf-f vf-f0"><span class="vf-f-c"><span data-l="ru">Клиент</span><span data-l="en" lang="en">Customer</span></span><span class="vf-f-t"><span data-l="ru">Получить обратную связь</span><span data-l="en" lang="en">Get feedback</span></span></li></ol>
+  <div class="vf-loop"><span aria-hidden="true">↺</span><span data-l="ru">Обратная связь улучшает продукт, сеть и следующий цикл</span><span data-l="en" lang="en">Feedback improves the product, the network and the next cycle</span></div>
+  <ul class="vf-roles"><li><b>VS1</b><span><span data-l="ru">что мы предлагаем</span><span data-l="en" lang="en">what we offer</span></span></li><li><b>VS5</b><span><span data-l="ru">кто и как создаёт клиентский опыт</span><span data-l="en" lang="en">who creates the customer experience, and how</span></span></li><li><b>VS2</b><span><span data-l="ru">рынок → осознанное намерение купить</span><span data-l="en" lang="en">market → informed intent to buy</span></span></li><li><b>VS3</b><span><span data-l="ru">обещание → фактическая поставка</span><span data-l="en" lang="en">promise → actual delivery</span></span></li><li><b>VS4</b><span><span data-l="ru">покупка → применение, доверие, повтор</span><span data-l="en" lang="en">purchase → use, trust, repeat</span></span></li></ul>
+  <blockquote class="vf-quote"><span data-l="ru">Один поток ценности — не один процесс, а единая система.</span><span data-l="en" lang="en">One value stream is not one process but a single system.</span></blockquote>
+  <footer class="foot"><span><span data-l="ru">Стратегическая сессия №3</span><span data-l="en" lang="en">Strategy session #3</span> · <span class="n">1</span></span></footer>
+</div></section>
+<section class="slide vf" id="vs5"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">49</span></aside><div class="body">
+  <header class="head">
+    <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">День 1 · потоки ценности</span><span data-l="en" lang="en">Day 1 · value streams</span></span><span class="eyebrow-end"><button type="button" class="close" data-hide="vs5" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
+    <h2><span data-l="ru">Ценность в каждом потоке и <em class="acc">стратегия</em></span><span data-l="en" lang="en">Value in each stream and the <em class="acc">strategy</em></span></h2>
+    <p class="sub"><span data-l="ru">Ценность — не операция, а полезный результат для потребителя потока</span><span data-l="en" lang="en">Value is not an operation but a useful result for the stream’s customer</span></p>
+  </header>
+  <div class="vf-2 vf-2b">
+    <div class="vf-col">
+      <div class="vf-label"><span data-l="ru">Что является ценностью</span><span data-l="en" lang="en">What counts as value</span></div>
+      <table class="vf-tbl"><tbody><tr><th><b>VS1</b> <span data-l="ru">Развивать продуктовый портфель</span><span data-l="en" lang="en">Develop the product portfolio</span></th><td><span data-l="ru">Востребованный продукт с подтверждённым составом, качеством, допустимыми claims и устойчивой доступностью</span><span data-l="en" lang="en">A product in demand, with proven composition and quality, permissible claims and reliable availability</span></td></tr><tr><th><b>VS2</b> <span data-l="ru">Формировать клиентский спрос</span><span data-l="en" lang="en">Shape customer demand</span></th><td><span data-l="ru">Клиент понимает свою потребность и осознанно выбирает релевантный продукт</span><span data-l="en" lang="en">The customer understands their need and makes an informed choice of the right product</span></td></tr><tr><th><b>VS3</b> <span data-l="ru">Исполнять клиентский заказ</span><span data-l="en" lang="en">Fulfil the customer order</span></th><td><span data-l="ru">Правильный продукт доставлен полностью, вовремя и прозрачно</span><span data-l="en" lang="en">The right product delivered in full, on time and transparently</span></td></tr><tr><th><b>VS4</b> <span data-l="ru">Обеспечивать успех клиента</span><span data-l="en" lang="en">Ensure customer success</span></th><td><span data-l="ru">Клиент безопасно и правильно использует продукт и осознанно решает, продолжать ли</span><span data-l="en" lang="en">The customer uses the product safely and correctly and makes an informed decision to continue</span></td></tr><tr><th><b>VS5</b> <span data-l="ru">Развивать партнёрскую сеть</span><span data-l="en" lang="en">Grow the partner network</span></th><td><span data-l="ru">Компетентный партнёр регулярно создаёт подтверждённую клиентскую ценность</span><span data-l="en" lang="en">A competent partner who regularly creates proven customer value</span></td></tr></tbody></table>
+    </div>
+    <div class="vf-col vf-card">
+      <div class="vf-label"><span data-l="ru">Стратегия → потоки</span><span data-l="en" lang="en">Strategy → streams</span></div>
+      <ul class="vf-strat"><li><span class="vf-st-n"><span data-l="ru">Рост</span><span data-l="en" lang="en">Growth</span></span><span class="vf-st-v">VS2 · VS5</span><span class="vf-st-d"><span data-l="ru">привлечение клиентов и развитие сети</span><span data-l="en" lang="en">customer acquisition and network growth</span></span></li><li><span class="vf-st-n"><span data-l="ru">Продуктовое лидерство</span><span data-l="en" lang="en">Product leadership</span></span><span class="vf-st-v">VS1</span><span class="vf-st-d"><span data-l="ru">скорость вывода, качество, портфель</span><span data-l="en" lang="en">speed to market, quality, portfolio</span></span></li><li><span class="vf-st-n"><span data-l="ru">Клиентский опыт и удержание</span><span data-l="en" lang="en">Customer experience and retention</span></span><span class="vf-st-v">VS3 · VS4</span><span class="vf-st-d"><span data-l="ru">perfect order, применение, повторный заказ</span><span data-l="en" lang="en">perfect order, use, reorder</span></span></li><li><span class="vf-st-n"><span data-l="ru">Устойчивость и доверие</span><span data-l="en" lang="en">Resilience and trust</span></span><span class="vf-st-v"><span data-l="ru">все</span><span data-l="en" lang="en">all</span></span><span class="vf-st-d"><span data-l="ru">качество, безопасность, compliance — сквозные механизмы</span><span data-l="en" lang="en">quality, safety, compliance run through every stream</span></span></li><li><span class="vf-st-n"><span data-l="ru">Операционная эффективность</span><span data-l="en" lang="en">Operational efficiency</span></span><span class="vf-st-v"><span data-l="ru">все</span><span data-l="en" lang="en">all</span></span><span class="vf-st-d"><span data-l="ru">меньше потерь, короче цикл, нет разрывов между функциями</span><span data-l="en" lang="en">less waste, shorter cycle, no gaps between functions</span></span></li></ul>
+    </div>
+  </div>
+  <blockquote class="vf-quote"><span data-l="ru">Value Stream связывает стратегию не с функциями, а с тем, как компания системно создаёт ценность для клиента и партнёра.</span><span data-l="en" lang="en">Value streams tie strategy not to functions but to how the company systematically creates value for customers and partners.</span></blockquote>
+  <footer class="foot"><span><span data-l="ru">Стратегическая сессия №3</span><span data-l="en" lang="en">Strategy session #3</span> · <span class="n">1</span></span></footer>
+</div></section>
+<section class="slide zero motto" id="vs6"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">50</span></aside><div class="body">
+  <div class="z-head">
+    <div class="eyebrow-row"><span class="z-eyebrow"><span data-l="ru">Потоки ценности · зачем это нам</span><span data-l="en" lang="en">Value streams · why it matters to us</span></span><button type="button" class="close" data-hide="vs6" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></div>
+  </div>
+  <div class="mo-main">
+    <p class="mo-pre"><span data-l="ru">Поток ценности — мост к клиентоцентричности и к главной цели компании:</span><span data-l="en" lang="en">The value stream is a bridge to customer centricity and to the company’s main goal:</span></p>
+    <h2 class="mo-title"><span data-l="ru">Клиенты с нами <em class="acc">на всю жизнь</em></span><span data-l="en" lang="en">Customers <em class="acc">for life</em></span></h2>
+    <span class="z-rainbow" aria-hidden="true"></span>
+  </div>
+  <ol class="mo-bridge"><li><span class="mo-n">01</span><b><span data-l="ru">Поток ценности</span><span data-l="en" lang="en">Value stream</span></b><span class="mo-d"><span data-l="ru">как мы создаём результат для клиента</span><span data-l="en" lang="en">how we create results for the customer</span></span></li><li><span class="mo-n">02</span><b><span data-l="ru">Клиентоцентричность</span><span data-l="en" lang="en">Customer centricity</span></b><span class="mo-d"><span data-l="ru">каждое решение — с точки зрения клиента</span><span data-l="en" lang="en">every decision seen from the customer’s side</span></span></li><li><span class="mo-n">03</span><b><span data-l="ru">Бизнес-цель компании</span><span data-l="en" lang="en">The company’s business goal</span></b><span class="mo-d"><span data-l="ru">клиент остаётся с нами надолго</span><span data-l="en" lang="en">the customer stays with us for the long run</span></span></li></ol>
+  <footer class="foot"><span><span data-l="ru">Стратегическая сессия №3</span><span data-l="en" lang="en">Strategy session #3</span> · <span class="n">1</span></span></footer>
+</div></section>
+<section class="slide vern vtask" id="vs7"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">51</span></aside><div class="body">
+  <header class="head">
+    <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Работа в командах · инструкция</span><span data-l="en" lang="en">Team work · instructions</span></span><span class="eyebrow-end"><button type="button" class="close" data-hide="vs7" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
+    <h2><span data-l="ru">Разбираем свой <em class="acc">поток</em></span><span data-l="en" lang="en">Work through your <em class="acc">stream</em></span></h2>
+    <p class="sub"><span data-l="ru">Каждая команда трека работает со своим потоком ценности и своим интегратором</span><span data-l="en" lang="en">Each track team works on its own value stream with its own integrator</span></p>
+  </header>
+  <div class="vs-grid vt-grid">
+    <ol class="vs-steps"><li class="vs-step"><span class="vs-n">01</span><span class="vs-t"><span data-l="ru">Откройте приложение</span><span data-l="en" lang="en">Open the app</span></span><span class="vs-d"><span data-l="ru">Команда работает в приложении вместе со своим интегратором.</span><span data-l="en" lang="en">The team works in the app together with its integrator.</span></span></li><li class="vs-step"><span class="vs-n">02</span><span class="vs-t"><span data-l="ru">Разберите свой поток</span><span data-l="en" lang="en">Walk through your stream</span></span><span class="vs-d"><span data-l="ru">Пройдите поток ценности шаг за шагом: добавьте недостающие шаги, поправьте неточные.</span><span data-l="en" lang="en">Go through your value stream step by step: add missing steps, correct inaccurate ones.</span></span></li><li class="vs-step"><span class="vs-n">03</span><span class="vs-t"><span data-l="ru">Назначьте владельцев</span><span data-l="en" lang="en">Assign owners</span></span><span class="vs-d"><span data-l="ru">У каждого шага — владелец и, если нужно, помощники.</span><span data-l="en" lang="en">Each step gets an owner and, if needed, helpers.</span></span></li><li class="vs-step"><span class="vs-n">04</span><span class="vs-t"><span data-l="ru">Задайте показатели</span><span data-l="en" lang="en">Set the metrics</span></span><span class="vs-d"><span data-l="ru">Бизнес-показатели и показатели операционной эффективности для всего потока.</span><span data-l="en" lang="en">Business metrics and operational-efficiency metrics for the whole stream.</span></span></li></ol>
+    <div class="vt-done">
+      <div class="vf-label"><span data-l="ru">Результат: готово, когда</span><span data-l="en" lang="en">Done when</span></div>
+      <ul><li><b><span data-l="ru">1</span><span data-l="en" lang="en">1</span></b><span><span data-l="ru">владелец у каждого шага — однозначно, без «совместно»</span><span data-l="en" lang="en">owner for every step — one, unambiguous, never “shared”</span></span></li><li><b><span data-l="ru">≥ 3</span><span data-l="en" lang="en">≥ 3</span></b><span><span data-l="ru">бизнес-показателя у потока</span><span data-l="en" lang="en">business metrics for the stream</span></span></li><li><b><span data-l="ru">≥ 2</span><span data-l="en" lang="en">≥ 2</span></b><span><span data-l="ru">показателя операционной эффективности</span><span data-l="en" lang="en">operational-efficiency metrics</span></span></li></ul>
+    </div>
+  </div>
+  <div class="vs-rule vt-rule">
+    <div><b><span data-l="ru">Итог</span><span data-l="en" lang="en">Wrap-up</span></b><span><span data-l="ru">команда трека презентует свой поток залу</span><span data-l="en" lang="en">each track team presents its stream to the room</span></span></div>
+    <div class="vs-plus">→</div>
+    <div><b><span data-l="ru">Обсуждение</span><span data-l="en" lang="en">Discussion</span></b><span><span data-l="ru">зал предлагает дополнения и называет конфликты</span><span data-l="en" lang="en">the room suggests additions and names conflicts</span></span></div>
+  </div>
+  <footer class="foot"><span><span data-l="ru">Стратегическая сессия №3</span><span data-l="en" lang="en">Strategy session #3</span> · <span class="n">1</span></span></footer>
+</div></section>
+<section class="slide vf nxt" id="vs8"><aside class="rail" aria-hidden="true"><span class="wordmark">coralclub<i class="rainbow"></i></span><span class="pg n">52</span></aside><div class="body">
+  <header class="head">
+    <div class="eyebrow-row"><span class="eyebrow"><span data-l="ru">Итог дня и дальнейшие шаги</span><span data-l="en" lang="en">Outcome of the day and next steps</span></span><span class="eyebrow-end"><button type="button" class="close" data-hide="vs8" aria-label="Скрыть слайд / Hide slide" title="Скрыть слайд">×</button></span></div>
+    <h2><span data-l="ru">Итог дня и <em class="acc">дальше</em></span><span data-l="en" lang="en">Today’s outcome and <em class="acc">next</em></span></h2>
+    <p class="sub"><span data-l="ru">Матрица зон ответственности пяти треков и пяти потоков ценности</span><span data-l="en" lang="en">A responsibility matrix for five tracks and five value streams</span></p>
+  </header>
+  <div class="nx-top">
+    <div class="vf-card">
+      <div class="vf-label"><span data-l="ru">Итог дня · трек отвечает за поток</span><span data-l="en" lang="en">Outcome · each track owns a stream</span></div>
+      <ul class="nx-pairs"><li><span class="nx-tr">CoralEVO</span><span class="nx-ar" aria-hidden="true">→</span><span class="nx-vs"><b>VS1</b> <span data-l="ru">Развивать продуктовый портфель</span><span data-l="en" lang="en">Develop the product portfolio</span></span></li><li><span class="nx-tr">PrimeGrowth</span><span class="nx-ar" aria-hidden="true">→</span><span class="nx-vs"><b>VS2</b> <span data-l="ru">Формировать клиентский спрос</span><span data-l="en" lang="en">Shape customer demand</span></span></li><li><span class="nx-tr">ITModel</span><span class="nx-ar" aria-hidden="true">→</span><span class="nx-vs"><b>VS3</b> <span data-l="ru">Исполнять клиентский заказ</span><span data-l="en" lang="en">Fulfil the customer order</span></span></li><li><span class="nx-tr">HealthOS</span><span class="nx-ar" aria-hidden="true">→</span><span class="nx-vs"><b>VS4</b> <span data-l="ru">Обеспечивать успех клиента</span><span data-l="en" lang="en">Ensure customer success</span></span></li><li><span class="nx-tr">GrowthModel</span><span class="nx-ar" aria-hidden="true">→</span><span class="nx-vs"><b>VS5</b> <span data-l="ru">Развивать партнёрскую сеть</span><span data-l="en" lang="en">Grow the partner network</span></span></li></ul>
+    </div>
+    <div class="nx-own">
+      <div class="vf-label"><span data-l="ru">Дальше каждый трек отвечает за</span><span data-l="en" lang="en">Next, each track is responsible for</span></div>
+      <p class="nx-main"><span data-l="ru">Описание своего потока ценности в BPMN 2.0</span><span data-l="en" lang="en">Describing its value stream in BPMN 2.0</span></p>
+      <div class="nx-res">
+        <span class="nx-res-l"><span data-l="ru">Результат</span><span data-l="en" lang="en">Result</span></span>
+        <div><b><span data-l="ru">Матрицы RACI</span><span data-l="en" lang="en">RACI matrices</span></b><span><span data-l="ru">кто отвечает, исполняет, согласует, информируется</span><span data-l="en" lang="en">who is accountable, responsible, consulted, informed</span></span></div>
+        <div><b><span data-l="ru">Задания на автоматизацию</span><span data-l="en" lang="en">Automation tasks</span></b><span><span data-l="ru">поток (процесс) — в информационных системах</span><span data-l="en" lang="en">the stream (process) in information systems</span></span></div>
+      </div>
+    </div>
+  </div>
+  <div class="vf-label nx-rl"><span data-l="ru">Дорожная карта трека</span><span data-l="en" lang="en">Track roadmap</span></div>
+  <ol class="nx-road"><li class="nx-s"><span class="nx-n">1</span><b><span data-l="ru">Описание процессов</span><span data-l="en" lang="en">Describe processes</span></b><span class="nx-d"><span data-l="ru">поток в нотации BPMN 2.0</span><span data-l="en" lang="en">the stream in BPMN 2.0</span></span></li><li class="nx-s"><span class="nx-n">2</span><b><span data-l="ru">Согласование процессов</span><span data-l="en" lang="en">Agree processes</span></b><span class="nx-d"><span data-l="ru">со смежными функциями и владельцами шагов</span><span data-l="en" lang="en">with adjacent functions and step owners</span></span></li><li class="nx-s"><span class="nx-n">3</span><b><span data-l="ru">Пакет документов на портале</span><span data-l="en" lang="en">Document pack on the portal</span></b><span class="nx-d"><span data-l="ru">каждый понимает, кто за что отвечает</span><span data-l="en" lang="en">everyone knows who owns what</span></span></li><li class="nx-s"><span class="nx-n">4</span><b><span data-l="ru">ТЗ на автоматизацию</span><span data-l="en" lang="en">Automation spec</span></b><span class="nx-d"><span data-l="ru">требования к информационным системам</span><span data-l="en" lang="en">requirements for information systems</span></span></li><li class="nx-s"><span class="nx-n">5</span><b><span data-l="ru">Автоматизация</span><span data-l="en" lang="en">Automation</span></b><span class="nx-d"><span data-l="ru">поток работает в системах компании</span><span data-l="en" lang="en">the stream runs in company systems</span></span></li><li class="nx-s"><span class="nx-n">6</span><b><span data-l="ru">Контроль метрик</span><span data-l="en" lang="en">Metric control</span></b><span class="nx-d"><span data-l="ru">метрики потока ценности под контролем</span><span data-l="en" lang="en">value-stream metrics are monitored</span></span></li><li class="nx-s nx-s-end"><span class="nx-n">7</span><b><span data-l="ru">Общий дашборд</span><span data-l="en" lang="en">Company dashboard</span></b><span class="nx-d"><span data-l="ru">свой поток — в общем дашборде компании</span><span data-l="en" lang="en">your stream in the company-wide dashboard</span></span></li></ol>
+  <footer class="foot"><span><span data-l="ru">Стратегическая сессия №3</span><span data-l="en" lang="en">Strategy session #3</span> · <span class="n">1</span></span></footer>
 </div></section></div>
 </div>
 </main>
@@ -2254,6 +2759,80 @@ show(start);
   window.deckCurrent = function(){ var v = visible(); return v[idx] ? v[idx].id : null; };
   var saved = null; try { saved = localStorage.getItem(KEY_L); } catch(_) {}
   setLang(saved === 'en' ? 'en' : 'ru');
+})();
+</script>
+<script>(function(){
+  var T={ru:{open:"Таймер",close:"Закрыть",full:"Во весь экран",start:"Старт",pause:"Пауза",resume:"Продолжить",reset:"Сброс",min:"мин",set:"Задать",label:"Работа в командах",over:"Время вышло",hide:"Скрыть кнопки",show:"Показать кнопки",brand:"Coral Club · таймер",hint:"Пробел — старт/пауза · R — сброс · +/− — минута · Esc — закрыть · клик по подписи — изменить"},
+         en:{open:"Timer",close:"Close",full:"Full screen",start:"Start",pause:"Pause",resume:"Resume",reset:"Reset",min:"min",set:"Set",label:"Team work",over:"Time is up",hide:"Hide buttons",show:"Show buttons",brand:"Coral Club · timer",hint:"Space — start/pause · R — reset · +/− — one minute · Esc — close · click the caption to edit"}};
+  var PRESETS=[5,10,15,20,30,45,60];
+  function lang(){ var d=document.getElementById('deck'); return (d && d.getAttribute('data-lang')==='en')?'en':'ru'; }
+  var total=15*60, left=total, running=false, endAt=0, tick=null, labelCustom=null, beeped=false;
+  var ov=document.createElement('div'); ov.className='tmr'; ov.hidden=true; ov.setAttribute('role','dialog'); ov.setAttribute('aria-modal','true');
+  ov.innerHTML='<div class="tmr-top"><div class="tmr-brand"><i></i><span data-t="brand"></span></div><div class="tmr-x"><button type="button" class="tmr-sm" data-a="clean" data-t="hide"></button><button type="button" class="tmr-sm" data-a="full" data-t="full"></button><button type="button" data-a="close" data-t="close"></button></div></div>'+
+    '<div class="tmr-main"><div class="tmr-label" spellcheck="false"></div><div class="tmr-time" aria-live="off">15:00</div><div class="tmr-msg" aria-live="assertive"></div></div>'+
+    '<div class="tmr-bar"><i></i></div>'+
+    '<div class="tmr-ctl"><span class="pre"></span><span class="sep"></span><button type="button" data-a="minus">−1</button><button type="button" data-a="plus">+1</button><input type="number" min="1" max="240" aria-label="min"><button type="button" data-a="set" data-t="set"></button><span class="sep"></span><button type="button" class="main" data-a="toggle"></button><button type="button" data-a="reset" data-t="reset"></button></div>'+
+    '<div class="tmr-hint" data-t="hint"></div>';
+  document.body.appendChild(ov);
+  var $=function(s){return ov.querySelector(s);};
+  var elTime=$('.tmr-time'), elBar=$('.tmr-bar i'), elMsg=$('.tmr-msg'), elLbl=$('.tmr-label'), elIn=$('.tmr-ctl input');
+  $('.pre').innerHTML=PRESETS.map(function(m){return '<button type="button" data-m="'+m+'">'+m+'</button>';}).join(' ');
+  function fmt(s){ s=Math.max(0,Math.ceil(s)); var h=Math.floor(s/3600), m=Math.floor(s%3600/60), x=s%60; return (h? h+':'+String(m).padStart(2,'0') : String(m).padStart(2,'0'))+':'+String(x).padStart(2,'0'); }
+  function texts(){ var L=T[lang()]; ov.querySelectorAll('[data-t]').forEach(function(e){ e.textContent=L[e.getAttribute('data-t')]; });
+    $('[data-a="clean"]').textContent= ov.classList.contains('clean')?L.show:L.hide;
+    if(labelCustom===null) elLbl.textContent=L.label; elIn.placeholder=L.min;
+    var b=document.querySelector('#rz .rz-tmr .tm-l'); if(b) b.textContent=L.open; paint(); }
+  function paint(){ var L=T[lang()]; elTime.textContent=fmt(left);
+    elBar.style.transform='scaleX('+(total? Math.max(0,left)/total:0)+')';
+    ov.classList.toggle('warn', left>0 && left<=Math.min(120,total*.2));
+    ov.classList.toggle('over', left<=0);
+    elMsg.textContent= left<=0? L.over : '';
+    $('[data-a="toggle"]').textContent= running? L.pause : (left<total && left>0? L.resume : L.start);
+    ov.querySelectorAll('.pre button').forEach(function(b){ b.classList.toggle('on', +b.dataset.m*60===total); });
+    var mini=document.querySelector('#rz .rz-tmr .tm-mini'); if(mini) mini.textContent=(running||left<total)? fmt(left):'';
+  }
+  function beep(){ try{ var C=window.AudioContext||window.webkitAudioContext; if(!C) return; var c=new C(); [0,0.35,0.7].forEach(function(t){ var o=c.createOscillator(), g=c.createGain(); o.frequency.value=880; o.connect(g); g.connect(c.destination); g.gain.setValueAtTime(0.0001,c.currentTime+t); g.gain.exponentialRampToValueAtTime(0.3,c.currentTime+t+0.02); g.gain.exponentialRampToValueAtTime(0.0001,c.currentTime+t+0.3); o.start(c.currentTime+t); o.stop(c.currentTime+t+0.32); }); }catch(_){} }
+  function loop(){ left=(endAt-Date.now())/1000; if(left<=0){ left=0; running=false; clearInterval(tick); tick=null; if(!beeped){beeped=true; beep();} } paint(); }
+  function start(){ if(left<=0) left=total; running=true; beeped=false; endAt=Date.now()+left*1000; clearInterval(tick); tick=setInterval(loop,250); paint(); }
+  function pause(){ if(!running) return; loop(); running=false; clearInterval(tick); tick=null; paint(); }
+  function setMin(m){ m=Math.max(1,Math.min(240,Math.round(m))); var was=running; pause(); total=m*60; left=total; beeped=false; if(was) start(); else paint(); }
+  function adjust(d){ if(running){ endAt+=d*1000; loop(); total=Math.max(total,left); } else { left=Math.max(0,left+d); total=Math.max(total,left,60); paint(); } }
+  function reset(){ pause(); left=total; beeped=false; paint(); }
+  function open(){ ov.hidden=false; texts(); try{ if(ov.requestFullscreen && !document.fullscreenElement) ov.requestFullscreen().catch(function(){}); }catch(_){} setTimeout(function(){ $('[data-a="toggle"]').focus(); },50); }
+  function close(){ ov.hidden=true; try{ if(document.fullscreenElement) document.exitFullscreen(); }catch(_){} var b=document.querySelector('#rz .rz-tmr'); if(b) b.focus(); }
+  ov.addEventListener('click',function(e){ var b=e.target.closest('button'); if(!b) return;
+    if(b.dataset.m){ setMin(+b.dataset.m); return; }
+    var a=b.dataset.a;
+    if(a==='toggle') running?pause():start();
+    else if(a==='reset') reset();
+    else if(a==='plus') adjust(60);
+    else if(a==='minus') adjust(-60);
+    else if(a==='set'){ var v=parseFloat(elIn.value); if(v>0) setMin(v); elIn.value=''; }
+    else if(a==='close') close();
+    else if(a==='full'){ try{ document.fullscreenElement? document.exitFullscreen() : ov.requestFullscreen(); }catch(_){} }
+    else if(a==='clean'){ ov.classList.toggle('clean'); texts(); }
+  });
+  elIn.addEventListener('keydown',function(e){ if(e.key==='Enter'){ var v=parseFloat(elIn.value); if(v>0) setMin(v); elIn.value=''; } e.stopPropagation(); });
+  elLbl.addEventListener('click',function(){ if(elLbl.getAttribute('contenteditable')==='true') return; elLbl.setAttribute('contenteditable','true'); elLbl.focus(); });
+  elLbl.addEventListener('blur',function(){ elLbl.removeAttribute('contenteditable'); var t=elLbl.textContent.trim(); labelCustom=t||null; if(!t) texts(); });
+  elLbl.addEventListener('keydown',function(e){ e.stopPropagation(); if(e.key==='Enter'||e.key==='Escape'){ e.preventDefault(); elLbl.blur(); } });
+  document.addEventListener('keydown',function(e){ if(ov.hidden) return;
+    var k=e.key;
+    if(k==='Escape'){ if(!document.fullscreenElement) close(); }
+    else if(k===' '||k==='Spacebar'){ e.preventDefault(); running?pause():start(); }
+    else if(k==='r'||k==='R'||k==='к'||k==='К') reset();
+    else if(k==='+'||k==='='||k==='ArrowUp') adjust(60);
+    else if(k==='-'||k==='_'||k==='ArrowDown') adjust(-60);
+    else if(k==='ArrowLeft'||k==='ArrowRight'||k==='PageUp'||k==='PageDown'||k==='Home'||k==='End'){}
+    else return;
+    e.stopPropagation(); e.preventDefault();
+  }, true);
+  document.addEventListener('fullscreenchange',function(){ var b=$('[data-a="full"]'); if(b) b.classList.toggle('on', !!document.fullscreenElement); });
+  var tabs=document.querySelector('#rz #tabs');
+  if(tabs){ var b=document.createElement('button'); b.type='button'; b.className='rz-tmr'; b.innerHTML='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2M9 2h6"/></svg><span class="tm-l"></span><span class="tm-mini"></span>'; b.addEventListener('click',function(e){ e.stopPropagation(); open(); }); tabs.appendChild(b); }
+  var deck=document.getElementById('deck'); if(deck) new MutationObserver(texts).observe(deck,{attributes:true,attributeFilter:['data-lang']});
+  window.rzTimer={open:open,close:close};
+  texts();
 })();
 </script>
 <script>(function(){
